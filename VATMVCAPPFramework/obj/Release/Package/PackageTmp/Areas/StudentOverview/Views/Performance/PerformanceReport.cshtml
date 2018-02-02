@@ -1,0 +1,117 @@
+﻿@model VATMVCAPPFramework.Models.PerformanceViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Performance Report</title>
+    <style>
+        .outer {
+            width: 800px;
+            
+            white-space: nowrap;
+            position: relative;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function OnSuccess(data, status, xhr) {
+            $("#divReport").html(data.View);
+            if (data.success) {
+               
+            }
+            else {
+
+            }
+
+
+        }
+        function OnFailure(xhr, status, error) {
+            alert(error);
+            toastr.error(xhr.responseJSON);
+
+        }
+    </script>
+</head>
+<body>
+    <section class="content">
+        <div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- Begin page heading -->
+
+                    <div class="box">
+                        <div class="box-header">
+                            <h4 class="box-title">Student Performance</h4>
+                        </div>
+                        @using (Ajax.BeginForm("GetResults", "Performance", new { area = "StudentOverview" }, new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "searchForm" }))
+                        {
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ArmId, "Arm:")                                   
+                                    @Html.DropDownListFor(m => m.ArmId, ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control" })
+                                   
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TermId, "Term:")
+                                    @Html.DropDownListFor(m => m.TermId, ViewBag.TermList as SelectList, "--Select--", new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.SessionId, "Session")
+                                    @Html.DropDownListFor(m => m.SessionId, ViewBag.SessionList as SelectList, "--Select--", new { @class = "form-control" })
+
+                                </div>
+                                
+                                        <button type="submit" class="btn btn-warning pull-right">
+                                            <i class="fa fa-search" aria-hidden="true">&nbsp; Search </i>
+                                        </button>
+
+                               
+                                @Html.HiddenFor(m => m.StudentId)
+
+
+                                @*<input type="hidden" id="ArmId" name="ArmId" />
+                                    <input type="hidden" id="SubjectId" name="SubjectId" />*@
+                            </div>
+
+                        }
+
+                        <hr />
+
+                        <div id="lineChart">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Session Performances </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="flot-chart">
+                                                <div class="flot-chart-content" id="flot-line-chart"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="divReport" class="outer">
+                            @Html.Partial("_PartialResult", (System.Data.DataTable)ViewBag.Result)
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

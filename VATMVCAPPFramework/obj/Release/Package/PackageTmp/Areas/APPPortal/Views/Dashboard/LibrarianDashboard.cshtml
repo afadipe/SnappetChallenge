@@ -1,0 +1,509 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Dashboard</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">Zircos</a>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        Dashboard
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+
+    <div class="row text-center">
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Active Book</p>
+                    <h2 class="text-danger"><span data-plugin="counterup"> @ViewData["ActiveBook"]</span></h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow"> Borrowed Books</p>
+                    <h2 class="text-warning"><span data-plugin="counterup">@ViewData["BorrowedBooks"]</span> </h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Returned Books</p>
+                    <h2 class="text-dark"><span data-plugin="counterup">@ViewData["ReturnedBook"]</span> </h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Due Book</p>
+                    <h2 class="text-success"><span data-plugin="counterup">@ViewData["DueBookForReturn"]</span></h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Borrowed This Month</p>
+                    <h2 class="text-primary"><span data-plugin="counterup">@ViewData["TotalBorrowedBookThisMonth"]</span> </h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card-box widget-box-one">
+                <div class="wigdet-one-content">
+                    <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Borrowed This Year</p>
+                    <h2 class="text-danger"><span data-plugin="counterup">>@ViewData["TotalBorrowedBookThisYear"]</span> </h2>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+
+    </div>
+    <!-- end row -->
+
+
+    <div class="row">
+     
+
+        <div class="col-md-6">
+
+
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Borrowed Book Per year
+                </div>
+                <div class="panel-body">
+                    <div id="borrowedBookgrowth_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+
+
+        <div class="col-md-6">
+
+
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Returned Book Per year
+                </div>
+                <div class="panel-body">
+                    <div id="returnedBookgrowth_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+        
+
+        <div class="col-md-6">
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Frequently Borrowed Book 
+                </div>
+                <div class="panel-body">
+                    <div id="frequentlyborrowed_chart"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Book By Category
+                </div>
+                <div class="panel-body">
+                    <div id="bookcategory_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+
+        <div class="col-md-6">
+
+
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Book By Source
+                </div>
+                <div class="panel-body">
+                    <div id="booksource_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+
+
+    
+
+    </div>
+    <!-- end row -->
+
+    @if (ViewData["CurrntUser"] != null)
+    {
+        <div class="row">
+            <div class="panel panel-color panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Recent Users</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table table-hover m-0">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email Addresss</th>
+                                    <th>Mobile Number</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (VATMVCAPPFramework.ViewModel.CurrentUserViewModel currentuser in (List<VATMVCAPPFramework.ViewModel.CurrentUserViewModel>)ViewData["CurrntUser"])
+                                {
+                                    <tr>
+
+                                        <td>
+                                            <h5 class="m-0">@currentuser.FullName</h5>
+                                            <p class="m-0 text-muted font-13"><small>@currentuser.RoleName</small></p>
+                                        </td>
+                                        <td>@currentuser.Email</td>
+                                        <td>@currentuser.MobileNumber</td>
+                                        <td>@currentuser.DateCreated</td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+
+                    </div> <!-- table-responsive -->
+                </div>
+            </div> <!-- end panel -->
+
+        </div>
+
+    }
+
+
+    <!-- end row -->
+
+
+
+
+</div> <!-- container -->
+
+@section Javascript{
+    <script type="text/javascript">
+
+        $(function ()
+        {
+
+            var base = document.getElementsByTagName('base')[0].href;
+
+            function deleteCookie(key) {
+                document.cookie = key + '="";expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            };
+            function setCookie(key, value) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + (60 * 10000));
+                document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+            }
+
+          
+
+            $("#borrowedBookgrowth_range").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/BorrowedBookRangeByYear",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Borrowed Book Count By Year"
+                },
+                legend: {
+                    position: "top"
+                },
+                seriesDefaults: {
+                    type: "line"
+                },
+                series: [{
+                    field: "count",
+                    name: "Number of Borrow"
+
+                }],
+                categoryAxis: {
+                    field: "Year",
+                    labels: {
+                        rotation: -90
+                    },
+                    crosshair: {
+                        visible: true
+                    }
+                },
+                valueAxis: {
+                    labels: {
+                        format: "N0"
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    shared: true,
+                    format: "N0"
+                }
+
+            });
+
+
+            $("#returnedBookgrowth_range").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/ReturnedBookRangeByYear",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Book Returned Count By Year"
+                },
+                legend: {
+                    position: "top"
+                },
+                seriesDefaults: {
+                    type: "line"
+                },
+                series: [{
+                    field: "count",
+                    name: "Number of Returned"
+
+                }],
+                categoryAxis: {
+                    field: "Year",
+                    labels: {
+                        rotation: -90
+                    },
+                    crosshair: {
+                        visible: true
+                    }
+                },
+                valueAxis: {
+                    labels: {
+                        format: "N0"
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    shared: true,
+                    format: "N0"
+                }
+
+            });
+
+
+
+            $("#frequentlyborrowed_chart").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/FrequentlyBorrowedBook",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Frequently Borrowed Book"
+                },
+                legend: {
+                    position: "bottom"
+                },
+                seriesDefaults: {
+                    type: "pie",
+                    labels: {
+                        position: "outsideEnd",
+                        visible: true,
+                        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                    }
+                },
+                series: [
+                    {
+
+
+                        categoryField: "Name",
+                        field: "count"
+
+
+                    }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                }
+
+            });
+
+            $("#bookcategory_range").kendoChart({
+
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/BookByBookCategory",
+                            dataType: "json"
+                        }
+                    },
+                },
+
+                title: {
+                    text: "Book By Category"
+                },
+                legend: {
+                    position: "bottom"
+                },
+                seriesDefaults: {
+                    type: "donut",
+                    labels: {
+                        position: "outsideEnd",
+                        visible: true,
+                        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                    }
+                },
+                series: [
+                    {
+                        categoryField: "Name",
+                        field: "count"
+                    }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                }
+            });
+
+            $("#booksource_range").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/BookByBookSource",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Book By Source"
+                },
+                legend: {
+                    position: "bottom"
+                },
+                seriesDefaults: {
+                    type: "pie",
+                    labels: {
+                        position: "outsideEnd",
+                        visible: true,
+                        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                    }
+                },
+                series: [
+                    {
+                        categoryField: "Name",
+                        field: "count",
+                        explodeField: "explode"
+                    }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                }
+
+            });
+
+
+            //$("#studentcountperprogramme_range").kendoChart({
+            //    dataSource: {
+            //        transport: {
+            //            read: {
+            //                url: base + "/api/Metric/StudentCountPerProgramme",
+            //                dataType: "json"
+            //            }
+            //        }
+            //    },
+            //    title: {
+            //        text: "Student Count Per Programme"
+            //    },
+            //    legend: {
+            //        position: "bottom"
+            //    },
+            //    seriesDefaults: {
+            //        type: "funnel",
+            //        labels: {
+            //            position: "outsideEnd",
+            //            visible: true,
+            //            background: "transparent",
+            //            color: "white",
+            //            template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+            //        },
+            //        dynamicSlope: true,
+            //        dynamicHeight: false
+            //    },
+            //    series: [
+            //        {
+            //            categoryField: "Name",
+            //            field: "count",
+            //        }],
+            //    tooltip: {
+            //        visible: true,
+            //        format: "{0}",
+            //        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+            //    }
+
+            //});
+
+
+
+        });
+
+    </script>
+}
+

@@ -1,0 +1,84 @@
+﻿@model VATMVCAPPFramework.Models.AttendantReportViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Attendance Report</title>
+    <script type="text/javascript">
+
+        function OnSuccess(data, status, xhr) {
+            $("#divReport").html(data.View);
+            if (data.success) {
+
+            }
+            else {
+
+            }
+
+
+        }
+        function OnFailure(xhr, status, error) {
+            alert(error);
+            toastr.error(xhr.responseJSON);
+
+        }
+    </script>
+</head>
+<body>
+    <section class="content">
+        <div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- Begin page heading -->
+
+                    <div class="box">
+                        <div class="box-header">
+                            <h4 class="box-title">Student Attendance</h4>
+                        </div>
+                        @using (Ajax.BeginForm("GetResults", "AttendanceReport", new { area = "StudentOverview" }, new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "searchForm" }))
+                        {
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.SessionId, "Session")
+                                    @Html.DropDownListFor(m => m.SessionId, ViewBag.SessionList as SelectList, "--Select--", new { @class = "form-control" })
+
+                                </div>
+                                @*<div class="form-group">
+                                    @Html.LabelFor(m => m.TermId, "Term:")
+                                    @Html.DropDownListFor(m => m.TermId, ViewBag.TermList as SelectList, "--Select--", new { @class = "form-control" })
+
+                                </div>*@
+                                
+
+                                <button type="submit" class="btn btn-warning pull-right">
+                                    <i class="fa fa-search" aria-hidden="true">&nbsp; Search </i>
+                                </button>
+
+
+                                @Html.HiddenFor(m => m.StudentId)
+
+
+                                @*<input type="hidden" id="ArmId" name="ArmId" />
+                                    <input type="hidden" id="SubjectId" name="SubjectId" />*@
+                            </div>
+
+                        }
+
+                        <hr />
+
+                        <div id="divReport" class="outer">
+                            @Html.Partial("_PartialResult", (List<VATMVCAPPFramework.Models.AttendantReportViewModel>)ViewBag.Result)
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

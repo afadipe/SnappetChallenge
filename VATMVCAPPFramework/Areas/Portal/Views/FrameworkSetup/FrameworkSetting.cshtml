@@ -1,0 +1,101 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.FrameworkSetupViewModel
+@{
+    Layout = "~/Views/Shared/_APPNotificationPartial.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h3 class="box-title">Framework Settings</h3>
+                </div>
+
+                <div class="box-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PortalSetting.PortalTitle)
+
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.PortalSetting.PortalTitle, new { htmlAttributes = new { @class = "form-control",required=true } })
+                                    @Html.ValidationMessageFor(model => model.PortalSetting.PortalTitle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PortalSetting.PortalDescription)
+
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.PortalSetting.PortalDescription, new { htmlAttributes = new { @class = "form-control",required = true,  @cols = 80, @rows = 10 } })
+                                    @Html.ValidationMessageFor(model => model.PortalSetting.PortalDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PortalSetting.TermsAndConditionPath)
+
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.PortalSetting.TermsAndConditionPath, new { htmlAttributes = new { @class = "form-control", @cols = 80, @rows = 10 } })
+                                    @Html.ValidationMessageFor(model => model.PortalSetting.TermsAndConditionPath, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+                            <div class="box-footer pull-right">
+                                <input type="submit" value="<< Back" name="backButton" class="btn btn-info" /> &nbsp; <input type="submit" value="Next >>" name="nextButton" class="btn btn-primary" />
+                            </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+
+
+    </div>
+</section>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
+
+
+
+
+

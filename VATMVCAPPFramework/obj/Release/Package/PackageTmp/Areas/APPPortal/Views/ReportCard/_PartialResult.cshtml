@@ -1,0 +1,154 @@
+﻿@model System.Data.DataTable
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    #wrapper33{
+        background-color:#ffffff;
+        padding: 20px
+    }
+    div.vertical{
+  margin-left: -85px;
+  position: absolute;
+  top:385px;
+  width: 215px;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+  -moz-transform: rotate(-90deg);    /* Firefox */
+  -o-transform: rotate(-90deg);      /* Opera */
+  -ms-transform: rotate(-90deg);     /* IE 9 */
+}
+
+th.vertical{
+  max-width: 50px;
+  height: 120px;
+  line-height: 14px;
+  padding-bottom: 20px;
+  text-align: inherit;
+}
+</style>
+
+<div id="wrapper33">
+    <table class="table">
+        <tr>
+            <td>
+                <table class="table" width="100%">
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <h3>Oluyole Primary</h3>
+                                <p>Plot 54, Sanusi Fafunwa street, Victorial Island Lagos</p>
+                            </center>
+                            <br />
+                            <b>Student Name:</b>@Model.Rows[0]["StudentName"]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Student Name</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Class</td>
+                        <td>@Model.Rows[0]["Class"]</td>
+                    </tr>
+                    <tr>
+                        <td>Session</td>
+                        <td>@Model.Rows[0]["Session"]</td>
+                    </tr>
+                    <tr>
+                        <td>Term</td>
+                        <td>@Model.Rows[0]["Term"]</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="tblList" class="table">
+                    <thead>
+                        <tr>
+                            @for (int i = 3; i < Model.Columns.Count - 7; i++)
+                            {
+                                if (Model.Columns[i].ColumnName == "SubjectName")
+                                {
+                                    <th style="width: 20%"><b>SUBJECTS</b></th>
+                                }
+                                else if (i > Model.Columns.Count - 15)
+                                {
+                                    <th style="width: 6%" class="vertical"><div class="vertical"><b>@System.Text.RegularExpressions.Regex.Replace(Model.Columns[i].ColumnName.ToString(), "(\\B[A-Z])", " $1")</b></div></th>
+                                }
+                                else
+                                {
+                                    <th><b>@Model.Columns[i].ColumnName.ToString()</b></th>
+                                }
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (System.Data.DataRow row in Model.Rows)
+                        {
+                            <tr>
+                                @for (int i = 3; i < Model.Columns.Count - 7; i++)
+                                {
+                                    if (i == 3)
+                                    {
+                                        <td><b>@row[i]</b></td>
+                                    }
+                                    else if (i < Model.Columns.Count - 14)
+                                    {
+                                        <td>@string.Format("{0:0.#0}", row[i])</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@row[i]</td>
+                                    }
+
+
+                                }
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+               
+</div>
+     
+  <input type="button" id="btnPrint" value="Export to pdf" />
+   
+
+
+<script type="text/javascript">
+   
+    $("#btnPrint").click(function () {
+        // Convert the DOM element to a drawing using kendo.drawing.drawDOM
+        kendo.drawing.drawDOM($("#wrapper33"))
+        .then(function (group) {
+            // Render the result as a PDF file
+            return kendo.drawing.exportPDF(group, {
+                paperSize: "auto",
+                margin: { left: "1cm", top: "1cm", right: "1cm", bottom: "1cm" }
+            });
+        })
+        .done(function (data) {
+            // Save the PDF file
+            kendo.saveAs({
+                dataURI: data,
+                fileName: "HR-Dashboard.pdf",
+                proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+            });
+        });
+    });
+</script>

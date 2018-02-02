@@ -1,0 +1,69 @@
+﻿@model VATMVCAPPFramework.Models.PaymentInfo
+@{
+    ViewBag.Title = "PaymentConfirmation";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Begin page heading -->
+
+            <div class="box">
+                <div class="box-header">
+
+                </div>
+
+                <h3>Confirm Wallet Payment</h3>
+                <div class="form-horizontal">
+                    @using (Html.BeginForm("WalletPay", "BillsPayment"))
+                    {
+                        @Html.AntiForgeryToken();
+                        <p>
+                            <strong>Student Name:</strong>
+                            <label class="label label-default">@Html.DisplayFor(m => m.cust_name)</label>
+                        </p>
+
+
+    <div class="panel panel-body">
+
+        <p>
+            &nbsp;
+        </p>
+        <p>
+            <strong>Total Amount To Pay:</strong>
+            &nbsp;<label><b> @string.Format("{0:N2}", Model.amount)</b></label>
+
+        </p>
+        <div>
+            
+            <div><strong>Wallet Balance:</strong> &nbsp;<label><b>@string.Format("{0:N2}", string.IsNullOrEmpty(Model.payment_params) ? 0 : Convert.ToDecimal(Model.payment_params))</b></label></div>
+           
+            <br /><br />
+            @Html.HiddenFor(m => m.payment_params)
+            @Html.HiddenFor(m => m.cust_id)
+            @Html.HiddenFor(m => m.pay_item_id)
+            @Html.HiddenFor(m => m.amount)
+            @Html.HiddenFor(m => m.cust_name)
+            @Html.HiddenFor(m => m.txn_ref)
+
+
+            @Html.ActionLink("Back", "Wallet", null, new { @class = "btn btn-warning fa fa-sign-out" })
+            <input type="submit" class="btn btn-success fa fa-money" value="Continue" />
+
+
+        </div>
+
+    </div>
+       
+
+        }
+
+</div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

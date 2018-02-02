@@ -1,0 +1,136 @@
+﻿
+
+@model VATMVCAPPFramework.ViewModel.ClubPresidentHistoryMenuView
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Programme Class";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">  </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    VATACADA
+                </li>
+                <li>
+                    Administration
+                </li>
+                <li class="active">
+                    Programme Management
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+
+                            <div class="">
+                                <h4 class="m-b-5">@Model.ClubViewModel.Name</h4>
+                                <p class="text-muted">@Model.ClubViewModel.DateFounded</p>
+                            </div>
+
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("ManageClub", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Club Detail</a>
+                                <a href="@Url.Action("ManageMember", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Membership</a>
+                                <a href="@Url.Action("ManageExistingMember", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Existing Membership</a>
+                                <a href="@Url.Action("ManageAnchor", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Change Coordinator/President</a>
+                                <a href="@Url.Action("ManageCoordinatorHistory", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Coordinator's History</a>
+                                <a href="@Url.Action("ManagePresidentHistory", "Club",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.ClubViewModel.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>President's History</a>
+                                <a href="@Url.Action("Index", "Club", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+
+                            </div>
+
+                            <hr />
+
+                            <div class="text-left">
+                                <p class="text-muted font-13"><strong>Name :</strong> <span class="m-l-15">@Model.ClubViewModel.Name</span></p>
+
+                                <p class="text-muted font-13"><strong>Date Founded:</strong><span class="m-l-15">@Model.ClubViewModel.DateFounded</span></p>
+
+                            </div>
+                        </div>
+
+                    </div> <!-- end card-box -->
+
+                </div> <!-- end col -->
+                @{
+                    var ClubID = Model.ClubViewModel.Id;
+                }
+                <div class="card-box table-responsive">
+                    @*<a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-edit-id='@Html.DisplayFor(model =>ProgrammeID)' data-toggle="modal">Add Class</a>*@
+
+                    @if (Model.ClubPresidentHistoryViewModel != null)
+                    {
+                        @Html.Partial("_PartialClubPresidentHistoryDetail", Model.ClubPresidentHistoryViewModel)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="addedit_modal_body">
+            </div>
+        </div>
+    </div>
+    <!--Delete User-->
+    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="delete_content">
+            </div>
+        </div>
+    </div>
+    @section JavaScript
+            {
+        <script type="text/javascript">
+
+                    $(function () {
+
+                        $('#clubPresidentHistorytbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+        </script>
+
+    }
+
+
+</div>

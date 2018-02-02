@@ -1,0 +1,76 @@
+﻿@(Html.Kendo().Grid<VATMVCAPPFramework.Models.StudentAttendanceViewModel>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        
+        columns.Bound(p => p.Id).Width(100).Visible(false);
+        columns.Bound(p => p.SN).Width(100);
+        columns.Bound(p => p.Name).Width(200);
+        columns.Bound(p => p.AttendanceStatus).Width(140).ClientTemplate("<input type='checkbox' #= AttendanceStatus ? checked='checked' :'' # class='chkbx' />"); 
+        columns.Bound(p => p.ScheduleDate).Width(140).ClientTemplate("#= kendo.toString(ScheduleDate, \"dd/MMM/yyyy\") #");
+        columns.Bound(p => p.ArmId).Width(100).Visible(false);
+        
+    })
+    .ToolBar(toolbar =>
+    {
+        toolbar.Save();
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    .Pageable()
+    .Navigatable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Batch(true)
+        .PageSize(20)
+        .ServerOperation(false)
+        .Events(events => events.Error("error_handler"))
+            .Model(model =>
+            {
+                model.Id(p => p.SN);
+                model.Field(p => p.SN).Editable(false);
+                model.Field(p => p.Name).Editable(false);
+                model.Field(p => p.ScheduleDate).Editable(false);
+                
+            })
+        
+            .Read(read => read.Action("Editing_Read", "Attendance").Data("aditionalInfo"))
+            .Update("Editing_Update", "Attendance").Events(e => e.RequestEnd("onRequestEnd"))
+            .Destroy("Editing_Destroy", "Attendance")
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    $(function () {
+        $('#Grid').on('click', '.chkbx', function () {
+            var checked = $(this).is(':checked');
+            var grid = $('#Grid').data().kendoGrid;
+            var dataItem = grid.dataItem($(this).closest('tr'));
+            dataItem.set('AttendanceStatus', checked);
+        })
+    })
+
+    function checkAll(ele) {
+        var state = $(ele).is(':checked');
+        var grid = $('#Grid').data().kendoGrid;
+        $.each(grid.dataSource.view(), function () {
+            if (this['AttendanceStatus'] != state)
+                this.dirty = true;
+            this['AttendanceStatus'] = state;
+        });
+        grid.refresh();
+    }
+</script>

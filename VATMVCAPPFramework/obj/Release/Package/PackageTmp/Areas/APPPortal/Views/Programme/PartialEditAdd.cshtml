@@ -1,0 +1,117 @@
+﻿@model VATMVCAPPFramework.Models.ProgramViewModel
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Programme</h1>
+    </div>
+    <div class="modal-body">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrgCode, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.PrgCode, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.PrgCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrgAlias, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.PrgAlias, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrgAlias, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoOfTerm, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.NoOfTerm, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.NoOfTerm, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+        <br/>
+        <br />
+
+        @Html.HiddenFor(x => x.SelectedCampus)
+
+        @if (Model.Campus != null && Model.Campus.Count() >= 1)
+        {
+            var count = Model.Campus.Count();
+            <table class="table convert-data-table table-striped" id="campustbl">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Applicable Campus</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model.Campus)
+                    {
+
+                        <tr>
+                            @if (@m.ProgrammeCampusId > 0)
+                            {
+                                <td><input type="checkbox" name="SelectedCampus" checked="checked" value="@m.CampusID" class="pending" /></td>
+                            }
+                            else
+                            {
+                                <td><input type="checkbox" name="SelectedCampus" value="@m.CampusID" class="inClass" /></td>
+                            }
+                            <td>@Html.DisplayFor((x) => m.CampusName)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(function () {
+        $('#campustbl').DataTable({
+            "iDisplayLength": 500,
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                           
+                        });
+
+
+                    });
+
+    </script>
+}
+
+

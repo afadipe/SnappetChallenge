@@ -1,0 +1,274 @@
+﻿
+@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using VATMVCAPPFramework.Data.IdentityService.Extensions
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title VATEBRA</title>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/App.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+   
+
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+    @*<link href="~/assets/datatables/media/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/assets/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="~/assets/datatables-tabletools/css/dataTables.tableTools.css" rel="stylesheet">
+    <link href="~/assets/datatables-colvis/css/dataTables.colVis.css" rel="stylesheet">
+    <link href="~/assets/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+    <link href="~/assets/datatables-scroller/css/scroller.dataTables.scss" rel="stylesheet">*@
+
+
+
+    <link href="~/Content/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+   
+ 
+    <link href="~/Content/jasny-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Content/skins/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>A</b>LT</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>VATMVC</b> Framework</span>
+            </a>
+
+            <div id="morphsearch" style="visibility:hidden" class="morphsearch open">
+                <form class="morphsearch-form">
+                    <div class="form-group m-0 focused">
+                        <input value="" type="search" placeholder="Search..." class="form-control morphsearch-input">
+                        <button class="morphsearch-submit" type="submit">Search</button>
+                    </div>
+                </form>
+                <div class="morphsearch-content">
+                </div>
+                <!-- /morphsearch-content -->
+                <span class="morphsearch-close"></span>
+            </div>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" style="padding-right: 40px;">
+
+
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="@Url.Action("MyProfile","Home",new { area = "" })" class="dropdown-toggle">
+                                <img src="@Url.Content("~/img/user2-160x160.jpg")" class="user-image" alt="User Image" />
+                                <span class="hidden-xs">
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        <b>Welcome , @User.Identity.GetFullName() </b>
+                                    }
+                                </span>
+                            </a>
+                        </li>
+                        <li class="dropdown user user-menu" style="color: #fff;padding-top: 15px;">
+                            @Html.Partial("_LoginPartial")
+                        </li>
+
+                        <!-- Control Sidebar Toggle Button -->
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="@Url.Content("~/img/user2-160x160.jpg")" class="img-circle" alt="User Image">
+                    </div>
+
+                </div>
+                <!-- search form -->
+                @*<form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button name="search" id="search-btn" class="btn btn-flat">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>*@
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active treeview">
+                        <a href="@Url.Action("Index","Home",new { area= "" })">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+
+                        </a>
+    
+                    </li>
+                    <!-- Parial Layout goes here -->
+                    <!-- Note:that Vatbra Admin===portaladmin -->
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("PortalAdmin"))
+                        {
+                            @Html.Partial("_PortalMenu")
+                            @Html.Partial("_AppSetupMenu")
+                        }
+                        if (User.IsInRole("SchoolAdmin"))
+                        {
+                            @Html.Partial("_AppSetupMenu")
+                            @Html.Partial("_LibraryMenu")
+                            @Html.Partial("_HostelMenu")
+                        }
+                        if (User.IsInRole("CampusAdmin"))
+                        {
+                            @Html.Partial("_CampusAdminMenu")
+                            @Html.Partial("_LibraryMenu")
+                            @Html.Partial("_HostelMenu")
+                        }
+                        if (User.IsInRole("Porter"))
+                        {
+                            @Html.Partial("_HostelMenu")
+                        }
+                        if (User.IsInRole("Librarian"))
+                        {
+                            @Html.Partial("_LibraryMenu")
+                        }
+                        if (User.IsInRole("ClassTeacher"))
+                        {
+                            @Html.Partial("_TeacherMenu")
+
+                        }
+                        if (User.IsInRole("Student"))
+                        {
+                            @Html.Partial("_StudentMenu")
+                        }
+                       
+                        @Html.Partial("_ActivityLogMenu")
+                    }
+                   
+
+
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.7
+            </div>
+            <strong>Copyright &copy; 2017 <a href="http://www.vatebra.com">VATEBRA</a>.</strong> All rights
+            reserved.
+        </footer>
+
+
+    </div>
+    <!-- ./wrapper -->
+    @*<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/tether.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.matchHeight.js"></script>
+
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/Apptoastr.js"></script>
+    <script src="~/Scripts/fastclick.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+   
+
+    @*<script src="~/assets/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/datatables-tabletools/js/dataTables.tableTools.js"></script>
+    <script src="~/assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/datatables-colvis/js/dataTables.colVis.js"></script>
+    <script src="~/assets/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="~/assets/datatables-scroller/js/dataTables.scroller.js"></script>
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>*@
+
+    <script src="~/Scripts/jquery.sparkline.min.js"></script>
+    <script src="~/Scripts/jquery.slimscroll.min.js"></script>
+   
+
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-colorpicker.min.js"></script>
+    <script src="~/Scripts/jasny-bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/summernote.js"></script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")*@
+    @RenderSection("scripts", required: false)
+    @RenderSection("JavaScript", required: false)
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.FeeItemViewModel>
+<table id="tblStudents" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Fee Item</th>
+            <th>Fee Type</th>
+            <th>Options</th>
+            <th>Amount</th>
+            <th>First Installment(%)</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RowNum)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.FeeType)</td>
+                <td>@(item.Option == true ? "Compulsory" : "Not Compulsory")</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>@Html.DisplayFor(modelItem => item.Instalmental)</td>
+                <td>@(item.Status ? "Active" : "InActive")</td>
+                <td>
+                    <a onclick='Edit("@item.Id")' id="btnEdit" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil">Edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

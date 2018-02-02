@@ -1,0 +1,80 @@
+﻿@model System.Data.DataTable
+
+
+ 
+
+<div>
+    <table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+        <thead>
+            <tr>
+                @for (int i = 1; i < Model.Columns.Count - 2; i++)
+                {
+                    if (Model.Columns[i].ColumnName == "SubjectName")
+                    {
+                        <th style="width: 20%"><b>SUBJECTS</b></th>
+                    }
+                    else
+                    {
+                        <th><b>@Model.Columns[i].ColumnName.ToString()</b></th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    @for (int i = 1; i < Model.Columns.Count - 2; i++)
+                    {
+                        if (i == 1)
+                        {
+                            <td><b>@row[i]</b></td>
+                        }
+                        else if (i < Model.Columns.Count - 8)
+                        {
+                            <td>@string.Format("{0:0.#0}", row[i])</td>
+                        }
+                        else
+                        {
+                            <td>@row[i]</td>
+                        }
+
+
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+               
+</div>
+
+   
+
+
+<script type="text/javascript">
+   
+   
+    $('#tblList').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "order": [[0, "asc"]],
+        dom: 'Bfltip',
+        buttons: [
+            'copy',
+              {
+                  extend: 'csvHtml5', text: 'Excel'
+              },
+              //'csv', 'excel',
+
+              'pdf', 'print'
+        ],
+
+    });
+</script>

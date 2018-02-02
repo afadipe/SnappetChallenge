@@ -1,0 +1,34 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.Models.StudentPromotion>
+<table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>StudentName</th>
+            <th>Promoted From</th>
+            <th>Promoted To</th>
+            <th>Promotion Date</th>
+            <th>Promoted By</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td></td>
+                    <td>@Html.DisplayFor(modelItem => item.StudentName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PromotedFrom)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PromotedTo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PromotedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PromotedBy)</td>
+
+                </tr>
+            }
+        }
+        
+    </tbody>
+</table>

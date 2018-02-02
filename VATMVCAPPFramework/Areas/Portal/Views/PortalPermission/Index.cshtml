@@ -1,0 +1,210 @@
+﻿@model IEnumerable<VATMVCAPPFramework.ViewModel.PermissionViewModel>
+
+@{
+    ViewBag.Title = "Portal Permission";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Portal Permission </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">VATACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Administration </a>
+                    </li>
+                    <li class="active">
+                        Portal Permission
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+
+                                <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add Permission</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="permissiontbl">
+                        <thead>
+
+                            <tr>
+                                <th>S/N</th>
+                                <th>Permission Name</th>
+                                <th width="5%"></th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PermissionName)</td>
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.PermissionId)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+                                    <td><a data-target='#delete_modal' role='button' data-delete-id='@Html.DisplayFor(modelItem => item.PermissionId)' class='btn btn-danger deleteBtn' data-toggle='modal'><i class='fa fa-trash'></i></a></td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+            @section JavaScript
+                            {
+                <script type="text/javascript">
+                                $(function () {
+                                    var url = "";
+
+                                    //Load the edit page
+                                    function bindForm(dialog) {
+                                        $("form", dialog).submit(function () {
+                                            $.ajax({
+                                                url: this.action,
+                                                type: this.method,
+                                                data: $(this).serialize(),
+                                                success: function (result) {
+                                                    if (result.success) {
+                                                        $('#addedit_modal').modal("hide");
+                                                        // Refresh:
+                                                        location.reload();
+
+                                                    } else {
+
+                                                        $('#addedit_modal_body').html(result);
+                                                        bindForm();
+                                                    }
+                                                }, error: function (request, status, error) {
+                                                    alert(JSON.stringify(error));
+                                                }
+                                            });
+
+
+                                            return false;
+                                        });
+                                    }
+
+                                    //Load the edit page
+
+
+
+                                    $(".btn_add").click(function () {
+
+                                        url = "@Url.Action("Create", "PortalPermission", new { area = "Portal" })";
+                                        console.log(url);
+
+                                        $("#addedit_modal_body").load(url, function () {
+                                            $("#addedit_modal").modal({
+                                                backdrop: 'static',
+                                                keyboard: true
+                                            }, "show");
+                                            bindForm(this);
+                                        });
+                                        return false;
+                                    });
+
+
+                                    //Load the edit page
+                                    $(".editBtn").click(function () {
+
+                                        url = '@Url.Action("Edit", "PortalPermission", new { area = "Portal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                                        console.log(url);
+
+                                        $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                            $("#addedit_modal").modal({
+                                                backdrop: 'static',
+                                                keyboard: true
+                                            }, "show");
+                                            bindForm(this);
+                                        });
+                                        return false;
+                                    });
+                                    //Handle the delete function
+                                    $(".deleteBtn").click(function () {
+
+                                        url = '@Url.Action("Delete", "PortalPermission", new { area = "Portal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                                        console.log(url);
+
+                                        $("#delete_content").load(url);
+                                    });
+
+                                    $('#permissiontbl').DataTable({
+                                        "paging": true,
+                                        "lengthChange": true,
+                                        "searching": true,
+                                        "ordering": true,
+                                        "info": true,
+                                        "autoWidth": true,
+                                        "order": [[0, "asc"]],
+                                        dom: 'Bfltip',
+                                        buttons: [
+                                            'copy',
+                                              {
+                                                  extend: 'csvHtml5', text: 'Excel'
+                                              },
+                                              //'csv', 'excel',
+                                              'pdf', 'print'
+                                        ]
+                                    });
+
+
+                                });
+
+                </script>
+
+            }
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+

@@ -1,0 +1,86 @@
+﻿@model VATMVCAPPFramework.Models.FeeItemViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="MyModalTitle">Fee Items</h4>
+</div>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "createFeeItem" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+
+
+            @*<div class="form-group">
+                @Html.LabelFor(m => m.ProgrammeId, "Programme", htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.ProgrammeId, ViewBag.Programmes as SelectList, "--Programme--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ProgrammeId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, "Fee Item", htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.Option, "Is Compulsory", htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+
+                    @*@Html.RadioButtonFor(m => m.Option, "1")Compulsory
+                    @Html.RadioButtonFor(m => m.Option, "2")Optional*@
+                    @Html.CheckBoxFor(m => m.Option, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Option, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    @Html.LabelFor(m => m.FeeType, "Fee Type", htmlAttributes: new { @class = "control-label col-sm-5" })
+                    <div class="col-sm-7">
+                        @Html.DropDownListFor(m => m.FeeType, ViewBag.FeeTypes as SelectList, "--FeeType--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FeeType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group col-md-7">
+                    @Html.LabelFor(m => m.Instalmental, "First Instalmental (%)", htmlAttributes: new { @class = "control-label col-sm-7 pull-left" })
+                    <div class="col-sm-5">
+                        @Html.EditorFor(m => m.Instalmental, new { htmlAttributes = new { @class = "form-control pull-right" } })
+                        @Html.ValidationMessageFor(m => m.Instalmental, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+               
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Amount, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-6">
+                    @Html.EditorFor(m => m.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+          
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <input type="submit" class="btn btn-success" value="Save" id="btnSubmit" />
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse('#createFeeItem');
+        $("#btnSubmit").click(function () {
+            if (!$("#createFeeItem").valid()) {
+                return false;
+            }
+        });
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿@model VATMVCAPPFramework.Models.StudentDashboardViewModel
+@{
+    Layout = null;
+}
+@using Kendo.Mvc
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="dashboard">
+        @Html.Partial("_dashboard", Model)
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿
+
+@model  VATMVCAPPFramework.ViewModel.CreateWalletSearchViewModel
+
+@using (Html.BeginForm("CreateWalletSearch", "Wallet", "APPPortal", FormMethod.Get, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+{
+    <div class="row">
+        <div class="card-box">
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="input-group m-t-10">
+                        @Html.DropDownListFor(m => m.SelectedParent, Model.Parents, "Please select  Parent...", new { @class = "form-control select2" })
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn waves-effect waves-light btn-custom"><i class="fa fa-search m-r-5"></i> Search</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

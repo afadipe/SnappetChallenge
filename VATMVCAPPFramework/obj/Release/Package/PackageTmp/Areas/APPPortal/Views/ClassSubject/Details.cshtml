@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.ClassSubjectViewModel>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<h2>Subject Details</h2>
+
+<p>
+    @Html.ActionLink("Return to Page", "Index")
+</p>
+<div class="panel-body table-responsive">
+    <table class="table convert-data-table table-striped" id="lookUptbl">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Name</th>
+               
+                <th width="5%"></th>
+                <th width="5%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int rowNo = 0;}
+                        @foreach (var item in Model)
+            {
+                          
+                            <tr>
+                                <td>@(rowNo += 1)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+
+
+
+                            </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+

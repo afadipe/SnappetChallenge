@@ -1,0 +1,116 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.ViewModel.WalletVm>
+
+@{
+    ViewBag.Title = "Wallet";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">My Wallet</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        VATACADA
+                    </li>
+
+                    <li class="active">
+                        Manage Wallet
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="mywallettbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Wallet Code</th>
+                                <th>Balance</th>
+                                <th>FullName</th>
+                                <th>Email Address</th>
+                                <th>Phone Number</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.WalletCode)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.WalletAmount)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ParentFullName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ParentEmail)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ParentPhoneNumber)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+
+            @section JavaScript
+            {
+                <script type="text/javascript">
+                    $(function () {
+
+                        $('#mywallettbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+        </div>
+    </div>
+
+</div>
+

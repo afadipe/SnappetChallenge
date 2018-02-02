@@ -1,0 +1,34 @@
+﻿
+
+@model VATMVCAPPFramework.Data.Entities.Book
+@using VATMVCAPPFramework.Utilities
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-3 control-label">Title</label>
+        <div class="col-sm-9">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-3 control-label">Author</label>
+        <div class="col-sm-9">
+
+            @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword4" class="col-sm-3 control-label">ISBN</label>
+        <div class="col-sm-9">
+
+            @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword4" class="col-sm-3 control-label">PublishedDate</label>
+        <div class="col-sm-9">
+
+            @Html.EditorFor(model => model.PublishedDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+        </div>
+    </div>
+</form>

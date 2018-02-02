@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.BorrowedBookViewModel>
+
+@{
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+   @if (Model != null)
+   {
+
+    <div class="panel-body table-responsive">
+        <table class="table convert-data-table table-striped" id="lookUptbl">
+            @foreach (var logItem in Model)
+            {
+                <tr>
+                    <td>
+                        First Name:
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => logItem.Title)</td>
+                </tr>
+                <tr>
+                    <td>
+                        Last Name:
+                    </td>
+
+                    <td>@Html.DisplayFor(modelItem => logItem.ISBN)</td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Class Name:
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => logItem.Tag)</td>
+                </tr>
+
+            }
+
+        </table>
+       
+</div>
+   }
+</body>
+</html>

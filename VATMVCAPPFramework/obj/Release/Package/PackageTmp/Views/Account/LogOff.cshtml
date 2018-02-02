@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Log Off";
+    Layout = "~/Views/Shared/_APPAccountPartial.cshtml";
+}
+
+    <div class="sign-container">
+        <div class="sign-in-form">
+            <div class="text-center help-block">
+                <a href="@Url.Action("Login","Account")"><small>Login Page?</small></a>
+
+            </div>
+        </div>
+        <div class="text-center copyright-txt">
+            <small>MegaDin - Copyright © 2017</small>
+        </div>
+    </div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

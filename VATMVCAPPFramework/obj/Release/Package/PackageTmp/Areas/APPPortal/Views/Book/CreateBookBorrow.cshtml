@@ -1,0 +1,255 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.BorrowedBookViewModel>
+
+@{
+    ViewBag.Title = "Manage Book";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="col-md-3">
+    <div class="panel panel-default" data-toggle="panel-collapse" data-open="true">
+        <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Borrow Book</h4>
+        </div>
+       
+    </div>
+  
+   
+</div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="panel panel-default">
+                    <div class="media v-middle">
+                        <div class="media-left">
+                            <div class="bg-green-400 text-white">
+                                <div class="panel-body">
+                                    <i class="fa fa-map-marker text-white fa-fw fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="text-headline margin-none">Borrow Book</h4>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.Label("schoolid", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.Hidden("studentId")
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            @Html.Label("RegNo", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-8">
+                                @Html.Editor("UserName", new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessage("UserName", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                       
+                        <button type="submit" class="btn btn-info">Fetch</button>
+                    </div>
+                </div>
+            }
+            @if (Model != null)
+            {
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <a href="@Url.Action("InsertBorrowbook","Book")" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Complete Borrow Process</a>
+
+
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    @*<div class="btn-group">
+                            @Html.ActionLink("+Add Room", "RoomIndex")
+                        </div>*@
+                </div>
+
+                 <div class="containerX">
+
+                   
+                        <div class="panel-body table-responsive">
+                            <table class="table convert-data-table table-striped" id="lookUptbl">
+                                <thead>
+                                    <tr>
+                                        <th>S/N</th>
+
+                                        <th>RegNo</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Mobile No</th>
+                                        <th>Programme</th>
+                                        <th>ClassName</th>
+                                        <th>Arm</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{int rowNo = 0;}
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@(rowNo += 1)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.MobileNumber)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ProgrammeName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ArmName)</td>
+                                           @*<td><a href="@Url.Action("UpdateStudentBorrowBookData","Book",new{ UserId=item.UserId })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Borrow Book</a></td>*@
+
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                </div>
+            }
+
+        </div>
+        @section JavaScript
+            {
+            <script type="text/javascript">
+                    $(function () {
+                        var url = "";
+
+                        //Load the edit page
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                    url: this.action,
+                                    type: this.method,
+                                    data: $(this).serialize(),
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+
+
+
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("InsertBorrowbook", "Book", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("UpdateStudentBorrowBookData", "Book", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+                            url = '@Url.Action("Delete", "Hostel", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+            </script>
+
+        }
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

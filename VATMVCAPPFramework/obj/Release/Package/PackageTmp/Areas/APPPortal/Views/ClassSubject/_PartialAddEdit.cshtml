@@ -1,0 +1,79 @@
+﻿@model VATMVCAPPFramework.Models.ClassSubjectViewModel
+@using VATMVCAPPFramework.CustomClass
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Class Subject Mapping</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Class", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ClassID, new SelectList(SectionHelper.GetClass(), "ID", "Name"), "Select Class.", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClassID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Programme", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProgrammeID, new SelectList(SectionHelper.GetProgram(), "ID", "Name"), "Select Programme.", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProgrammeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @Html.HiddenFor(x => x.SelectedSubject)
+
+        @if (Model.Subjectlog != null && Model.Subjectlog.Count() >= 1)
+        {
+            var count = Model.Subjectlog.Count();
+            <table class="table table-striped" id="regionalEmployeeHistory">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Applicable Subject</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model.Subjectlog)
+                    {
+
+                        <tr>
+                            @if (@m.SubjectCampusId > 0)
+                            {
+                                <td><input type="checkbox" name="SelectedSubject" checked="checked" value="@m.SubjectID" class="pending" /></td>
+                            }
+                            else
+                            {
+                                <td><input type="checkbox" name="SelectedSubject" value="@m.SubjectID" class="inClass" /></td>
+                            }
+                            <td>@Html.DisplayFor((x) => m.SubjectName)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    </div>
+}
+       
+
+      
+
+      
+
+       
+
+       
+
+       
+
+       
+

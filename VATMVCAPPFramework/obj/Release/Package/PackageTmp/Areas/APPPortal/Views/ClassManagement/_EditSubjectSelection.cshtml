@@ -1,0 +1,69 @@
+﻿@model VATMVCAPPFramework.Models.SubjectSelectionModel
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="MyModalTitle">Class Subjects Selection</h4>
+    </div>
+
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateSublectSelection" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-body">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(m => m.Programme)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Programme, Model.Programme)
+                    @Html.HiddenFor(m => m.ProgrammeID)
+                </dd>  
+                <dt>
+                    @Html.DisplayNameFor(m => m.Class)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Class, Model.Class)
+                    @Html.HiddenFor(m => m.ClassID)
+                </dd>  
+
+                <dt>
+                    @Html.DisplayNameFor(m => m.Arm)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Arm, Model.Arm)
+                    @Html.HiddenFor(m => m.ArmID)
+                </dd>  
+            </dl>
+               
+                <hr />
+            <ol class="chkOl2">
+                @Html.EditorFor(x => x.Subjects)
+            </ol>
+               
+                @Html.HiddenFor(m => m.NoOfSubjects)
+                
+    
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn btn-success" value="Save" id="btnSubmit" />
+        </div>
+    }
+
+    <script>
+        $(document).ready(function () {
+            $.validator.unobtrusive.parse('#CreateSublectSelection');
+            $("#btnSubmit").click(function () {
+                if (!$("#CreateSublectSelection").valid()) {
+                    return false;
+                }
+            });
+
+
+        });
+    </script>

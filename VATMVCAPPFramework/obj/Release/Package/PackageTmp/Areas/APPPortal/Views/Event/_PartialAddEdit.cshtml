@@ -1,0 +1,132 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.EventViewModel
+@using VATMVCAPPFramework.Data.Constant
+@{
+    ViewBag.Title = "Event";
+    Layout = null;
+}
+
+<link href="~/Scripts/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm((string)ViewBag.PostAction, "Event", "APPPortal", FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form",
+        enctype = "multipart/form-data"
+    }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Event</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @Html.HiddenFor(model => model.Id)
+
+          
+
+            <!-- Begin basic form elements -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    <textarea  required="" name="Description" class="form-control">@Model.Description </textarea>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-8">
+                    <div class="input-group date form_datetime" data-provide="datetimepicker" data-date-format="dd/mm/yyyy HH:ii p">
+                        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-8">
+                    <div class="input-group date form_datetime" data-provide="datetimepicker" data-date-format="dd/mm/yyyy HH:ii p">
+                        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SessionID, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.SessionID, Model.Sessions, "Please select...", new { @class = "form-control", required = true })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TermID, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.TermID, Model.Terms, "Please select...", new { @class = "form-control", required = true })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Venue, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    <textarea required="" name="Venue" class="form-control">@Model.Venue</textarea>
+                    @Html.ValidationMessageFor(model => model.Venue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+        <!-- /.row -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
+    }
+
+
+</div>
+
+
+<script src="~/Scripts/datetimepicker/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+    $('.datepicker').datetimepicker();
+</script>

@@ -1,0 +1,213 @@
+﻿
+@using VATMVCAPPFramework.Data.Core
+@model VATMVCAPPFramework.ViewModel.ActivitlogSearchInfo
+
+@{
+    ViewBag.Title = "Activity Log Report";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<div class="page-head-wrap">
+    <h4 class="margin0"></h4>
+    <div class="breadcrumb-right">
+        <ol class="breadcrumb">
+            <li><a href="#">Administration</a></li>
+            <li class="active"><a href="#">PortalUser</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading panel-border">
+                       Activity Log
+                        <span class="tools pull-right">
+                        </span>
+                    </header>
+
+
+
+                    @using (Html.BeginForm("ActivityLog", "ActivityLogReport", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <label>Controller</label>
+                                        </div>
+
+                                        <div class="col-sm-8">
+                                            @Html.DropDownListFor(m => m.SelectedController, (IEnumerable<SelectListItem>)ViewData["ControllerList"], "Please select...", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <label> User </label>
+                                        </div>
+
+                                        <div class="col-sm-8">
+                                            @Html.DropDownListFor(m => m.SelectedUser, (IEnumerable<SelectListItem>)ViewData["UserList"], "Please select...", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+
+                                <div class="col-sm-6">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SelectedStartDate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                                        <div class="col-sm-8">
+                                            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                @Html.EditorFor(model => model.SelectedStartDate, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.SelectedStartDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SelectedEndDate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                                        <div class="col-sm-8">
+                                            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                @Html.EditorFor(model => model.SelectedEndDate, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.SelectedEndDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    }
+
+
+
+                    <div class="panel-body table-responsive">
+                        <div class="box-body" style="min-height: 200px;">
+
+                            @if ((List<ActivityInfo>)ViewData["SearchResult"] != null)
+                            {
+                                <div class="box-body" style="min-height: 500px;">
+                                    <table class="table convert-data-table table-striped" id="activitylogTbl">
+                                        <thead>
+                                            <tr>
+
+                                                <th>S/N</th>
+                                                <th>FullName</th>
+                                                <th>Description</th>
+                                                <th>Date Created</th>
+                                                <th>Module Name</th>
+                                                <th>Module Action</th>
+                                                <th>Record</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{int rowNo = 0;}
+                                            @foreach (var item in (List<ActivityInfo>)ViewData["SearchResult"])
+                                            {
+                                                <tr>
+                                                    <td>@(rowNo += 1)</td>
+                                                    <td>  @Html.DisplayFor(modelItem => item.FullName)</td>
+                                                    <td>  @Html.DisplayFor(modelItem => item.Description) </td>
+                                                    <td> @Html.DisplayFor(modelItem => item.DateCreated)</td>
+                                                    <td> @Html.DisplayFor(modelItem => item.ModuleName)</td>
+                                                    <td> @Html.DisplayFor(modelItem => item.ModuleAction)</td>
+                                                    <td> @Html.DisplayFor(modelItem => item.Record)</td>
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </section>
+
+
+
+                @section JavaScript
+                {
+                    <script type="text/javascript">
+            $(function () {
+
+
+                $('#activitylogTbl').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]],
+                    dom: 'Bfltip',
+                    buttons: [
+                        'copy',
+                         {
+                             extend: 'csvHtml5', text: 'Excel'
+                         },
+                         'pdf', 'print'
+                    ]
+                });
+
+
+            });
+
+            function printDiv(divID) {
+                //Get the HTML of div
+                var divElements = document.getElementById(divID).innerHTML;
+                //Get the HTML of whole page
+                var oldPage = document.body.innerHTML;
+
+                //Reset the page's HTML with div's HTML only
+                document.body.innerHTML =
+                "<html><head><title></title></head><body>" + divElements + "</body>";
+
+                //Print Page
+                window.print();
+
+                //Restore orignal HTML
+                document.body.innerHTML = oldPage;
+                document.close();
+                location.reload();
+
+            }
+
+                    </script>
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

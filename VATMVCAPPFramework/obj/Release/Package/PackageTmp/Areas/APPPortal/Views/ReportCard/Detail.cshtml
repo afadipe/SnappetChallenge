@@ -1,0 +1,13 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<div id="divReport">
+    @Html.Partial("_PartialResult", Model)
+</div>
+
+<div class="bottom-align-text col-sm-6" style="position:absolute; top:400px; left:100px">
+    @Html.ActionLink("Back", "Index", "ReportCard", null, new { @class = "btn btn-danger" })
+</div>

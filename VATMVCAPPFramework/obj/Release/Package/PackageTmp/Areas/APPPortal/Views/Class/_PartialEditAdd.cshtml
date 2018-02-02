@@ -1,0 +1,47 @@
+﻿@model VATMVCAPPFramework.Models.ClassViewModel
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Activate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Activate)
+                    @Html.ValidationMessageFor(model => model.Activate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.SelectedSubjectid, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.ListBoxFor(m => m.SelectedSubjectid, Model.SubjectClass, new
+               {
+                   @class = "form-control select2",
+                   multiple = "multiple",
+                   @style = "width: 100%"
+               })
+
+            </div>
+
+        </div>*@
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    </div>
+}
+

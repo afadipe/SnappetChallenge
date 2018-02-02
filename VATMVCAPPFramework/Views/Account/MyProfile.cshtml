@@ -1,0 +1,153 @@
+﻿@model VATMVCAPPFramework.ViewModel.UserViewModel
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+
+@using (Html.BeginForm("MyProfile", "Account", new { area = " " }, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+
+{
+    @Html.AntiForgeryToken()
+
+    <div class="ui-content-body">
+        <div class="ui-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <header class="panel-heading">
+                            My Profile
+                        </header>
+                        <div class="panel-body">
+
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Last Name</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "LastName" })
+                                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">First Name</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "FirstName" })
+                                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Middle Name</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", @placeholder = "MiddleName" })
+                                            @Html.ValidationMessageFor(m => m.MiddleName, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Email Address</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email Address", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">User Name</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "UserName", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Mobile Number</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @placeholder = "MobileNumber" })
+                                            @Html.ValidationMessageFor(m => m.MobileNumber, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Phone Number</label>
+                                        <div class="col-lg-6">
+                                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "PhoneNumber" })
+                                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @*<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">Date Of Birth</label>
+
+                                        <div class="col-lg-6">
+                                            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                @Html.TextBoxFor(model => model.DOB, new { @class = "form-control" })
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "vertical-spin" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+
+                                    </div>
+                                </div>
+                            </div>*@
+
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-6">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

@@ -1,0 +1,166 @@
+﻿@model VATMVCAPPFramework.Models.StudentDashboardViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<div id="MyModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="MyModalContent"></div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_ToastrViewHeader")
+<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <section class="panel">
+                <header class="panel-heading panel-border">
+
+                    <h3 class="box-title">Student Overview</h3>               
+                    @Html.ActionLink("<<Back To Student List", "Index", new { area = "APPPortal", controller = "StudentView" }, new { @class = "btn btn-link" })
+             
+                </header>
+                
+                <div class="panel-body table-responsive">
+                    <div class="md">
+                        <div class="md_Master">
+                            <div id="listContainer">
+                                <table class="tbl">
+                                    <tbody>
+                                        <tr class="even">
+                                            <td>
+                                                <center>
+                                                   
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Dashboard", "Overview", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-stack-overflow fa-4x" aria-hidden="true"></i><br /><span>Overview</span>
+                                                    </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>
+                                                <center>
+                                                   
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Biodata", "Biodata", new { UserId = ViewBag.UserId })">
+                                                        <i class="glyphicon glyphicon-user fa-4x" aria-hidden="true"></i><br /><span>Biodata</span>
+                                                    </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>
+                                                <center>
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("PerformanceReport", "Performance", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-bar-chart fa-4x" aria-hidden="true"></i><br /><span>Performance Report</span>
+                                                    </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>
+                                                <center>
+                                                      <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" 
+                                                       data-ajax-update="#dynamic" href="@Url.Action("index", "Incident", new { UserId = ViewBag.UserId })">
+                                                      <i class="fa fa-history fa-4x" aria-hidden="true"></i><br /><span>Incident Log</span></a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>
+                                                <center>
+                                                       <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Index", "AttendanceReport", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-stop-circle-o fa-4x" aria-hidden="true"></i><br /><span>Attendance Report</span>
+                                                    </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>
+                                                <center>
+                                                    
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Disengagement", "Disengagement", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-stop-circle-o fa-4x" aria-hidden="true"></i><br /><span>Disengage</span>
+                                                    </a>
+
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>
+                                                <center>
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Suspend", "Suspension", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-pause-circle-o fa-4x" aria-hidden="true"></i><br /><span>Suspension</span>
+                                                    </a>
+
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td>
+                                                <center>
+                                                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                                                       data-ajax-update="#dynamic" href="@Url.Action("Index", "Suspension", new { UserId = ViewBag.UserId })">
+                                                        <i class="fa fa-history fa-4x" aria-hidden="true"></i><br /><span>Suspension History</span>
+                                                    </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="md_Detail">
+                            <div id="detailContainer">
+                                <section id="dynamic">
+                                    <div id="dashboard">
+                                        @Html.Partial("_dashboard", Model)
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+    {
+        <script type="text/javascript">
+
+           
+            
+            function OnSuccess(data, status, xhr) {
+                $("#dynamic").html(data.View);
+                if (data.success) {
+                    toastr.success("Updated successfully");
+                    if (data.Disengage)
+                    {
+                        window.location.href = "@Url.Action("Index", "StudentView", new {Area = "APPPortal"})"
+                    }
+                }
+                else {
+                   
+                }              
+                
+
+            }
+            function OnFailure(xhr, status, error) {
+                toastr.error(xhr.responseJSON);
+            }
+        </script>
+
+    }

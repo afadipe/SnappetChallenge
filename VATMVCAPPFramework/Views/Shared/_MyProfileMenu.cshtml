@@ -1,0 +1,31 @@
+﻿
+
+
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> My Profile</span> <span class="menu-arrow"></span></a>
+    <ul class="list-unstyled">
+
+
+        @if (User.IsInRole("Admin Staff"))
+        {
+            <li><a data-target='#addedit_modal2' role='button' class='editStaffBtn' data-toggle='modal'><i class='fa fa-edit'></i>Update Data </a></li>
+        }
+        @if (User.IsInRole("Student"))
+        {
+            <li><a data-target='#addedit_modal2' role='button' class='editStudentBtn' data-toggle='modal'><i class='fa fa-edit'></i>Update Data </a></li>
+        }
+        @if (User.IsInRole("Parent"))
+        {
+            <li><a data-target='#addedit_modal2' role='button' class='editParentBtn' data-toggle='modal'><i class='fa fa-edit'></i>Update Data </a></li>
+        }
+        @if (User.IsInRole("AcademicStaff")|| User.IsInRole("NonAcademicStaff"))
+        {
+            <li><a data-target='#addedit_modal2' role='button' class='editTeacherBtn' data-toggle='modal'><i class='fa fa-edit'></i>Update Data </a></li>
+        }
+        @if (User.IsInRole("CampusAdmin"))
+        {
+            <li><a data-target='#addedit_modal2' role='button' class='editAdminBtn' data-toggle='modal'><i class='fa fa-edit'></i>Update Data </a></li>
+        }
+
+    </ul>
+</li>

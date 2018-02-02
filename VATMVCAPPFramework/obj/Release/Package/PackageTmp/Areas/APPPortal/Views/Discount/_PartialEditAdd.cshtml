@@ -1,0 +1,29 @@
+﻿@model VATMVCAPPFramework.ViewModel.DiscountViewModel
+
+@using (Html.BeginForm("UpdateDiscount", "Discount", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @ViewBag.Message
+   
+    <div class="form-horizontal">
+        <h4>Manage Discount</h4>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiscountAmount, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.DiscountAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiscountAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    </div>
+   
+}
+
+

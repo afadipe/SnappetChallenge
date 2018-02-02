@@ -1,0 +1,254 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Data.Entities.Session>
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Session Management";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">  Session Management </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        VATACADA
+                    </li>
+                    <li>
+                        Administration
+                    </li>
+                    <li class="active">
+                       Session Management
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                       
+                        @if (ViewBag.ActiveSession == 0)
+                        {
+                            <div class="btn-group">
+                                <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add Session</a>
+                            </div>
+                        }else
+                        {
+                            <h3>@ViewBag.CreateErrMsg</h3>
+                        }
+
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="schooltbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                @*<th>Programme</th>*@
+                                <th>Session</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Status</th>
+                                <th width="5%"></th>
+                                <th width="5%"></th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    @*<td>@Html.DisplayFor(modelItem => item.ProgrammeName)</td>*@
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+
+                                 
+                                    @if (item.IsActive == true)
+                                    {
+                                       <td>@Html.Raw("Active")</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@Html.Raw("Inactive")</td>
+                                    }
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.Id)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+
+                                    @if (item.IsActive == true)
+                                    {
+                                        <td><a class='btn btn-raised btn-danger' href="@Url.Action("Deactivate","Session",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.Id) })"><i>Stop</i></a></td>
+                                    }
+                                    else
+                                    {
+                                        <td><a class='btn btn-raised btn-success' href="@Url.Action("Activate","Session",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.Id) })"><i>Activate</i></a></td>
+
+                       
+                                    }
+                                   
+                                    <td><a class='btn btn-default' href="@Url.Action("ManageProgrammeSessionIndex","Session",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.Id) })"><i class='fa fa-file'>Manage Session Programme</i></a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+
+            @section JavaScript
+            {
+                <script type="text/javascript">
+                    $(function () {
+
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("CreateSession", "Session", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("EditSession", "Session", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+                            url = '@Url.Action("Delete", "Session", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+
+                        });
+
+                        $('#schooltbl').DataTable({
+
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                {
+                                    extend: 'copyHtml5', exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                },
+                                    {
+                                        extend: 'csvHtml5', exportOptions: { columns: [0, 1, 2, 3,4] }, text: 'Excel'
+                                    },
+                                  //'csv', 'excel',
+                                   {
+                                       extend: 'pdfHtml5',
+                                       orientation: 'landscape',
+                                       pageSize: 'LEGAL',
+                                       exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                   },
+                                   {
+                                       extend: 'print', exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                   }
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }yt6p[tr]
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+

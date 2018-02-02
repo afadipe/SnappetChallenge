@@ -1,0 +1,225 @@
+﻿@model  List<VATMVCAPPFramework.Models.HallViewModel>
+@using VATMVCAPPFramework.Utilities
+@{
+    ViewBag.Title = "Hall Activities";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="row">
+               
+                <div class="col-md-6">
+                </div>
+                @*<div class="btn-group">
+                @Html.ActionLink("+Add Room", "RoomIndex")
+            </div>*@
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+
+
+
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">+ Add New Activity</a>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="lookUptbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+
+                                <th>Event Date</th>
+                                <th>Event Description</th>
+                                <th>Event Supervisor</th>
+                                <th>Hall Name</th>
+                                <th>Created By</th>
+                                <th>Activity Status</th>
+                                @*<th>Action</th>*@
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+
+                                    @*<td>@Html.DisplayFor(modelItem => item.Title)</td>*@
+                                    <td>@Html.DisplayFor(modelItem => item.EventDat)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EventDescrption)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Supervisor)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HallName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HallCreatedBy)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ActivityStatus)</td>
+                                    @*<td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>*@
+
+                                    @*<td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Reactivate</a></td>*@
+                                    @*<td><a class='btn btn-raised btn-success' href="@Url.Action("ManageHallDetailss","Hostel",new{ HallID=item.ID })">Manage</a></td>*@
+
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+
+            @section JavaScript
+            {
+                <script type="text/javascript">
+                    $(function () {
+                        var url = "";
+
+                        //Load the edit page
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                    url: this.action,
+                                    type: this.method,
+                                    data: $(this).serialize(),
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+
+
+
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("CreateHallActivities", "Hostel", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("", "", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+                            url = '@Url.Action("", "", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+        </div>
+    </div>
+
+</div>
+
+

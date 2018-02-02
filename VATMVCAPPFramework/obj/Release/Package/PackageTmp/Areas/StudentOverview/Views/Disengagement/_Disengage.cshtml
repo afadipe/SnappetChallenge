@@ -1,0 +1,58 @@
+﻿@model VATMVCAPPFramework.Models.DisengageViewModel
+<link href="~/Content/StyleCustom.css" rel="stylesheet" />
+
+  <!-- Result Container  -->
+@Html.Partial("_ToastrViewHeader")
+<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <section class="panel">
+                <header class="panel-heading panel-border">
+
+                    <h4 class="box-title">Student Disengagement</h4>
+                </header>
+                <div class="panel-body table-responsive">
+                    @using (Ajax.BeginForm("Disengagement", "Disengagement", new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                @Html.HiddenFor(m => m.UserId)
+                                @Html.HiddenFor(m => m.Id)
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ReasonType, "Reason", htmlAttributes: new { @class = "control-label col-sm-3" })
+                                    <div class="col-sm-9">
+                                        @Html.DropDownListFor(m => m.ReasonType, ViewBag.DisengageTypes as SelectList, "--Reasons--", new {@class ="form-control" })
+                                        @Html.ValidationMessageFor(m => m.ReasonType, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Notes, new { @class = "control-label col-sm-3" })
+                                    <div class="col-sm-9">
+                                        @Html.EditorFor(m => m.Notes, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => m.Notes,"",new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                
+                               
+                               
+                                <div class="col-sm-offset-9 col-sm-3">
+                                    <input type="submit" id="disengage" value="Disengage" class="btn btn-danger pull-right" />
+                                </div>
+
+
+                            </div>
+                        </div>
+                      
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div id="progress" class="modalProgress">
+    <div class="center">
+        <img src="~/images/loader4.gif" />
+    </div>
+</div>

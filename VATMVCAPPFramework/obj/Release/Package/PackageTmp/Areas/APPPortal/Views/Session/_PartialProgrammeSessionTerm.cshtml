@@ -1,0 +1,46 @@
+﻿@model List<VATMVCAPPFramework.ViewModel.ProgrammeSessionTermMgt>
+
+<table id="ProgSessiontbl" class="table convert-data-table table-striped">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Session</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Term</th>
+            <th>Term Start Date</th>
+            <th>Term End Date</th>
+            <th width="5%"></th>
+            @*<th width="5%"></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+       {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.SessionName)</td>
+                <td>@Html.DisplayFor(modelItem => item.SessionStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.SessionEndDate)</td>
+
+                <td>@Html.DisplayFor(modelItem => item.TermName)</td>
+                <td>@Html.DisplayFor(modelItem => item.TermStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.TermEndDate)</td>
+
+                @if (item.SessionIsActive)
+                {
+                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ProgrammeSessionTermID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+                    @*<td><a data-target='#delete_modal' role='button' data-delete-id='@Html.DisplayFor(modelItem => item.ProgrammeSessionTermID)' class='btn btn-danger deleteBtn' data-toggle='modal'><i class='fa fa-trash'></i></a></td>*@
+                }
+                else
+                {
+                    <td></td>
+                }
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model VATMVCAPPFramework.Models.IncidentLogViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="MyModalTitle">Class Subjects Selection</h4>
+</div>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateSublectSelection" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.UserId)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CategoryType, "Category Type", htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.CategoryType, ViewBag.Categories as SelectList, "--Category--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <input type="submit" class="btn btn-success" value="Save" id="btnSubmit" />
+    </div>
+    }
+
+<script>
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse('#CreateSublectSelection');
+        $("#btnSubmit").click(function () {
+            if (!$("#CreateSublectSelection").valid()) {
+                return false;
+            }
+        });
+    });
+</script>

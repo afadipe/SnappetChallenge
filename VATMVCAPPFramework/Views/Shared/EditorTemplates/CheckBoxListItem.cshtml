@@ -1,0 +1,10 @@
+﻿@model VATMVCAPPFramework.Models.CheckBoxListItem
+
+
+    <li>
+        @Html.CheckBoxFor(x => x.IsChecked)
+        @Html.LabelFor(x => x.IsChecked, Model.Display)
+        @Html.HiddenFor(x => x.ID)
+    </li>
+
+

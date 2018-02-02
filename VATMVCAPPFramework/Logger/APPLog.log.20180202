@@ -1,0 +1,360 @@
+INFO  2018-02-02 13:20:47,646  1276ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/02/2018 13:20:47 >>>>>>
+INFO  2018-02-02 13:20:58,698 12328ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/02/2018 13:20:58 >>>>>>
+INFO  2018-02-02 13:21:00,290 13920ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-02 13:21:01,988 15618ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-02 13:21:02,250 15880ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-02 13:21:02,274 15904ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-02 13:21:02,290 15920ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-02 13:21:02,292 15922ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-02 13:21:02,294 15924ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-02 13:21:02,295 15925ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-02 13:21:02,298 15928ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-02 13:21:02,300 15930ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-02 13:21:02,302 15932ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-02 13:21:02,674 16304ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-02 13:21:03,981 17611ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-02 13:21:04,094 17724ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-02 13:21:04,255 17885ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-02 13:21:04,278 17908ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+INFO  2018-02-02 13:21:04,385 18015ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2018-02-02 13:21:04,399 18029ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-02 13:21:04,410 18040ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-02 13:21:04,952 18582ms Worker                 CallSite.Target    - Background process 'Worker #64301c46' started.
+DEBUG 2018-02-02 13:21:04,985 18615ms Worker                 CallSite.Target    - Background process 'Worker #3726b5af' started.
+DEBUG 2018-02-02 13:21:05,193 18823ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-02 13:21:05,478 19108ms Worker                 CallSite.Target    - Background process 'Worker #9e8f5531' started.
+DEBUG 2018-02-02 13:21:05,659 19289ms Worker                 CallSite.Target    - Background process 'Worker #a6a8885d' started.
+DEBUG 2018-02-02 13:21:05,703 19333ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-02 13:21:05,705 19335ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-02 13:21:06,016 19646ms Worker                 CallSite.Target    - Background process 'Worker #859807cf' started.
+DEBUG 2018-02-02 13:21:06,584 20214ms Worker                 CallSite.Target    - Background process 'Worker #8c915e61' started.
+DEBUG 2018-02-02 13:21:06,886 20516ms Worker                 CallSite.Target    - Background process 'Worker #a444a5b3' started.
+DEBUG 2018-02-02 13:21:07,095 20725ms Worker                 CallSite.Target    - Background process 'Worker #f2969c02' started.
+DEBUG 2018-02-02 13:21:07,297 20927ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-02 13:21:07,298 20928ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-02 13:21:07,304 20934ms Worker                 CallSite.Target    - Background process 'Worker #66d6fc5b' started.
+DEBUG 2018-02-02 13:21:07,549 21179ms Worker                 CallSite.Target    - Background process 'Worker #51f2c475' started.
+DEBUG 2018-02-02 13:21:07,895 21525ms Worker                 CallSite.Target    - Background process 'Worker #e2495e9d' started.
+DEBUG 2018-02-02 13:21:08,216 21846ms Worker                 CallSite.Target    - Background process 'Worker #a345d01f' started.
+DEBUG 2018-02-02 13:21:08,601 22231ms Worker                 CallSite.Target    - Background process 'Worker #2f3cec3f' started.
+DEBUG 2018-02-02 13:21:08,716 22346ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-02 13:21:08,727 22357ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-02 13:21:08,891 22521ms Worker                 CallSite.Target    - Background process 'Worker #2a67f245' started.
+DEBUG 2018-02-02 13:21:09,239 22869ms Worker                 CallSite.Target    - Background process 'Worker #7f0b7ba3' started.
+DEBUG 2018-02-02 13:21:09,394 23024ms Worker                 CallSite.Target    - Background process 'Worker #460b8a0b' started.
+DEBUG 2018-02-02 13:21:09,779 23409ms Worker                 CallSite.Target    - Background process 'Worker #3dfb2caa' started.
+DEBUG 2018-02-02 13:21:09,781 23411ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-02 13:21:09,782 23412ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-02 13:21:10,012 23642ms Worker                 CallSite.Target    - Background process 'Worker #f69b6d94' started.
+DEBUG 2018-02-02 13:21:10,209 23839ms Worker                 CallSite.Target    - Background process 'Worker #b954cae0' started.
+DEBUG 2018-02-02 13:21:10,372 24002ms Worker                 CallSite.Target    - Background process 'Worker #0d10e8a2' started.
+DEBUG 2018-02-02 13:21:10,477 24107ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-02 13:21:10,585 24215ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-02 13:21:10,648 24278ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-02 13:23:02,734 136364ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:23:04,515 138145ms HangFireLoggerAppender OnStateUnapplied   - Job `106` state `` was unapplied.
+INFO  2018-02-02 13:23:04,529 138159ms HangFireLoggerAppender OnStateApplied     - Job 106 state was changed from  to Enqueued
+INFO  2018-02-02 13:23:05,393 139023ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `106`
+INFO  2018-02-02 13:23:06,402 140031ms HangFireLoggerAppender OnStateUnapplied   - Job `106` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:23:06,405 140034ms HangFireLoggerAppender OnStateApplied     - Job 106 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:23:08,928 142558ms HangFireLoggerAppender OnPerforming       - Starting to perform job `106`
+INFO  2018-02-02 13:23:33,087 166717ms HangFireLoggerAppender OnPerformed        - Job `106` has been performed
+INFO  2018-02-02 13:23:33,724 167354ms HangFireLoggerAppender OnStateUnapplied   - Job `106` state `Processing` was unapplied.
+INFO  2018-02-02 13:23:33,728 167358ms HangFireLoggerAppender OnStateApplied     - Job 106 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:24:00,670 194300ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:24:01,476 195106ms HangFireLoggerAppender OnStateUnapplied   - Job `107` state `` was unapplied.
+INFO  2018-02-02 13:24:01,479 195109ms HangFireLoggerAppender OnStateApplied     - Job 107 state was changed from  to Enqueued
+INFO  2018-02-02 13:24:02,840 196470ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `107`
+INFO  2018-02-02 13:24:04,577 198207ms HangFireLoggerAppender OnStateUnapplied   - Job `107` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:24:04,580 198210ms HangFireLoggerAppender OnStateApplied     - Job 107 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:24:06,261 199891ms HangFireLoggerAppender OnPerforming       - Starting to perform job `107`
+INFO  2018-02-02 13:24:06,504 200134ms HangFireLoggerAppender OnPerformed        - Job `107` has been performed
+INFO  2018-02-02 13:24:07,510 201140ms HangFireLoggerAppender OnStateUnapplied   - Job `107` state `Processing` was unapplied.
+INFO  2018-02-02 13:24:07,526 201156ms HangFireLoggerAppender OnStateApplied     - Job 107 state was changed from Processing to Succeeded
+ERROR 2018-02-02 13:24:18,094 211724ms MetricController       MoveNext           - System.InvalidOperationException: The specified cast from a materialized 'System.Int32' type to the 'System.String' type is not valid.
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.<MoveNextAsync>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at VATMVCAPPFramework.Controllers.MetricController.<StudentCountPerAssignment>d__4.MoveNext() in C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework\Controllers\MetricController.cs:line 52
+INFO  2018-02-02 13:25:00,803 254433ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:25:01,153 254783ms HangFireLoggerAppender OnStateUnapplied   - Job `108` state `` was unapplied.
+INFO  2018-02-02 13:25:01,155 254785ms HangFireLoggerAppender OnStateApplied     - Job 108 state was changed from  to Enqueued
+INFO  2018-02-02 13:25:01,517 255147ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `108`
+INFO  2018-02-02 13:25:02,281 255911ms HangFireLoggerAppender OnStateUnapplied   - Job `108` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:25:02,283 255913ms HangFireLoggerAppender OnStateApplied     - Job 108 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:25:02,947 256577ms HangFireLoggerAppender OnPerforming       - Starting to perform job `108`
+INFO  2018-02-02 13:25:03,117 256747ms HangFireLoggerAppender OnPerformed        - Job `108` has been performed
+INFO  2018-02-02 13:25:04,595 258225ms HangFireLoggerAppender OnStateUnapplied   - Job `108` state `Processing` was unapplied.
+INFO  2018-02-02 13:25:04,599 258229ms HangFireLoggerAppender OnStateApplied     - Job 108 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:26:00,772 314402ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:26:01,761 315391ms HangFireLoggerAppender OnStateUnapplied   - Job `109` state `` was unapplied.
+INFO  2018-02-02 13:26:01,763 315393ms HangFireLoggerAppender OnStateApplied     - Job 109 state was changed from  to Enqueued
+INFO  2018-02-02 13:26:02,559 316189ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `109`
+INFO  2018-02-02 13:26:03,309 316939ms HangFireLoggerAppender OnStateUnapplied   - Job `109` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:26:03,311 316941ms HangFireLoggerAppender OnStateApplied     - Job 109 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:26:03,792 317422ms HangFireLoggerAppender OnPerforming       - Starting to perform job `109`
+INFO  2018-02-02 13:26:03,927 317557ms HangFireLoggerAppender OnPerformed        - Job `109` has been performed
+INFO  2018-02-02 13:26:04,589 318219ms HangFireLoggerAppender OnStateUnapplied   - Job `109` state `Processing` was unapplied.
+INFO  2018-02-02 13:26:04,591 318221ms HangFireLoggerAppender OnStateApplied     - Job 109 state was changed from Processing to Succeeded
+DEBUG 2018-02-02 13:26:05,222 318852ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-02 13:26:05,429 319059ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-02 13:27:00,434 374064ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:27:00,829 374459ms HangFireLoggerAppender OnStateUnapplied   - Job `110` state `` was unapplied.
+INFO  2018-02-02 13:27:00,833 374463ms HangFireLoggerAppender OnStateApplied     - Job 110 state was changed from  to Enqueued
+INFO  2018-02-02 13:27:01,163 374793ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `110`
+INFO  2018-02-02 13:27:01,564 375194ms HangFireLoggerAppender OnStateUnapplied   - Job `110` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:27:01,566 375196ms HangFireLoggerAppender OnStateApplied     - Job 110 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:27:02,045 375675ms HangFireLoggerAppender OnPerforming       - Starting to perform job `110`
+INFO  2018-02-02 13:27:02,238 375868ms HangFireLoggerAppender OnPerformed        - Job `110` has been performed
+INFO  2018-02-02 13:27:02,489 376119ms HangFireLoggerAppender OnStateUnapplied   - Job `110` state `Processing` was unapplied.
+INFO  2018-02-02 13:27:02,493 376123ms HangFireLoggerAppender OnStateApplied     - Job 110 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:28:02,928 436558ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:28:07,354 440984ms HangFireLoggerAppender OnStateUnapplied   - Job `111` state `` was unapplied.
+INFO  2018-02-02 13:28:07,358 440988ms HangFireLoggerAppender OnStateApplied     - Job 111 state was changed from  to Enqueued
+INFO  2018-02-02 13:28:07,951 441581ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `111`
+INFO  2018-02-02 13:28:08,652 442282ms HangFireLoggerAppender OnStateUnapplied   - Job `111` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:28:08,656 442286ms HangFireLoggerAppender OnStateApplied     - Job 111 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:28:10,533 444163ms HangFireLoggerAppender OnPerforming       - Starting to perform job `111`
+INFO  2018-02-02 13:28:10,730 444360ms HangFireLoggerAppender OnPerformed        - Job `111` has been performed
+INFO  2018-02-02 13:28:12,413 446043ms HangFireLoggerAppender OnStateUnapplied   - Job `111` state `Processing` was unapplied.
+INFO  2018-02-02 13:28:12,418 446048ms HangFireLoggerAppender OnStateApplied     - Job 111 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:30:33,043   566ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/02/2018 13:30:33 >>>>>>
+INFO  2018-02-02 13:30:40,295  7818ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/02/2018 13:30:40 >>>>>>
+INFO  2018-02-02 13:30:41,133  8656ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-02 13:30:41,982  9505ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-02 13:30:42,254  9777ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-02 13:30:42,277  9800ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-02 13:30:42,280  9803ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-02 13:30:42,282  9805ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-02 13:30:42,283  9806ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-02 13:30:42,284  9807ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-02 13:30:42,286  9809ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-02 13:30:42,288  9811ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-02 13:30:42,289  9812ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-02 13:30:43,009 10532ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-02 13:30:45,010 12533ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-02 13:30:45,021 12544ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-02 13:30:45,271 12794ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-02 13:30:45,290 12813ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-02 13:30:45,617 13140ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-02 13:30:45,630 13153ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-02 13:30:46,139 13662ms Worker                 CallSite.Target    - Background process 'Worker #2662bff4' started.
+DEBUG 2018-02-02 13:30:46,197 13720ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-02 13:30:46,328 13851ms Worker                 CallSite.Target    - Background process 'Worker #f80261ec' started.
+DEBUG 2018-02-02 13:30:46,864 14387ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-02 13:30:46,865 14388ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-02 13:30:46,869 14392ms Worker                 CallSite.Target    - Background process 'Worker #13d59455' started.
+DEBUG 2018-02-02 13:30:47,143 14666ms Worker                 CallSite.Target    - Background process 'Worker #21128113' started.
+DEBUG 2018-02-02 13:30:47,190 14713ms Worker                 CallSite.Target    - Background process 'Worker #0299b992' started.
+DEBUG 2018-02-02 13:30:47,502 15025ms Worker                 CallSite.Target    - Background process 'Worker #abd0d5fb' started.
+DEBUG 2018-02-02 13:30:47,738 15261ms Worker                 CallSite.Target    - Background process 'Worker #28a709f1' started.
+DEBUG 2018-02-02 13:30:47,880 15403ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-02 13:30:47,882 15405ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-02 13:30:47,987 15510ms Worker                 CallSite.Target    - Background process 'Worker #fc1864cd' started.
+DEBUG 2018-02-02 13:30:47,992 15515ms Worker                 CallSite.Target    - Background process 'Worker #2574f7ec' started.
+DEBUG 2018-02-02 13:30:48,393 15916ms Worker                 CallSite.Target    - Background process 'Worker #9136eb59' started.
+DEBUG 2018-02-02 13:30:48,783 16306ms Worker                 CallSite.Target    - Background process 'Worker #f59da121' started.
+DEBUG 2018-02-02 13:30:48,932 16455ms Worker                 CallSite.Target    - Background process 'Worker #3a7220d6' started.
+DEBUG 2018-02-02 13:30:48,936 16459ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-02 13:30:48,944 16467ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-02 13:30:49,241 16764ms Worker                 CallSite.Target    - Background process 'Worker #508ccb37' started.
+DEBUG 2018-02-02 13:30:49,420 16943ms Worker                 CallSite.Target    - Background process 'Worker #14adc379' started.
+DEBUG 2018-02-02 13:30:49,530 17053ms Worker                 CallSite.Target    - Background process 'Worker #d3fa6732' started.
+DEBUG 2018-02-02 13:30:49,635 17158ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-02 13:30:49,636 17159ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-02 13:30:49,671 17194ms Worker                 CallSite.Target    - Background process 'Worker #bd9c7c85' started.
+DEBUG 2018-02-02 13:30:49,887 17410ms Worker                 CallSite.Target    - Background process 'Worker #4f588282' started.
+DEBUG 2018-02-02 13:30:50,211 17734ms Worker                 CallSite.Target    - Background process 'Worker #9ba991cd' started.
+DEBUG 2018-02-02 13:30:50,398 17921ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-02 13:30:50,480 18003ms Worker                 CallSite.Target    - Background process 'Worker #62ad25fc' started.
+DEBUG 2018-02-02 13:30:50,481 18004ms Worker                 CallSite.Target    - Background process 'Worker #f467eec1' started.
+DEBUG 2018-02-02 13:30:50,513 18036ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-02 13:30:50,797 18320ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-02 13:31:03,654 31177ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:31:07,647 35170ms HangFireLoggerAppender OnStateUnapplied   - Job `112` state `` was unapplied.
+INFO  2018-02-02 13:31:07,654 35177ms HangFireLoggerAppender OnStateApplied     - Job 112 state was changed from  to Enqueued
+INFO  2018-02-02 13:31:09,611 37134ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `112`
+INFO  2018-02-02 13:31:10,549 38072ms HangFireLoggerAppender OnStateUnapplied   - Job `112` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:31:10,551 38074ms HangFireLoggerAppender OnStateApplied     - Job 112 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:31:12,028 39551ms HangFireLoggerAppender OnPerforming       - Starting to perform job `112`
+INFO  2018-02-02 13:31:27,328 54851ms HangFireLoggerAppender OnPerformed        - Job `112` has been performed
+INFO  2018-02-02 13:31:28,781 56304ms HangFireLoggerAppender OnStateUnapplied   - Job `112` state `Processing` was unapplied.
+INFO  2018-02-02 13:31:28,783 56306ms HangFireLoggerAppender OnStateApplied     - Job 112 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:32:00,507 88030ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:32:04,560 92083ms HangFireLoggerAppender OnStateUnapplied   - Job `113` state `` was unapplied.
+INFO  2018-02-02 13:32:04,563 92086ms HangFireLoggerAppender OnStateApplied     - Job 113 state was changed from  to Enqueued
+INFO  2018-02-02 13:32:04,894 92417ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `113`
+INFO  2018-02-02 13:32:05,384 92907ms HangFireLoggerAppender OnStateUnapplied   - Job `113` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:32:05,386 92909ms HangFireLoggerAppender OnStateApplied     - Job 113 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:32:06,193 93716ms HangFireLoggerAppender OnPerforming       - Starting to perform job `113`
+INFO  2018-02-02 13:32:06,332 93855ms HangFireLoggerAppender OnPerformed        - Job `113` has been performed
+INFO  2018-02-02 13:32:06,617 94140ms HangFireLoggerAppender OnStateUnapplied   - Job `113` state `Processing` was unapplied.
+INFO  2018-02-02 13:32:06,619 94142ms HangFireLoggerAppender OnStateApplied     - Job 113 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:41:42,531   633ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/02/2018 13:41:42 >>>>>>
+INFO  2018-02-02 13:41:51,935 10037ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/02/2018 13:41:51 >>>>>>
+INFO  2018-02-02 13:41:53,494 11596ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-02 13:41:54,537 12639ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-02 13:41:54,817 12919ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-02 13:41:54,850 12952ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-02 13:41:54,857 12959ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-02 13:41:54,859 12961ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-02 13:41:54,861 12963ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-02 13:41:54,862 12964ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-02 13:41:54,865 12967ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-02 13:41:54,867 12969ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-02 13:41:54,868 12970ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-02 13:41:55,241 13343ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-02 13:41:57,174 15276ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-02 13:41:57,221 15323ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-02 13:41:58,081 16183ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-02 13:41:58,100 16202ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+INFO  2018-02-02 13:41:58,162 16264ms ServerWatchdog         CallSite.Target    - 2 servers were removed due to timeout
+DEBUG 2018-02-02 13:41:58,230 16332ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-02 13:41:58,352 16454ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-02 13:41:58,707 16809ms Worker                 CallSite.Target    - Background process 'Worker #bc3ed280' started.
+DEBUG 2018-02-02 13:41:59,706 17808ms Worker                 CallSite.Target    - Background process 'Worker #4ed332b9' started.
+DEBUG 2018-02-02 13:41:59,874 17976ms Worker                 CallSite.Target    - Background process 'Worker #a1bb776d' started.
+DEBUG 2018-02-02 13:41:59,891 17993ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-02 13:42:00,438 18540ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-02 13:42:00,439 18541ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-02 13:42:00,751 18853ms Worker                 CallSite.Target    - Background process 'Worker #e8afcc73' started.
+DEBUG 2018-02-02 13:42:01,225 19327ms Worker                 CallSite.Target    - Background process 'Worker #c73677ab' started.
+DEBUG 2018-02-02 13:42:01,353 19455ms Worker                 CallSite.Target    - Background process 'Worker #fe0f0819' started.
+DEBUG 2018-02-02 13:42:01,846 19948ms Worker                 CallSite.Target    - Background process 'Worker #94aa7598' started.
+DEBUG 2018-02-02 13:42:01,847 19949ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-02 13:42:01,890 19992ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-02 13:42:02,425 20527ms Worker                 CallSite.Target    - Background process 'Worker #4b61db1d' started.
+DEBUG 2018-02-02 13:42:02,684 20786ms Worker                 CallSite.Target    - Background process 'Worker #c0961747' started.
+DEBUG 2018-02-02 13:42:03,079 21181ms Worker                 CallSite.Target    - Background process 'Worker #773f3f3d' started.
+DEBUG 2018-02-02 13:42:03,339 21441ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-02 13:42:03,340 21442ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-02 13:42:03,358 21460ms Worker                 CallSite.Target    - Background process 'Worker #43332018' started.
+DEBUG 2018-02-02 13:42:04,143 22245ms Worker                 CallSite.Target    - Background process 'Worker #001aa45f' started.
+DEBUG 2018-02-02 13:42:04,594 22696ms Worker                 CallSite.Target    - Background process 'Worker #db21564b' started.
+DEBUG 2018-02-02 13:42:04,604 22706ms Worker                 CallSite.Target    - Background process 'Worker #e867b15b' started.
+DEBUG 2018-02-02 13:42:04,941 23043ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-02 13:42:04,943 23045ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-02 13:42:05,417 23519ms Worker                 CallSite.Target    - Background process 'Worker #b520c38e' started.
+DEBUG 2018-02-02 13:42:05,653 23755ms Worker                 CallSite.Target    - Background process 'Worker #e2c6d3f8' started.
+DEBUG 2018-02-02 13:42:05,928 24030ms Worker                 CallSite.Target    - Background process 'Worker #cc650084' started.
+DEBUG 2018-02-02 13:42:06,285 24387ms Worker                 CallSite.Target    - Background process 'Worker #d2660f96' started.
+DEBUG 2018-02-02 13:42:06,486 24588ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-02 13:42:06,942 25044ms Worker                 CallSite.Target    - Background process 'Worker #9d0e2d7f' started.
+DEBUG 2018-02-02 13:42:07,284 25386ms Worker                 CallSite.Target    - Background process 'Worker #042d569b' started.
+DEBUG 2018-02-02 13:42:07,840 25942ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-02 13:42:08,249 26351ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-02 13:43:01,286 79388ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:43:01,817 79919ms HangFireLoggerAppender OnStateUnapplied   - Job `114` state `` was unapplied.
+INFO  2018-02-02 13:43:01,824 79926ms HangFireLoggerAppender OnStateApplied     - Job 114 state was changed from  to Enqueued
+INFO  2018-02-02 13:43:02,180 80282ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `114`
+INFO  2018-02-02 13:43:03,068 81170ms HangFireLoggerAppender OnStateUnapplied   - Job `114` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:43:03,071 81173ms HangFireLoggerAppender OnStateApplied     - Job 114 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:43:03,876 81978ms HangFireLoggerAppender OnPerforming       - Starting to perform job `114`
+INFO  2018-02-02 13:43:18,924 97026ms HangFireLoggerAppender OnPerformed        - Job `114` has been performed
+INFO  2018-02-02 13:43:19,298 97400ms HangFireLoggerAppender OnStateUnapplied   - Job `114` state `Processing` was unapplied.
+INFO  2018-02-02 13:43:19,300 97402ms HangFireLoggerAppender OnStateApplied     - Job 114 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:47:01,412   866ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/02/2018 13:47:01 >>>>>>
+INFO  2018-02-02 13:47:13,517 12971ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/02/2018 13:47:13 >>>>>>
+INFO  2018-02-02 13:47:14,381 13835ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-02 13:47:15,042 14496ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-02 13:47:15,251 14705ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-02 13:47:15,278 14732ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-02 13:47:15,289 14743ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-02 13:47:15,293 14747ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-02 13:47:15,295 14749ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-02 13:47:15,296 14750ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-02 13:47:15,304 14758ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-02 13:47:15,307 14761ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-02 13:47:15,308 14762ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-02 13:47:15,636 15090ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-02 13:47:17,407 16861ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-02 13:47:17,408 16862ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-02 13:47:17,424 16878ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-02 13:47:17,408 16862ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-02 13:47:17,956 17410ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-02 13:47:17,976 17430ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-02 13:47:18,057 17511ms Worker                 CallSite.Target    - Background process 'Worker #51b1cf03' started.
+DEBUG 2018-02-02 13:47:18,612 18066ms Worker                 CallSite.Target    - Background process 'Worker #0cfecb25' started.
+DEBUG 2018-02-02 13:47:18,615 18069ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-02 13:47:18,948 18402ms Worker                 CallSite.Target    - Background process 'Worker #ed6805e3' started.
+DEBUG 2018-02-02 13:47:18,965 18419ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-02 13:47:18,967 18421ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-02 13:47:19,618 19072ms Worker                 CallSite.Target    - Background process 'Worker #13a88e0f' started.
+DEBUG 2018-02-02 13:47:20,027 19481ms Worker                 CallSite.Target    - Background process 'Worker #b122a32c' started.
+DEBUG 2018-02-02 13:47:20,069 19523ms Worker                 CallSite.Target    - Background process 'Worker #817f0d9b' started.
+DEBUG 2018-02-02 13:47:20,378 19832ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-02 13:47:20,382 19836ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-02 13:47:20,390 19844ms Worker                 CallSite.Target    - Background process 'Worker #af361240' started.
+DEBUG 2018-02-02 13:47:21,184 20638ms Worker                 CallSite.Target    - Background process 'Worker #d964736a' started.
+DEBUG 2018-02-02 13:47:21,513 20967ms Worker                 CallSite.Target    - Background process 'Worker #9b4c43ee' started.
+DEBUG 2018-02-02 13:47:21,673 21127ms Worker                 CallSite.Target    - Background process 'Worker #150ce845' started.
+DEBUG 2018-02-02 13:47:21,784 21238ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-02 13:47:21,786 21240ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-02 13:47:21,992 21446ms Worker                 CallSite.Target    - Background process 'Worker #86d359ab' started.
+DEBUG 2018-02-02 13:47:22,311 21765ms Worker                 CallSite.Target    - Background process 'Worker #5e082cbf' started.
+DEBUG 2018-02-02 13:47:22,555 22009ms Worker                 CallSite.Target    - Background process 'Worker #383f0564' started.
+DEBUG 2018-02-02 13:47:23,130 22584ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-02 13:47:23,141 22595ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-02 13:47:23,138 22592ms Worker                 CallSite.Target    - Background process 'Worker #0fe8f038' started.
+DEBUG 2018-02-02 13:47:23,690 23144ms Worker                 CallSite.Target    - Background process 'Worker #0cd90272' started.
+DEBUG 2018-02-02 13:47:23,746 23200ms Worker                 CallSite.Target    - Background process 'Worker #b4a50370' started.
+DEBUG 2018-02-02 13:47:24,156 23610ms Worker                 CallSite.Target    - Background process 'Worker #aeada380' started.
+DEBUG 2018-02-02 13:47:24,491 23945ms Worker                 CallSite.Target    - Background process 'Worker #791a6ea4' started.
+DEBUG 2018-02-02 13:47:24,708 24162ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-02 13:47:24,973 24427ms Worker                 CallSite.Target    - Background process 'Worker #49e0a5a3' started.
+DEBUG 2018-02-02 13:47:25,387 24841ms Worker                 CallSite.Target    - Background process 'Worker #3b8c50ce' started.
+DEBUG 2018-02-02 13:47:25,511 24965ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-02 13:47:25,716 25170ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-02 13:48:02,188 61642ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:48:03,446 62900ms HangFireLoggerAppender OnStateUnapplied   - Job `115` state `` was unapplied.
+INFO  2018-02-02 13:48:03,453 62907ms HangFireLoggerAppender OnStateApplied     - Job 115 state was changed from  to Enqueued
+INFO  2018-02-02 13:48:05,894 65348ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `115`
+INFO  2018-02-02 13:48:06,407 65861ms HangFireLoggerAppender OnStateUnapplied   - Job `115` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:48:06,409 65863ms HangFireLoggerAppender OnStateApplied     - Job 115 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:48:08,361 67815ms HangFireLoggerAppender OnPerforming       - Starting to perform job `115`
+INFO  2018-02-02 13:48:22,712 82166ms HangFireLoggerAppender OnPerformed        - Job `115` has been performed
+INFO  2018-02-02 13:48:23,186 82640ms HangFireLoggerAppender OnStateUnapplied   - Job `115` state `Processing` was unapplied.
+INFO  2018-02-02 13:48:23,188 82642ms HangFireLoggerAppender OnStateApplied     - Job 115 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:49:02,339 121793ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:49:05,125 124579ms HangFireLoggerAppender OnStateUnapplied   - Job `116` state `` was unapplied.
+INFO  2018-02-02 13:49:05,135 124589ms HangFireLoggerAppender OnStateApplied     - Job 116 state was changed from  to Enqueued
+INFO  2018-02-02 13:49:08,317 127771ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `116`
+INFO  2018-02-02 13:49:13,136 132590ms HangFireLoggerAppender OnStateUnapplied   - Job `116` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:49:13,139 132593ms HangFireLoggerAppender OnStateApplied     - Job 116 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:49:27,772 147226ms HangFireLoggerAppender OnPerforming       - Starting to perform job `116`
+INFO  2018-02-02 13:49:28,658 148112ms HangFireLoggerAppender OnPerformed        - Job `116` has been performed
+INFO  2018-02-02 13:49:30,263 149717ms HangFireLoggerAppender OnStateUnapplied   - Job `116` state `Processing` was unapplied.
+INFO  2018-02-02 13:49:30,266 149720ms HangFireLoggerAppender OnStateApplied     - Job 116 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:50:01,806 181260ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:50:02,167 181621ms HangFireLoggerAppender OnStateUnapplied   - Job `117` state `` was unapplied.
+INFO  2018-02-02 13:50:02,169 181623ms HangFireLoggerAppender OnStateApplied     - Job 117 state was changed from  to Enqueued
+INFO  2018-02-02 13:50:02,583 182037ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `117`
+INFO  2018-02-02 13:50:03,609 183063ms HangFireLoggerAppender OnStateUnapplied   - Job `117` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:50:03,611 183065ms HangFireLoggerAppender OnStateApplied     - Job 117 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:50:04,399 183853ms HangFireLoggerAppender OnPerforming       - Starting to perform job `117`
+INFO  2018-02-02 13:50:04,472 183926ms HangFireLoggerAppender OnPerformed        - Job `117` has been performed
+INFO  2018-02-02 13:50:04,721 184175ms HangFireLoggerAppender OnStateUnapplied   - Job `117` state `Processing` was unapplied.
+INFO  2018-02-02 13:50:04,724 184178ms HangFireLoggerAppender OnStateApplied     - Job 117 state was changed from Processing to Succeeded
+INFO  2018-02-02 13:51:01,922 241376ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-02 13:51:04,153 243607ms HangFireLoggerAppender OnStateUnapplied   - Job `118` state `` was unapplied.
+INFO  2018-02-02 13:51:04,158 243612ms HangFireLoggerAppender OnStateApplied     - Job 118 state was changed from  to Enqueued
+INFO  2018-02-02 13:51:04,519 243973ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `118`
+INFO  2018-02-02 13:51:05,149 244603ms HangFireLoggerAppender OnStateUnapplied   - Job `118` state `Enqueued` was unapplied.
+INFO  2018-02-02 13:51:05,151 244605ms HangFireLoggerAppender OnStateApplied     - Job 118 state was changed from Enqueued to Processing
+INFO  2018-02-02 13:51:06,064 245518ms HangFireLoggerAppender OnPerforming       - Starting to perform job `118`
+INFO  2018-02-02 13:51:06,145 245599ms HangFireLoggerAppender OnPerformed        - Job `118` has been performed
+INFO  2018-02-02 13:51:06,386 245840ms HangFireLoggerAppender OnStateUnapplied   - Job `118` state `Processing` was unapplied.
+INFO  2018-02-02 13:51:06,388 245842ms HangFireLoggerAppender OnStateApplied     - Job 118 state was changed from Processing to Succeeded

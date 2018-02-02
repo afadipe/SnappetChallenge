@@ -1,0 +1,220 @@
+﻿@model IEnumerable<VATMVCAPPFramework.ViewModel.SchoolViewModel>
+
+@{
+    ViewBag.Title = "School Profile";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">  School Profile Management </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        VATACADA
+                    </li>
+                    <li>
+                       Administration
+                    </li>
+                    <li class="active">
+                        School Profile
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            @if (@ViewBag.SchoolExist == 0)
+                            {
+                                <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add School</a>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="schooltbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>School</th>
+                                <th>Address</th>
+                                <th>Contact Email</th>
+                                <th>Contact PhoneNo</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Address1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ContactEmail)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ContactPhoneNo)</td>
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.Id)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+            @section JavaScript
+            {
+                <script type="text/javascript">
+
+                    $(".select2").select2();
+
+                    $(function () {
+
+                        $(".select2").select2();
+
+
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                   
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("Create", "School", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("Edit", "School", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+
+                            url = '@Url.Action("Delete", "School", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+
+                        });
+
+                        $('#schooltbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+

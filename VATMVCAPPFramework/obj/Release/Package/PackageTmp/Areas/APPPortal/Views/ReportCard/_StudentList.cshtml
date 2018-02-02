@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.StudentListViewModel>
+
+
+
+   <table class="table table-bordered table-striped" id="tblList">
+    <thead>
+
+        <tr>
+            <th>S/N</th>
+            <th>Surname</th>
+            <th>Lastname</th>
+            <th>Other name</th>
+            <th width="5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.Lastname)</td>
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.MiddleName)</td>
+                <td>@Html.ActionLink("Report", "Detail", "ReportCard", new { id = item.UserId, armId = item.ArmId, termId = item.TermId, sessionId = item.SessionId }, new { @class = "btn btn-success fa fa-edit" })</td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+
+                   
+
+
+           

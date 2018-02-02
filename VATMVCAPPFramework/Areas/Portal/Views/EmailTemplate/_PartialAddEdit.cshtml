@@ -1,0 +1,106 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.EmailViewModel
+
+@{
+    ViewBag.Title = "Email Template";
+    Layout = null;
+}
+
+<div class="modal-content">
+    <!-- Begin page heading -->
+    @using (Html.BeginForm((string)ViewBag.PostAction, "EmailTemplate", FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Email Template</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmailSubject, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.EmailSubject, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+                </div>
+            </div>
+
+
+            @if (Model.EmailToken != null)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmailToken, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+
+                        @foreach (var e in Model.EmailToken)
+                        {
+                            <span class="label label-success">@e.Token</span>
+                        }
+
+                    </div>
+                </div>
+            }
+
+            @Html.HiddenFor(u => u.EmailSubject)
+            @Html.HiddenFor(u => u.EmailCode)
+            @Html.HiddenFor(u => u.EmailID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmailText, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-sm-9">
+
+                    @Html.TextAreaFor(model => model.EmailText,  new { @class = "form-control", name = "area" })
+
+                    @*@Html.TextAreaFor(u => u.EmailText, new { @id = "EmailText", rows = "10", cols = "16", style = "float: left", @class = "ckeditor" })*@
+
+                    @Html.ValidationMessageFor(model => model.EmailText, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.row -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    }
+
+
+</div>
+<script src="~/assets/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($("#EmailText").length > 0) {
+            tinymce.init({
+                selector: "textarea#EmailText",
+                theme: "modern",
+                height: 300,
+                plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                    "save table contextmenu directionality emoticons template paste textcolor"
+                ],
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                style_formats: [
+                    { title: 'Bold text', inline: 'b' },
+                    { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+                    { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+                    { title: 'Example 1', inline: 'span', classes: 'example1' },
+                    { title: 'Example 2', inline: 'span', classes: 'example2' },
+                    { title: 'Table styles' },
+                    { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+                ]
+            });
+        }
+    });
+</script>
+
+
+
+
+

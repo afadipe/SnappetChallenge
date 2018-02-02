@@ -1,0 +1,134 @@
+﻿@model VATMVCAPPFramework.ViewModel.ManageStudentRoomAllocationViewModel
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Hall";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">  Student Room Allocation </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    VATACADA
+                </li>
+                <li>
+                    Hostel Setting
+                </li>
+                <li class="active">
+                    Student Room Allocation
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("RoomManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Management</a>
+
+                                <a href="@Url.Action("BedSpaceManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Space Management</a>
+
+                                <a href="@Url.Action("RoomAllocationManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Allocation Details</a>
+
+
+                                <a href="@Url.Action("StudentRoomAllocation","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Allocation</a>
+                                <a href="@Url.Action("RoomRoundManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Round</a>
+
+                                <a href="@Url.Action("RoomDellocationHistoryManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Deallocation</a>
+                                <a href="@Url.Action("RoomHeadCountManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Head Count</a>
+
+                               <a href="@Url.Action("Index", "Hostel", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-box table-responsive">
+                    @Html.Partial("_PartialStudentAllocationSearch", Model.StudentRoomAllocationSearchViewModel)
+                </div>
+
+                <br />
+
+                @if (Model.StudentRoomAllocationSearchViewModel.Studentdetail != null)
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-lg-3 ">
+                            <div class="text-center card-box">
+                                @Html.Partial("_PartialRoomAllocationProcessingResult", Model.StudentRoomAllocationSearchViewModel.Studentdetail)
+                            </div> <!-- end card-box -->
+
+                        </div> <!-- end col -->
+
+                        @if (Model.StudentRoomAllocationSearchViewModel.Studentdetail.RoomIsAllocated == 1)
+                        {
+                            <div class="col-md-8 col-lg-9">
+                                <div class="row">
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>@Model.StudentRoomAllocationSearchViewModel.Studentdetail.LastName  @Model.StudentRoomAllocationSearchViewModel.Studentdetail.FirstName </strong> has already being assigned to a room for this current session.Thanks
+                                        again.
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-8 col-lg-9">
+                                <div class="row">
+
+                                    @Html.Partial("_PartialAddRoomAllocation", Model.StudentRoomAllocationViewModel)
+
+                                </div>
+                            </div>
+                        }
+
+                        <!-- end col -->
+
+                    </div>
+
+                }
+                            </div>
+                        </div>
+    </div>
+
+    @section JavaScript
+    {
+        <script type="text/javascript">
+            $(function () {
+                $("#RoomID").change(function () {
+                    var SelectedRoomID = $(this).val();
+                    console.log(SelectedRoomID);
+                    $.getJSON('@Url.Action("GetRoomBedSpaceByRoomId")', { RoomId: $(this).val() }, function (locations) {
+
+                        var selcetedBedID = $('#BedID');
+                        selcetedBedID.empty();
+                        selcetedBedID.append($("<option />", { value: 0, text: "Please select..." }));
+                        $.each(locations, function (index, location) {
+                            selcetedBedID.append($('<option />', {
+                                value: location.Value,
+                                text: location.Text
+                            }));
+                        });
+                    });
+                });
+            });
+
+        </script>
+
+
+    }
+
+
+
+</div>

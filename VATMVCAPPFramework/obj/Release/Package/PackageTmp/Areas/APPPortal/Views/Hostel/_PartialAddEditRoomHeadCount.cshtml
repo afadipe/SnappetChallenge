@@ -1,0 +1,48 @@
+﻿
+@model List<VATMVCAPPFramework.ViewModel.RoomHeadCountViewModel>
+@using (Html.BeginForm("CreateRoomHeadCount", "Hostel", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="card-box table-responsive">
+
+        @if (Model != null && Model.Count() >= 1)
+        {
+            var count = Model.Count();
+            <table class="table table-striped" id="roomroundInputTable">
+                <thead>
+                    <tr>
+                        <td>Room </td>
+                        <td>Expected</td>
+                        <td>Actual</td>
+                        <td>Remark</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int item = 0; item < count; item++)
+                    {
+                        var broadSheet = Model[item];
+                        <tr>
+                            @Html.HiddenFor(x => x[item].HallID)
+                            @Html.HiddenFor(x => x[item].RoomID)
+
+                            <td>@Html.DisplayFor(x => x[item].RoomName)</td>
+                            <td>
+                                @Html.EditorFor(x => x[item].Expected, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td>
+                                @Html.EditorFor(x => x[item].Actual, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td>
+                                @Html.EditorFor(x => x[item].Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <div style="text-align:right">
+        <button type="submit" class="btn btn-info">Save</button>
+    </div>
+
+}

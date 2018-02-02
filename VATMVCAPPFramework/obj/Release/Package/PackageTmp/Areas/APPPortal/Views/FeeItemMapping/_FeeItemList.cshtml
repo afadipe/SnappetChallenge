@@ -1,0 +1,78 @@
+﻿@(Html.Kendo().Grid<VATMVCAPPFramework.Models.FeeItemMappingViewModel>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+
+        columns.Bound(p => p.Id).Width(100).Visible(false);
+        columns.Bound(p => p.SN).Width(100);
+        columns.Bound(p => p.FeeItem).Width(200);
+        columns.Bound(p => p.Amount).Width(200).ClientTemplate("#= kendo.toString(Amount, \"N2\") #");
+        columns.Bound(p => p.IsChecked).Width(140).ClientTemplate("<input type='checkbox' #= IsChecked ? checked='checked' :'' # class='chkbx' />")
+            .HeaderTemplate("<input type='checkbox' id='masterCheckBox' onclick='checkAll(this)'/>").Width(200);  
+        columns.Bound(p => p.ProgrammeId).Width(100).Visible(false);
+
+    })
+    .ToolBar(toolbar =>
+    {
+        toolbar.Save();
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    .Pageable()
+    .Navigatable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Batch(true)
+        .PageSize(20)
+        .ServerOperation(false)
+        .Events(events => events.Error("error_handler"))
+            .Model(model =>
+            {
+                model.Id(p => p.SN);
+                model.Field(p => p.SN).Editable(false);
+                model.Field(p => p.FeeItem).Editable(false);
+                model.Field(p => p.Amount).Editable(false);
+
+            })
+
+            .Read(read => read.Action("Editing_Read", "FeeItemMapping").Data("aditionalInfo"))
+                    .Update("Editing_Update", "FeeItemMapping").Events(e => e.RequestEnd("onRequestEnd"))
+                .Destroy("Editing_Destroy", "FeeItemMapping")
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    $(function () {
+        $('#Grid').on('click', '.chkbx', function () {
+            var checked = $(this).is(':checked');
+            var grid = $('#Grid').data().kendoGrid;
+            var dataItem = grid.dataItem($(this).closest('tr'));
+            dataItem.set('IsChecked', checked);
+        })
+    })
+
+    function checkAll(ele) {
+        var state = $(ele).is(':checked');
+        var grid = $('#Grid').data().kendoGrid;
+        $.each(grid.dataSource.view(), function () {
+            if (this['IsChecked'] != state)
+                this.dirty = true;
+            this['IsChecked'] = state;
+            
+        });
+        grid.refresh();
+    }
+</script>

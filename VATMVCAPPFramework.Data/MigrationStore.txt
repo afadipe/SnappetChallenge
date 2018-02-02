@@ -1,0 +1,109 @@
+﻿up
+
+
+            CreateStoredProcedure("dbo.FetchUserPermissionAndRole",
+               p => new
+               {
+                   UserId = p.Int()
+               },
+               body:
+
+               @"select p.Name PermissionName,p.Code PermissionCode,r.Name RoleName
+                ,rp.PermissionId,rp.RoleId
+                from [AspNetUsers] e  
+                inner join [AspNetUserRole] ur on e.AspNetUserId=ur.AspNetUserId
+                inner join [AspNetRole] r on ur.AspNetRoleId=r.AspNetRoleId
+                inner join [RolePermission] rp on ur.AspNetRoleId=rp.RoleId
+                inner join [Permission] p on rp.PermissionId=p.Id
+                where (e.UserId =@UserId)"
+           );
+
+
+            CreateStoredProcedure("dbo.spPasswordHistorySelect",
+              p => new
+              {
+                  userId = p.Int(),
+                  numberOfRecentPasswordsToKeep = p.Int()
+              },
+              body:
+
+              @"SELECT TOP(@numberOfRecentPasswordsToKeep)
+                    HashPassword,
+                    PasswordSalt
+                FROM
+                    dbo.PasswordHistory
+                WHERE
+                    AspNetUserId = @userId
+                ORDER BY
+                    DateCreated DESC"
+          );
+
+
+
+            CreateStoredProcedure("dbo.spPasswordHistoryDeleteNonRecentPasswords",
+               p => new
+               {
+                   userId = p.Int(),
+                   numberOfRecentPasswordsToKeep = p.Int()
+               },
+               body:
+
+               @"DECLARE @minimumDate DATETIME
+               SELECT @minimumDate = MIN(DateCreated) FROM  dbo.PasswordHistory
+               WHERE
+                AspNetUserId = @userId
+                AND DateCreated IN
+                (
+                    SELECT
+                        TOP(@numberOfRecentPasswordsToKeep) DateCreated
+                    FROM
+                        dbo.PasswordHistory
+                    WHERE
+                        AspNetUserId = @userId
+                    ORDER BY
+                        DateCreated DESC
+                )
+             IF(@minimumDate IS NOT NULL)
+            BEGIN
+                DELETE FROM dbo.PasswordHistory
+                WHERE AspNetUserId = @userId AND DateCreated < @minimumDate
+            END"
+           );
+
+
+
+
+
+
+		   down
+		    DropStoredProcedure("dbo.FetchUserPermissionAndRole");
+            DropStoredProcedure("dbo.spPasswordHistorySelect");
+            DropStoredProcedure("dbo.spPasswordHistoryDeleteNonRecentPasswords");
+
+
+			seed
+			  protected override void Seed(VATMVCAPPFramework.Data.APPContext context)
+        {
+
+            //  This method will be called after migrating to the latest version.
+            context.ApplicationRoles.AddOrUpdate(p => p.Name, new ApplicationRole { Name = "PortalAdmin" });
+
+            context.PortalVersions.AddOrUpdate(p => p.FrameworkName,
+                new PortalVersion
+                {
+                    FrameworkName = "VATMVCFramework",
+                    FrameworkDescription = "An MVC Customized Framework built on ASP.Net Identity 2.0 to aid fast application development with buil in logger and activitylog",
+                    FrameworkVersion = "1.17.0.0",
+                    TargetServer = "MSSQL,Postgress,MangoDB,MYSQL",
+                    PackagesUsed= "Microsoft.ASPNET.Identity,Microsoft.OWIN,Log4net,EntityFramework,Autofac,Autofac.MVC,Autofac.WebAPI2,RepositoryPattern",
+                    DefaultDatabaseEngine = "MSSQL Server",
+                    IOC = "Autofac,Autofac.MVC,Autofac.WebAPI2 and Repository Pattern",
+                    DateCreated = DateTime.Now,
+                    DevelopedBy="Fadipe Ayobami ayfadipe@gmail.com",
+                    UX="Biodun Ijelu"
+                });
+
+            base.Seed(context);
+
+
+        }

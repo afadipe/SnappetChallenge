@@ -1,0 +1,109 @@
+﻿@model VATMVCAPPFramework.Models.HallViewModel
+@using VATMVCAPPFramework.CustomClass
+@using VATMVCAPPFramework.Data.Entities
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">Hall Activity Log</h1>
+        </div>
+      
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventDate, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-8">
+                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                    @Html.EditorFor(model => model.EventDate, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.EventDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(" Event Description", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.EventDescrption, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.EventDescrption, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.Label("Activity", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList((EnumHallActivityStatus.Ongoing.ToString()))
+                @Html.ValidationMessageFor(model => model.HallActivityStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.Label("Supervisor", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.SupervisorID, new SelectList(SectionHelper.GetSupervisor(), "StaffID", "StaffCode"), "Select Supervisor.", new { @class = "form-control", required = true })
+                @Html.ValidationMessageFor(model => model.SupervisorID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Venue", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Venue, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.Venue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(x => x.SelectedHall)
+
+        @if (Model.HallIDlog != null && Model.HallIDlog.Count() >= 1)
+        {
+            var count = Model.HallIDlog.Count();
+            <table class="table table-striped" id="regionalEmployeeHistory">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Applicable Hall</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model.HallIDlog)
+                    {
+
+                        <tr>
+                            @if (@m.HallHostelID > 0)
+                            {
+                                <td><input type="checkbox" name="SelectedHall" checked="checked" value="@m.HallID" class="pending" /></td>
+                            }
+                            else
+                            {
+                                <td><input type="checkbox" name="SelectedHall" value="@m.HallID" class="inClass" /></td>
+                            }
+                            <td>@Html.DisplayFor((x) => m.HallName)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

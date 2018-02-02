@@ -1,0 +1,148 @@
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll.config
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.pdb
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Autofac.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\log4net.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Autofac.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\log4net.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.addidentitytable.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_activitylogtable.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.rolepermissiontableupdate.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.modifiedDateupdated.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_email_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_email_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_app_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.proc_tblclasssubject.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_classsubject_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetSchool.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetProgrammeSession.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetExpiredSession.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updateBorrowBooktbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updateTermtbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetProgrammeCampus.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updateclasstbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetClassByProgrammeId.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updatestudenttbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updatestudenttblwithsex.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.addstudentlanguagetbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updatestafftbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_staff_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_techFee_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_techtbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_TechFeeRunPeriod_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_updateBycolumns.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_db.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_studentParent_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_clubMembertbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_classmember_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_clubmembers_table.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_project_db.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.correct_clubtbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updatefromDayo.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.ReaddStudentParent_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.checkMotincluded_DB.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_bedspace_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_roomallocation_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_roomdeallocationhistory_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_RoomRoundCheckListSetting_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.studentBill.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_dbtbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updateLatest.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.FeeItemMapping.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.AddColumnsInStudentBill.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_StudentBill1.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.wallettable.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.feepaymentLog.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_applicationuser_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.feePayment.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_roomround_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_roomheadcount_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_TechFeeRunPeroid_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.updatestudent_tbl_add_campusId.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.BISpQuery.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.BISpQuery2.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spSchooladminSpQueryBI.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_booktbl_add_booksubtbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spLibrarianBIQuery.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.check_Table_change.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_wallet_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_WalletTransactionHistory.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spGetWallet.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations._121817update_db_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.banks.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.bankId.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_campus_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_staffEmployeeInfo_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_student_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_student_tbl1.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_Student_table.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csproj.GenerateResource.Cache
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.pdb
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csprojResolveAssemblyReference.cache
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.assessmentProgramme.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.improve_student_tbl.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_hostelAttendance.resources
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_hostel_attendance_tbl.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csprojResolveAssemblyReference.cache
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.addidentitytable.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_activitylogtable.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.rolepermissiontableupdate.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.modifiedDateupdated.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_email_tbl.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_email_tbl.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csproj.GenerateResource.Cache
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.pdb
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll.config
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.pdb
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Autofac.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\log4net.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Autofac.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\log4net.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_student_perf_tbl.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_stuentper_tbl.resources
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spSnappetQuery.resources

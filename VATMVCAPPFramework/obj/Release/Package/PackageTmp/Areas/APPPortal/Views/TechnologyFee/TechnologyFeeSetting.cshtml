@@ -1,0 +1,148 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.TechnologyFeeViewModel
+    @using VATMVCAPPFramework.Data.Entities
+    @{
+        ViewBag.Title = "Technology Fee Setting";
+        Layout = "~/Views/Shared/_APPPortal.cshtml";
+    }
+    @Html.Partial("_ToastrViewHeader")
+
+
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title"> Technology Fee Management </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                       VATACADA
+                    </li>
+                    <li>
+                        Administration
+                    </li>
+                    <li class="active">
+                        Technology Fee Management
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+               <div class="row">
+                   <div class="modal-body">
+
+                       @using (Html.BeginForm((string)ViewBag.PostAction, "TechnologyFee", new { area = "APPPortal" }, FormMethod.Post))
+
+            {
+
+                        @Html.HiddenFor(m => m.Id)
+                           <div class="form-group">
+                               @Html.LabelFor(model => model.FeeCharge, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                               <div class="col-sm-9">
+                                   @Html.DropDownListFor(m => m.FeeCharge, EnumHelper.GetSelectList(typeof(EnumFeeChargeType)), "Please select...", new { @class = "form-control" })
+                                   @Html.ValidationMessageFor(model => model.FeeCharge, "", new { @class = "text-danger" })
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               @Html.LabelFor(model => model.FeeType, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                               <div class="col-sm-9">
+                                   @Html.DropDownListFor(m => m.FeeType, EnumHelper.GetSelectList(typeof(EnumFeeType)), "Please select...", new { @class = "form-control" })
+                                   @Html.ValidationMessageFor(model => model.FeeType, "", new { @class = "text-danger" })
+
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                               <div class="col-sm-9">
+                                   @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                   @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                               </div>
+                           </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EnableAutoGenerateOfInvoice, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.DropDownListFor(m => m.EnableAutoGenerateOfInvoice, EnumHelper.GetSelectList(typeof(VATMVCAPPFramework.ViewModel.EnumAutoGenerateOfInvoice)), "Please select...", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EnableAutoGenerateOfInvoice, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                    
+
+                           <div  style="display:none" class="form-group"  id="dvRunPeriod">
+                               @Html.LabelFor(model => model.RunPeriod, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                               <div class="col-sm-9">
+                                   @Html.DropDownListFor(m => m.RunPeriod, EnumHelper.GetSelectList(typeof(EnumRunPeriod)), "Please select...", new { @class = "form-control" })
+                                   @Html.ValidationMessageFor(model => model.RunPeriod, "", new { @class = "text-danger" })
+
+                               </div>
+                           </div>
+
+
+                        <button type="submit" class="btn btn-info">Update</button>
+
+                       }
+
+                   </div>
+               </div>
+            </section>
+
+        </div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@section scripts
+{
+  <script src="~/Scripts/bootstrap.min.js"></script>
+}
+<script type="text/javascript">
+
+
+    $(function () {
+
+
+        if ($("#EnableAutoGenerateOfInvoice").val() >= 1) {
+            var searchType = $("#EnableAutoGenerateOfInvoice").val();
+            if (searchType < 1) {
+                $('#dvRunPeriod').hide();
+            }
+            else {
+                $('#dvRunPeriod').show();
+
+            }
+        }
+
+
+
+        $("#EnableAutoGenerateOfInvoice").change(function () {
+            $('#dvRunPeriod').hide();
+            var selectedValue = $(this).val();
+            console.log('selected EnableAutoGenerateOfInvoice' + selectedValue);
+            if (selectedValue == 1) {
+                $('#dvRunPeriod').show();
+            } else {
+                $('#dvRunPeriod').hide();
+            }
+
+        });
+
+    });
+
+
+
+</script>
+</div>
+
+</div>
+       

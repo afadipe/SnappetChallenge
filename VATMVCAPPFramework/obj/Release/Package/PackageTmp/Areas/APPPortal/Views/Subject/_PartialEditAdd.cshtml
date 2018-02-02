@@ -1,0 +1,62 @@
+﻿@model VATMVCAPPFramework.Models.AddSubjectViewModel
+@{
+    ViewBag.Title = "Add Subject";
+    Layout = null;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Subject</h1>
+    </div>
+   
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.SubjectName, new { htmlAttributes = new { @class = "form-control",required=true } })
+                @Html.ValidationMessageFor(model => model.SubjectName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectAlias, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.SubjectAlias, new { htmlAttributes = new { @class = "form-control" ,required=true } })
+                @Html.ValidationMessageFor(model => model.SubjectAlias, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectCode, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.SubjectCode, new { htmlAttributes = new { @class = "form-control",required=true } })
+                @Html.ValidationMessageFor(model => model.SubjectCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.isActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.isActive)
+                    @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+       
+        @*@Html.DropDownListFor(model => model.SubjectCode, new SelectList(ViewBag.Category, "SubjectCode", "SubjectCode"), "Select a SubjectCODE")*@
+        <div class="form-group">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+            </div>
+        </div>
+    </div>
+}
+
+

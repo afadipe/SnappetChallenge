@@ -1,0 +1,112 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.StaffViewModel
+@using VATMVCAPPFramework.Utilities
+
+<form class="form-horizontal" role="form">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">FirstName</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">LastName</label>
+                <div class="col-sm-9">
+
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">MiddleName</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Gender</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.GenderName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">UserName</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Mobile Number</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Phone Number</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Date Of Birth</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Joining Date</label>
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.JoiningDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</form>
+

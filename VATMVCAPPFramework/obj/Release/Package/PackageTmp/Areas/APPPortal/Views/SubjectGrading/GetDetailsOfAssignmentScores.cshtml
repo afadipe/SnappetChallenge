@@ -1,0 +1,227 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.AssignmentModel>
+@{
+    ViewBag.Title = "Upload Assignment";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Assignment Managent</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">VATACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Class Teacher Setting</a>
+                    </li>
+                    <li class="active">
+                        Class Teacher Setting
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            @*<a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add Assignment</a>*@
+                            @*<a href="@Url.Action("Index", "Book", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Add Assignment</a>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="lookUptbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Name</th>
+                                
+                                <th>Submission Date</th>
+                                <th>Score</th>
+                                <th>Download</th>
+                                <th>Grade</th>
+                               
+                         
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                                  
+                                    <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SubmissionDate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Score)</td>
+                                    <td class="btn btn success">@Html.ActionLink("Download Assignment", "DownloadFile", new { ID = item.ID })</td> 
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Score Grade</a></td>
+                                    
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+
+            @section JavaScript
+            {
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        //$(".select2").select2();
+                        var url = "";
+
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("UploadAssignment", "SubjectGrading", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("ScoreGrading", "SubjectGrading", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+
+                            url = '@Url.Action("Delete", "Staff", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+
+                                     {
+                                         extend: 'copyHtml5', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7] }
+                                     },
+                                    {
+                                        extend: 'csvHtml5', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7] }, text: 'Excel'
+                                    },
+                                  //'csv', 'excel',
+                                   {
+                                       extend: 'pdfHtml5',
+                                       orientation: 'landscape',
+                                       pageSize: 'LEGAL',
+                                       exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7] }
+                                   },
+                                   {
+                                       extend: 'print', exportOptions: { columns: [0, 1, 2, 3, 4, 5, 6, 7] }
+                                   }
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+        </div>
+    </div>
+
+</div>

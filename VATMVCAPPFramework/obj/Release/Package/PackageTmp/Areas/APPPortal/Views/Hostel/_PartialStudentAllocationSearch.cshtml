@@ -1,0 +1,43 @@
+﻿
+@model  VATMVCAPPFramework.ViewModel.StudentRoomAllocationSearchViewModel
+
+@using (Html.BeginForm("StudentRoomAllocationSearchManagement", "Hostel", "APPPortal", FormMethod.Get, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+{
+    @Html.HiddenFor(m => m.HallID)
+    <div class="row">
+        <div class="card-box">
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="input-group m-t-10">
+                        @Html.DropDownListFor(m => m.StudentID, Model.Students, "Please select  student...", new { @class = "form-control select2", required = true })
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn waves-effect waves-light btn-custom"><i class="fa fa-search m-r-5"></i> Search</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            @*<div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">Student</label>
+                    @Html.DropDownListFor(m => m.StudentID, Model.Students, "Please select...", new { @class = "form-control select2" })
+                </div>
+
+
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+}
+
+
+

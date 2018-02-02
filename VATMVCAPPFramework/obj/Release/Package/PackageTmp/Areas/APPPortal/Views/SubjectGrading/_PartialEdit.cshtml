@@ -1,0 +1,72 @@
+﻿@model VATMVCAPPFramework.Models.SubjectUploadViewModel
+@using VATMVCAPPFramework.CustomClass
+@if (@ViewBag.SucessCount != null)
+{
+    <h4 style="text-align:center"><span class="label label-success">@ViewBag.SucessCount</span></h4>
+}
+@{
+    @ViewBag.Message;
+    @ViewBag.SucessCount;
+    ViewBag.Title = "Manage Edit Score";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+@using (Html.BeginForm("EditResult", "SubjectGrading", FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form",
+    enctype = "multipart/form-data"
+
+}))
+
+{
+    @Html.AntiForgeryToken()
+  
+    <div class="form-horizontal">
+        <h4>Edit Score.</h4>
+        <hr />
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+        <div>
+            @Html.ActionLink("Download Template", "DownloadTemplate")
+        </div>
+        <div>
+            @Html.ActionLink("Edit Result", "UpdateResult")
+        </div>
+       
+       
+       
+        <div class="form-group">
+            @Html.Label("Subject Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SubjectID, new SelectList(SectionHelper.GetSubject(), "ID", "SubjectName"), "Select Subject.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.SubjectID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      
+          <div class="form-group">
+            @Html.Label("Score", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Score,new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Update</button>
+            @*<button type="submit" class="btn btn-info"></button>*@
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+
+    </div>
+
+}
+
+
+
+
+
+
+
+

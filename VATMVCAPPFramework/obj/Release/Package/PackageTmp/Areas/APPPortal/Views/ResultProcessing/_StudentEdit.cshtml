@@ -1,0 +1,81 @@
+﻿@model VATMVCAPPFramework.Models.ResultProcessingViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="MyModalTitle">Score Entry</h4>
+</div>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "studentEdit" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.StudentId)
+            @Html.HiddenFor(m => m.SubjectId)
+            @Html.HiddenFor(m => m.SessionId)
+            @Html.HiddenFor(m => m.TermId)
+            @Html.HiddenFor(m => m.ArmId)
+            @Html.HiddenFor(m => m.AssessmentId)
+
+
+            
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(m => m.Firstname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Firstname, Model.Firstname)                   
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(m => m.Lastname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Lastname, Model.Lastname)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(m => m.Middlename)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(m => m.Middlename, Model.Middlename)
+                </dd>
+              </dl>
+            <hr />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Score, "Score", htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(m => m.Score, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Score,"", new { @class = "text-danger"})
+                    </div>
+                </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TotalScore, "Total Available Score", htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(m => m.TotalScore, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.TotalScore, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <input type="submit" class="btn btn-success" value="Save" id="btnSubmit" />
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse('#studentEdit');
+        $("#btnSubmit").click(function () {
+            if (!$("#studentEdit").valid()) {
+                return false;
+            }
+        });
+    });
+</script>

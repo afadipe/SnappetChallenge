@@ -1,0 +1,78 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.NewClubPresidentViewModel
+@using VATMVCAPPFramework.Data.Constant
+@{
+    ViewBag.Title = "Event";
+    Layout = null;
+}
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm("ManageClubPresident", "Club", "APPPortal", FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-header">
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Club President</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @Html.HiddenFor(model => model.ClubId)
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectedPresident, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.SelectedPresident, Model.Presidents, "Please select...", new { @class = "form-control" })
+
+
+                    @Html.ValidationMessageFor(model => model.SelectedPresident, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EffectiveDate, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-8">
+                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                        @Html.EditorFor(model => model.EffectiveDate, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EffectiveDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- /.row -->
+        <div class="modal-footer">
+            @*<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>*@
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
+    }
+
+
+</div>
+
+
+<script type="text/javascript">
+        $.fn.datepicker.defaults.format = "dd-mm-yyyy";
+        //$('.datepicker').datepicker({
+        //    autoclose: true, startDate: '-3d'
+        //});
+        $('.datepicker').datepicker();
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+</script>
+

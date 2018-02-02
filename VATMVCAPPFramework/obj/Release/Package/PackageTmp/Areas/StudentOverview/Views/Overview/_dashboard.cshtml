@@ -1,0 +1,175 @@
+﻿@model VATMVCAPPFramework.Models.StudentDashboardViewModel
+
+<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <h4 class="box-title">Student Dashboard</h4>
+                </header>
+                <div class="panel-body table-responsive">
+                    <div class="row">
+                        <div class="col-lg-6">
+                           <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Academic Performance</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="demo-section k-content wide">
+                                        @(Html.Kendo().Chart(Model.StudentPerformances)
+        .Name("performanceChart")
+        .Title("Student Acadamic Permormance")
+                 .Legend(legend => legend
+                 .Position(ChartLegendPosition.Bottom))
+                 .ChartArea(chartArea => chartArea
+                 .Background("transparent")
+                )
+                .SeriesDefaults(seriesDefaults =>
+                    seriesDefaults.Line().Style(ChartLineStyle.Smooth)
+                )
+                .Series(series =>
+                {
+                    series.Line(model => model.Value)
+                        .Name("Sessions")
+                        .Labels(labels => labels.Format("{0}%").Visible(false));
+                })
+                .CategoryAxis(axis => axis
+                                    .Categories(model => model.Session)
+                    .MajorGridLines(lines => lines.Visible(false))
+                )
+                .ValueAxis(axis => axis.Numeric()
+                    .Labels(labels => labels.Format("{0}%"))
+                    .Line(lines => lines.Visible(true))
+                )
+                                 .Tooltip(tooltip => tooltip
+                    .Visible(true)
+                    .Format("{0}%")
+                )
+                                        )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Student Attendance</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="demo-section k-content wide">
+                                       @(Html.Kendo().Chart(Model.StudentAttendances)
+        .Name("attendanceChart")
+        .Title(title => title
+            .Text("Attendance Per Month")
+         )
+        .Legend(legend => legend
+            .Visible(false)
+        )
+        .Series(series =>
+        {
+            series.Column(
+                model => model.Value,
+                model => model.UserColor
+
+            ).Name("Month")
+            .Labels(labels => labels.Background("transparent").Visible(false));
+        })
+        .CategoryAxis(axis => axis
+            .Categories(model => model.Months)
+            .MajorGridLines(lines => lines.Visible(false))
+            .Line(line => line.Visible(true))
+        )
+        .ValueAxis(axis => axis
+                    .Numeric()
+                    .Max(28)
+                    .Line(line => line.Visible(true))
+                    .MajorGridLines(lines => lines.Visible(true))
+                )
+                .Tooltip(tooltip => tooltip
+                    .Visible(true)
+                    .Template("#= series.name #: #= value #")
+                )
+                                    ) 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Incidence</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="demo-section k-content wide">
+                                        @(Html.Kendo().Chart(Model.Incidences)
+                    .Name("incidentChart")
+                    .Title("Incidence")
+                    .Legend(legend => legend
+                        .Position(ChartLegendPosition.Bottom)
+                    )
+                    .Series(series =>
+                    {
+                        series.Pie(
+                            model => model.Percentage,
+                            model => model.Source,
+                            null, // Color expression is omitted
+                            model => model.Explode
+                        ).Labels(labels => labels
+                .Template("#= category #: \n #= value#%")
+                .Background("transparent")
+                .Visible(true)
+            )
+            .StartAngle(150);
+        })
+                    .Tooltip(tooltip => tooltip.
+                        Template("${ category } - ${ value }%").Visible(true)
+                    )
+                                        )
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Strength by Subjects</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="demo-section k-content wide">
+                                       @(Html.Kendo().Chart(Model.Subjects)
+                                       .Name("subjectChart")
+                           .Title(t => t.Text("Strength By Subjects").Position(ChartTitlePosition.Bottom))
+                    .Legend(false)
+                    .Series(sd =>
+                    {
+                        sd.Funnel(
+                            m => m.Score,
+                            m => m.Subject
+            ).Labels(
+                lbls => lbls
+                    .Color("black")
+                    .Visible(true)
+                    .Background("transparent")
+                    .Template("#= category #: #= value #")
+                    .Align(ChartFunnelLabelsAlign.Left)
+            )
+                        .DynamicSlope(true)
+                        .DynamicHeight(false);
+                    })
+                                    .Tooltip(
+                    tt => tt.Visible(true).Template("#= category # #= kendo.format('{0:p}',value/dataItem.parent()[0].Subject)#")
+                )
+                                    )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

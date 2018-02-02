@@ -1,0 +1,286 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.AddSubjectViewModel>
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Subject";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Subject Setting</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        VATACADA
+                    </li>
+                    <li>
+                       Subject Setting
+                    </li>
+                    <li class="active">
+                        Subject Setting
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+        @if (ViewBag.UploadSucessCount != null)
+            {
+            <div class="col-md-12">
+                @ViewBag.UpploadSucessCount
+            </div>
+        }
+
+        @if (ViewBag.UploadSucessModel != null)
+        {
+            <h2>The following error occurred !</h2>
+            <table class="table table-bordered table-striped" id="subjectTable">
+                <thead>
+
+                    <tr>
+                        <th>S/N</th>
+                        <th>Excel Name</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int xrowNo = 0;}
+                    @foreach (VATMVCAPPFramework.ViewModel.BatchUploadError xModel in (List<VATMVCAPPFramework.ViewModel.BatchUploadError>)ViewBag.UploadSucessModel)
+                    {
+                        <tr>
+                            <td>@(xrowNo += 1)</td>
+                            <td>@Html.DisplayFor(modelItem => xModel.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => xModel.ErrorMessage)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+                        }
+
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add Subject</a>
+
+                            <span class="pull-right">
+                                <a class="btn btn-success" href="@Url.Action("DownloadTemplate")">Download Excel Template</a>
+                                <button type="button" role="button" class="btn btn-default btn-file">
+                                    Import
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="lookUptbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Subject Name</th>
+                                <th>Subject Code</th>
+                                <th>Subject Alias</th>
+                             
+
+                                <th width="5%"></th>
+                                @*<th width="5%"></th>*@
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SubjectCode)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SubjectAlias)</td>
+                                   
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+                                    @*<td><a data-target='#delete_modal' role='button' data-delete-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-danger deleteBtn' data-toggle='modal'><i class='fa fa-trash'></i>Delete</a></td>*@
+                                    @if (item.isActive == true)
+                                    {
+                                        <td><a class='btn btn-raised btn-danger' href="@Url.Action("Deactivate","Subject",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ID) })"><i>Deactivate</i></a></td>
+
+                                    }
+                                    else
+                                    {
+                                        <td><a class='btn btn-raised btn-success' href="@Url.Action("Activate","Subject",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ID) })"><i>Activate</i></a></td>
+
+                                    }
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+
+            @section JavaScript
+            {
+                <script type="text/javascript">
+                    $(function () {
+                        var url = "";
+
+                        //Load the edit page
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+
+
+
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("Create", "Subject", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("Update", "Subject", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+                            url = '@Url.Action("Delete", "Subject", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+                        });
+
+
+                        //Handle the import function
+                        $(".btn-file").click(function () {
+                            $("#addedit_modal_body").load("APPPortal/Subject/ImportFile", function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                {
+                                    extend: 'copyHtml5', exportOptions: { columns: [0, 1, 2, 3] }
+                                },
+                                    {
+                                        extend: 'csvHtml5', exportOptions: { columns: [0, 1, 2, 3] }, text: 'Excel'
+                                    },
+                                  //'csv', 'excel',
+                                   {
+                                       extend: 'pdfHtml5',
+                                       orientation: 'landscape',
+                                       pageSize: 'LEGAL',
+                                       exportOptions: { columns: [0, 1, 2, 3] }
+                                   },
+                                   {
+                                       extend: 'print', exportOptions: { columns: [0, 1, 2, 3] }
+                                   }
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+        </div>
+    </div>
+
+</div>
+

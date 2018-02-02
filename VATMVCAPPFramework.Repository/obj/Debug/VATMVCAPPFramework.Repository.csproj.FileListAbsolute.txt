@@ -1,0 +1,56 @@
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll.config
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.pdb
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Dapper.Contrib.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\log4net.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Autofac.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Owin.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.pdb
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\log4net.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Autofac.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.csprojResolveAssemblyReference.cache
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.dll
+C:\VatebraProject\VATACADA\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.pdb
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll.config
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.pdb
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Dapper.Contrib.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\log4net.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Autofac.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Owin.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.pdb
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\log4net.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Autofac.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.csprojResolveAssemblyReference.cache
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.dll
+C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.pdb

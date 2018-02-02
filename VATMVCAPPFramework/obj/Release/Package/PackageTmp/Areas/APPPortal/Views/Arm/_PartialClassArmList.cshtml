@@ -1,0 +1,38 @@
+﻿@model IEnumerable<VATMVCAPPFramework.ViewModel.ArmViewModel>
+@{
+    ViewBag.Title = "_PartialClassArmList";
+}
+
+<table class="table convert-data-table table-striped" id="ProgClassarmtbl">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Arm</th>
+            <th> Class Teacher</th>
+            <th> No of Student</th>
+            <th>Expected</th>
+            @*<th>Variance</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.ClassTeacherFullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.NoOfStudent)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaximumNoOfStudent)</td>
+                <td>
+                   
+                  @*@(item.PercantageValue/item.MaximumNoOfStudent) @Html.Raw("%")*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+

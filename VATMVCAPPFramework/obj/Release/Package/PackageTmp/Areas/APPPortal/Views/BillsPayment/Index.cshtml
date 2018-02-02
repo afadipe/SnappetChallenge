@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.StudentPaymentList>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<section class="content">
+            <div class="row">
+            <div class="col-xs-12">
+                <!-- Begin page heading -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Student Payment</h3>
+                    </div>
+
+                    <div class="form-horizontal">
+                       
+                        <div class="form-group">
+                            @Html.Label("ArmId", "Arm:", htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-4">
+                                @Html.DropDownList("ArmId", ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control required" })
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div id="studentList">
+                            @Html.Partial("_ItemList", Model)
+                        </div>
+
+                    
+
+
+                </div>
+            </div>
+        </div>
+
+        @section JavaScript
+        {
+            <script type="text/javascript">
+
+
+
+    var table;
+    @*alert('@Url.Action("getStudentResult", "ResultProcessing")' + "?ArmId=3" + "&SessionId=2" + "&TermId=2"+ "&SubjectId=2");*@
+            table = $('#tblList').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "order": [[0, "asc"]]
+
+        });
+
+
+                $("#ArmId").change(function () {
+                    var armId = $('#ArmId option:selected').val();
+                    if (armId == '') return;
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("GetStudentList", "BillsPayment")',
+                        contentType: "application/json; charset=utf-8",
+                        data: '{ armId:' + armId + '}',
+                        dataType: "json",
+                        success: function (result) {
+                            $("#studentList").html(result.View);
+                            $('#tblList').DataTable({
+                                "paging": true,
+                                "lengthChange": true,
+                                "searching": true,
+                                "ordering": true,
+                                "info": true,
+                                "autoWidth": true,
+                                "order": [[0, "asc"]]
+                            });
+
+                        },
+                        error: function (result) {
+                            toast.error(result.responseText);
+                        }
+                    });
+
+                });
+
+            </script>
+        }
+    </div>
+</section>
+

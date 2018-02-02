@@ -1,0 +1,69 @@
+﻿@model  VATMVCAPPFramework.Models.AssignmentModel
+@using VATMVCAPPFramework.CustomClass;
+@{
+    ViewBag.Title = "Assignment Grading";
+
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">  </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    <a href="#">VATACADA</a>
+                </li>
+                <li>
+                    <a href="#">Administration </a>
+                </li>
+                <li class="active">
+                    Assignment Management
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="form-horizontal">
+    @using (Html.BeginForm("ScoreGrading", "SubjectGrading", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="form-group">
+            @Html.Label("Assignment Name", htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                @Html.ValidationMessage("", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Score", htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessage("", "", new { @class = "text-danger" })
+            </div>
+        </div>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Score Grading</h4>
+                            </div>
+                                
+
+
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                @*<button type="submit" class="btn btn-info"></button>*@
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                            </div>
+    }
+   
+</div>
+
+
+
+
+

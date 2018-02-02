@@ -1,0 +1,29 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.StudentPaymentList>
+
+<table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Name</th>
+            <th>Arm</th>
+            <th>Total Amount Bill</th>
+            <th>Amount Paid</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SN)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Arm)</td>
+                <td>@string.Format("{0:N2}", item.Amount)</td>
+                <td>@string.Format("{0:N2}", item.AmountPaid)</td>
+                <td>
+                    @Html.ActionLink("View", "PaymentRecord", new { studentId = item.StudentId }, new { @class = "btn btn-success btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

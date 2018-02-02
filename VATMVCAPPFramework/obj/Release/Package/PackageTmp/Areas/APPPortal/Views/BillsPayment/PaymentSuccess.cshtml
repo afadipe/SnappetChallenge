@@ -1,0 +1,130 @@
+﻿@model VATMVCAPPFramework.Models.ResponseViewModel
+@{
+    ViewBag.Title = "PaymentSuccess";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+
+<div class="box-header">
+    @{
+        string message = TempData["PaymentMessage"] as string;
+        string msgType = message != null ? message.Split(';')[1] : "";
+        if (!String.IsNullOrEmpty(message) && msgType == "success")
+        {
+            <div class="alert alert-success" style="padding:10px; font-size:16px;">
+                <p><b>@message.Split(';')[0]</b></p>
+            </div>
+        }
+        else if (!String.IsNullOrEmpty(message) && msgType == "error")
+        {
+            <div class="alert alert-danger" style="padding:10px; font-size:16px;">
+                <p><b>@message.Split(';')[0]</b></p>
+            </div>
+        }
+    }
+</div>
+
+
+
+<div id="divPrint">
+    <div style="background-color: #fafafa; color: #606060; font-family: Helvetica,Arial,sans-serif; font-size: 10px; line-height: 150%; text-align: left;">
+        <center>
+            <table  border="0" width="100%" cellspacing="0" cellpadding="0">
+                <thead>
+                  
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 30px 20px;" align="center">
+                            <img style="margin-bottom: 30px;" src="$LogoUrl$" width="32" height="31" />
+                            <div>
+                                <table class="table table-bordered" style="background-color: #ffffff; border: 2px solid #eaeaea; border-radius: 5px;" width="592">
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 30px;">
+                                                <table width="590">
+                                                    <tbody style="line-height: 1.35;">
+                                                        <tr>
+                                                            <td><span style="color: #555566; font-size: 16px; font-weight: bold;"> SCHOOL FEES PAYMENT NOTIFICATION</span></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style="padding: 20px 0; line-height: 1.45;">
+                                                                <span style="color: #555566; font-size: 14px; font-weight: normal;">
+                                                                    Student Name : <strong>@Html.DisplayFor(m => m.StudentName)</strong><br />
+                                                                    Session : <strong>@Html.DisplayFor(m => m.Session)</strong><br />
+                                                                    Term : <strong>@Html.DisplayFor(m => m.Term)</strong><br />
+                                                                    Payment Status : <strong>@Html.DisplayFor(m => m.ResponseDescription)</strong><br />
+                                                                    Transaction Id : <strong>@Html.DisplayFor(m => m.txnref)</strong><br />
+                                                                    Payment Reference No : <strong>@Html.DisplayFor(m => m.PaymentReference)</strong><br />
+                                                                    Retrieval Reference Number : <strong>@Html.DisplayFor(m => m.RetrievalReferenceNumber)</strong><br />
+                                                                    Transaction Date : <strong>@Html.DisplayFor(m => m.TransactionDate)</strong><br />
+
+                                                                    Fee Items : <br />
+                                                                </span>
+                                                                <table border="1" cellspacing="0" bordercolor="#808080" class="table table-bordered" width="100%" style="color: #555566; font-size: 14px;  font-weight: normal;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th align="left" width="50%">Bill Item</th>
+                                                                            <th align="left" width="50%">Amount Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                        @if (Model.FeeItem.Count > 0)
+                                                                        @foreach (var item in Model.FeeItem)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>@item.Name</td>
+                                                                                <td>@item.Amount</td>
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+
+                                                                </table>
+
+                                                                <strong></strong><br /><br />
+                                                                <span style="color: #555566; font-size: 14px; font-weight: normal;">
+                                                                    Total Transaction Amount : <strong>@Html.DisplayFor(m => m.Amount, new { htmlAttributes = new { @class = "control-label col-sm-offset col-sm-3" } })</strong><br /> <br />
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+</div>
+<div class="col-md-offset-5 col-md-2" align="center">
+    <input type="button" value="Print" id="btnPrint" class="btn btn-success" />
+
+</div>
+@section JavaScript
+        {
+    <script type="text/javascript">
+
+        $("#btnPrint").click(function () {
+            alert("Handler for .click() called.");
+            var divContents = $("#divPrint").html();
+            var printWindow = window.open('', '', 'height=500,width=700');
+            printWindow.document.write('<html><head><title></title>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script>
+        }

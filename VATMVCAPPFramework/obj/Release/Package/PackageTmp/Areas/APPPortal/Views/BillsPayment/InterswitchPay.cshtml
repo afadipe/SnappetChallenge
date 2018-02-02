@@ -1,0 +1,62 @@
+﻿@model VATMVCAPPFramework.Models.PaymentInfo
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")" type="text/javascript"></script>
+    <style>
+        .centered{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%,-50%)
+        }
+    </style>
+</head>
+
+<body>
+    <form id="frm" action="@ViewBag.actionUrl" method="post">
+        @Html.HiddenFor(model => model.product_id)
+
+        @Html.HiddenFor(model => model.pay_item_id)
+
+        @Html.HiddenFor(model => model.pay_item_name)
+
+        @Html.HiddenFor(model => model.currency)
+
+        @Html.HiddenFor(model => model.amount)
+
+        @Html.HiddenFor(model => model.site_redirect_url)
+
+        @Html.HiddenFor(model => model.txn_ref)
+
+        @Html.HiddenFor(model => model.hash)
+
+        @Html.HiddenFor(model => model.cust_id)
+
+        @Html.HiddenFor(model => model.cust_name)
+
+        @Html.HiddenFor(model => model.payment_params)
+        @Html.HiddenFor(model => model.@xml_data)
+
+
+
+    </form>
+
+    <div class="centered">
+        @*<h4>Redirecting To Interswitch...</h4>*@
+        <img src="~/images/loader4.gif" />
+    </div>
+</body>
+</html>
+<script>
+       $(document).ready(function () {
+           var frm = $("form");
+           frm.submit();
+       });
+
+</script>

@@ -1,0 +1,84 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.StaffTerminatonViewModel
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Staff";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Staff Termination Management  </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    VATACADA
+                </li>
+                <li>
+                    Administration
+                </li>
+                <li class="active">
+                    Staff Termination Management
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+
+                            <div class="">
+                                <h4 class="m-b-5">@Model.FirstName   @Model.LastName</h4>
+                                <p class="text-muted">@Model.StaffCode</p>
+                            </div>
+
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("ManageStaff","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Basic Info</a>
+                                <a href="@Url.Action("ManageStaffAcademicInfo","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Academic Info</a>
+                                <a href="@Url.Action("ManageStaffEmploymentInfo","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Employment Info</a>
+                                <a href="@Url.Action("ManageStaffSpeciality","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Speciality Info</a>
+                                <a href="@Url.Action("ManageStaffQueryLog","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Query Log</a>
+                                <a href="@Url.Action("ManageStaffTermination","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Terminate Staff</a>
+                                <a href="@Url.Action("Index", "Staff", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+                            </div>
+
+                            <hr />
+
+                            <div class="text-left">
+                                <p class="text-muted font-13"><strong>Staff :</strong> <span class="m-l-15">@Model.FirstName   @Model.LastName</span></p>
+
+                                <p class="text-muted font-13"><strong>Staff ID:</strong><span class="m-l-15">@Model.StaffCode</span></p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div> <!-- end card-box -->
+
+                </div> <!-- end col -->
+                <div class="card-box table-responsive">
+                    @if (Model != null)
+                    {
+                        @Html.Partial("_PartialStaffTerminate", Model)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

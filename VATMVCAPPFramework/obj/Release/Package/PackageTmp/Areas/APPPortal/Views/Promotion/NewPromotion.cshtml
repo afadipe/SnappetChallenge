@@ -1,0 +1,151 @@
+﻿@model VATMVCAPPFramework.Models.StudentPromotion
+
+@{
+    ViewBag.Title = "New Promotion";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<section class="content">
+    <div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Begin page heading -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Promotion Process</h3>
+                    </div>
+                    <br />
+                    @using (Ajax.BeginForm("NewPromotion", "Promotion", new AjaxOptions { OnSuccess = "OnProcessSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "studentpromotion" }))
+                    {
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.OldSessionId, "Last academic Session", htmlAttributes: new { @class = "control-label col-sm-4" })
+                                <div class="col-sm-6 pull-left">
+                                    @Html.DropDownListFor(m => m.OldSessionId, ViewBag.SessionList as SelectList, "--Select--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.OldSessionId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NewSessionId, "New academic Session", htmlAttributes: new { @class = "control-label col-sm-4" })
+                                <div class="col-sm-6 pull-left">
+                                    @Html.DropDownListFor(m => m.NewSessionId, ViewBag.NewSessionList as SelectList, "--Select--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.NewSessionId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.ClassFromId, "Present Class", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-6 pull-left">
+                @Html.DropDownListFor(m => m.ClassFromId, ViewBag.ClassList as SelectList, "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ClassFromId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.ClassToId, "Class Promoted To", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-6 pull-left">
+                @Html.DropDownListFor(m => m.ClassToId, ViewBag.ClassList as SelectList, "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ClassToId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.ArmFromId, "Present Arm", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-6 pull-left">
+                @Html.DropDownListFor(m => m.ArmFromId, ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ArmFromId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.ArmToId, "Arm Promoted To", htmlAttributes: new { @class = "control-label col-sm-4" })
+            <div class="col-sm-6 pull-left">
+                @Html.DropDownListFor(m => m.ArmToId, ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ArmToId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+                        <div class="form-row">
+                            
+                                <h4>Upload Student List in Excel Format</h4>
+                                @(Html.Kendo().Upload()
+            .Name("files")
+            .Async(a => a
+            .Save("Save", "Promotion")
+            .Remove("Remove", "Promotion")
+            .SaveField("files")
+                ).Events(events => events
+                                .Error("onError")
+                                .Success("onSuccess")
+
+                            )
+        .Validation(validation => validation.AllowedExtensions(new string[] { ".xlsx", ".xls" }))
+                                )
+                                <div class="demo-hint text-danger">You can only upload <strong>Excel</strong> files.</div>
+
+                            @Html.ValidationMessageFor(m => m.files, "", new { @class = "text-danger" })
+                            </div>
+                        <div class="form-row">
+                               @Html.ActionLink("Download Sample Excel Format", "DownloadSample", new {@class="btn btn-default"})
+                        </div>
+                     
+
+                        <div>
+                            <button type="submit" class="btn btn-success pull-right">
+                                <i class="fa fa-search" aria-hidden="true">&nbsp; Process</i>
+                            </button>
+
+                        </div>
+
+
+                    }
+
+
+                    @*<div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <input type="submit" class="btn btn-success" value="Save" id="btnSubmit" />
+                        </div>*@
+
+
+                    <script>
+
+                        function onSuccess(e) {
+                            toastr.success("Successful");
+                        }
+
+                        function onError(e) {
+                            toastr.error("An error occured");
+                        }
+
+                        function OnProcessSuccess(data, status, xhr) {
+                            if (data.success) {
+                              
+                                toastr.success(data.message);
+                                window.location.href = '@Url.Action("Index")';
+
+                               
+                            }
+                            else {
+                                toastr.error(data.message);
+                            }
+
+
+                        }
+                        function OnFailure(xhr, status, error) {
+                            toastr.error(xhr.responseJSON);
+                        }
+
+
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

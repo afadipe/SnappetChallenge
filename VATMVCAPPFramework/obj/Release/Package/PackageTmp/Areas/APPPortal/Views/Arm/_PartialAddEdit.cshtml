@@ -1,0 +1,96 @@
+﻿@model VATMVCAPPFramework.ViewModel.ArmViewModel
+
+@{
+    ViewBag.Title = "Campus";
+    Layout = null;
+}
+
+@using (Html.BeginForm((string)ViewBag.PostAction, "Arm", new { area = "APPPortal" }, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form"
+
+}))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Arm</h1>
+    </div>
+    <div class="modal-body">
+        @Html.HiddenFor(m => m.Id)
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProgrammeID, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.ProgrammeID, Model.Programmes, "Please select...", new { @class = "form-control", required = true })
+                @Html.ValidationMessageFor(model => model.ProgrammeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClassID, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.ClassID, Model.Classes, "Please select...", new { @class = "form-control", required = true })
+                @Html.ValidationMessageFor(model => model.ClassID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClassTeacherID, htmlAttributes: new { @class = "control-label col-sm-3" })
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.ClassTeacherID, Model.ClassTeachers, "Please select...", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClassTeacherID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaximumNoOfStudent, htmlAttributes: new { @class = "control-label col-md-7" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MaximumNoOfStudent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaximumNoOfStudent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+
+    </div>
+}
+<Script type="text/javascript">
+$(function () {
+    $("#ProgrammeID").change(function () {
+        var SelectedProgrammeID = $(this).val();
+        console.log(SelectedProgrammeID);
+        $.getJSON('@Url.Action("GetClassByProgrammeId")', { ProgrammeId: $(this).val() }, function (locations) {
+
+            var selcetedClassID = $('#ClassID');
+            selcetedClassID.empty();
+            selcetedClassID.append($("<option/>", { value: 0, text: "Please select..." }));
+            $.each(locations, function (index, location) {
+                selcetedClassID.append($('<option/>', {
+                    value: location.Value,
+                    text: location.Text
+                }));
+            });
+        });
+    });
+});
+</Script>
+

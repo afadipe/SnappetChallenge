@@ -1,0 +1,593 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using VATMVCAPPFramework.Data.Constant
+@using VATMVCAPPFramework.Data.IdentityService.Extensions
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from megadin.lab.themebucket.net/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Aug 2017 07:42:31 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="shortcut icon" type="image/png" href="/imgs/favicon.png" /> -->
+    <title>@ViewBag.Title - VATEBRA ACADA Portal</title>
+    <!-- inject:css -->
+    <!-- App css -->
+       
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Appassets/css/core.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Appassets/css/components.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Appassets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Appassets/plugins/switchery/switchery.min.css">
+    <link href="~/Content/StyleCustom.css" rel="stylesheet" />
+
+
+    <!-- DataTables -->
+    <link href="~/Appassets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Appassets/plugins/select2/css/select2.css" rel="stylesheet" />
+    <link href="~/Appassets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Appassets/js/modernizr.min.js"></script>
+    @Styles.Render("~/Content/kendo/css")
+
+   
+    @*<script src="~/Appassets/js/modernizr.min.js"></script>*@
+    <script src="~/Appassets/js/jquery.min.js"></script>
+    @*<script src="~/Scripts/Jquery-1.9.1.min.js"></script>*@
+    @*@Scripts.Render("~/bundles/jquery")*@
+   
+
+    <link href="~/Content/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-ui.js"></script>  
+   
+    @Scripts.Render("~/bundles/kendo")
+
+
+    @{
+        var request = HttpContext.Current.Request;
+        var appUrl = HttpRuntime.AppDomainAppVirtualPath;
+
+        if (appUrl != "/")
+        {
+            //appUrl = "/" + appUrl;
+        }
+
+        var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+
+        <base href="@baseUrl" />
+
+    }
+   
+    @*<script src="@Url.Content("~/Scripts/kendo/kendo.aspnetmvc.min.js")"></script>*@
+
+</head>
+<body class="fixed-left">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="spinner-wrapper">
+                    <div class="rotator">
+                        <div class="inner-spin"></div>
+                        <div class="inner-spin"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="@Url.Action("Index","Dashboard", new { Area="APPPortal" })" class="logo">
+
+                    <img src="~/images/LOGOACADA.png" />
+                <i class="mdi mdi-cube"></i></a>
+                <!-- Image logo -->
+                <!--<a href="index.html" class="logo">-->
+                <!--<span>-->
+                <!--<img src="assets/images/logo.png" alt="" height="30">-->
+                <!--</span>-->
+                <!--<i>-->
+                <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
+                <!--</i>-->
+                <!--</a>-->
+            </div>
+
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <!-- Navbar-left -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button class="button-menu-mobile open-left waves-effect waves-light">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Right(Notification) -->
+                    @if (Request.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-box">
+                                <a href="" class="dropdown-toggle waves-effect waves-light user-link" data-toggle="dropdown" aria-expanded="true">
+                                    <img src="@Url.Content("~/Appassets/images/users/avatar-1.jpg")" alt="user-img" class="img-circle user-img">
+                                </a>
+
+
+                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
+
+                                    <li>
+                                        <h5>Hi, @User.Identity.GetFullName()</h5>
+                                    </li>
+                                    <li><a href="@Url.Action("MyProfile","Account",new { area= "" })"><i class="ti-user m-r-5"></i>  Profile</a></li>
+                                    <li><a data-target='#addedit_modal' role="button" class="btn_changepassword" data-toggle="modal"><i class="ti-lock m-r-5"></i> Change Password</a></li>
+
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()" style="padding: 5px 0 0 25px"><i class="ti-power-off m-r-5"></i>Log Out</a></li>
+
+                                        }
+                                    }
+
+                                </ul>
+                            </li>
+
+                        </ul> <!-- end navbar-right -->
+
+                    }
+
+
+                </div><!-- end container -->
+            </div><!-- end navbar -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                   
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div class="user-details" style="display:none">
+                            <div class="overlay"></div>
+                            <div class="text-center">
+                                <img src="@Url.Content("~/Appassets/images/users/avatar-1.jpg")" alt="" class="thumb-md img-circle">
+                            </div>
+                            <div class="user-info">
+                                <div>
+                                    <a href="#setting-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@User.Identity.GetFullName()<span class="mdi mdi-menu-down"></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown" id="setting-dropdown" style="display:none">
+                            <ul class="dropdown-menu">
+
+                                <li><a href="@Url.Action("MyProfile","Account",new { area= "" })"><i class="mdi mdi-face-profile m-r-5"></i>  Profile</a></li>
+                                <li><a data-target='#addedit_modal' role="button" class="btn_changepassword" data-toggle="modal"><i class="mdi mdi-lock m-r-5"></i> Change Password</a></li>
+
+                                @if (Request.IsAuthenticated)
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <li><a href="javascript:document.getElementById('logoutForm').submit()" style="padding: 5px 0 0 25px"><i class="mdi mdi-logout m-r-5"></i>Log Out</a></li>
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                    }
+                   
+                    <ul>
+                        <li class="menu-title">Navigation</li>
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                            <ul class="list-unstyled">
+                                  @if (Request.IsAuthenticated)
+                                  {
+                                      if (User.IsInRole("PortalAdmin"))
+                                      {
+                                        <li><a href="@Url.Action("VatebraAdminDashboard", "Dashboard", new { area = "APPPortal" })">Dashboard </a></li>
+                                      }
+                                      else if (User.IsInRole("SchoolAdmin"))
+                                      {
+                                        <li><a href="@Url.Action("SchoolAdminDashboard", "Dashboard", new { area = "APPPortal" })">Dashboard </a></li>
+                                      }
+                                      else if (User.IsInRole("Librarian"))
+                                      {
+                                        <li><a href="@Url.Action("LibrarianDashboard", "Dashboard", new { area = "APPPortal" })">Dashboard </a></li>
+                                      }
+                                      else
+                                      {
+                                        <li><a href="@Url.Action("Index", "Dashboard", new { area = "APPPortal" })">Dashboard </a></li>
+                                      }
+
+                                  }
+                            </ul>
+                        </li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("PortalAdmin"))
+                            {
+                                @Html.Partial("_PortalMenu")
+                                @Html.Partial("_AppSetupMenu")
+                                @Html.Partial("_HostelMenu")
+                                @Html.Partial("_ActivityLogMenu")
+                            }
+                            if (User.IsInRole("SchoolAdmin"))
+                            {
+                                @Html.Partial("_AppSetupMenu")
+                                @Html.Partial("_LibraryMenu")
+                                @Html.Partial("_HostelMenu")
+                                @Html.Partial("_ActivityLogMenu")
+                            }
+                            if (User.IsInRole("CampusAdmin"))
+                            {
+                                @Html.Partial("_CampusAdminMenu")
+                                @Html.Partial("_LibraryMenu")
+                                @Html.Partial("_HostelMenu")
+                            }
+                            if (User.IsInRole("Porter"))
+                            {
+                                @Html.Partial("_HostelMenu")
+                            }
+                            if (User.IsInRole("Librarian"))
+                            {
+                                @Html.Partial("_LibraryMenu")
+                            }
+                            if (User.IsInRole("ClassTeacher"))
+                            {
+                                @Html.Partial("_TeacherMenu")
+                            }
+                            if (User.IsInRole("Student"))
+                            {
+                                @Html.Partial("_StudentMenu")
+                            }
+                            if (User.IsInRole("Parent"))
+                            {
+                                @Html.Partial("_ParentMenu")
+                            }
+                            if (User.IsInRole("Bursar"))
+                            {
+                                @Html.Partial("_BursarMenu")
+                            }
+                          //@Html.Partial("_ActivityLogMenu")
+                        }
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
+
+                <div class="help-box">
+                    <h5 class="text-muted m-t-0">For Help ?</h5>
+                    <p class=""><span class="text-dark"><b>Email:</b></span> <br /> support@support.com</p>
+                    <p class="m-b-0"><span class="text-dark"><b>Call:</b></span> <br /> (+123) 123 456 789</p>
+                </div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                @RenderBody()
+            </div> <!-- content -->
+
+            <footer class="footer text-right">
+                2016 © Zircos.
+            </footer>
+
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <div class="side-bar right-bar">
+            <a href="javascript:void(0);" class="right-bar-toggle">
+                <i class="mdi mdi-close-circle-outline"></i>
+            </a>
+            <h4 class="">Settings</h4>
+            <div class="setting-list nicescroll">
+                <div class="row m-t-20">
+                    <div class="col-xs-8">
+                        <h5 class="m-0">Notifications</h5>
+                        <p class="text-muted m-b-0"><small>Do you need them?</small></p>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
+                    </div>
+                </div>
+
+                <div class="row m-t-20">
+                    <div class="col-xs-8">
+                        <h5 class="m-0">API Access</h5>
+                        <p class="m-b-0 text-muted"><small>Enable/Disable access</small></p>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
+                    </div>
+                </div>
+
+                <div class="row m-t-20">
+                    <div class="col-xs-8">
+                        <h5 class="m-0">Auto Updates</h5>
+                        <p class="m-b-0 text-muted"><small>Keep up to date</small></p>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
+                    </div>
+                </div>
+
+                <div class="row m-t-20">
+                    <div class="col-xs-8">
+                        <h5 class="m-0">Online Status</h5>
+                        <p class="m-b-0 text-muted"><small>Show your status to all</small></p>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <input type="checkbox" checked data-plugin="switchery" data-color="#7fc1fc" data-size="small" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Right-bar -->
+        <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="addedit_modal_body">
+                </div>
+            </div>
+        </div>
+        <!--Delete User-->
+        <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="delete_content">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- END wrapper -->
+    <script>
+        var resizefunc = [];
+    </script>
+    <!-- jQuery  -->
+   
+    <script src="~/Appassets/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Appassets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/Appassets/plugins/select2/js/select2.js"></script>
+    <script src="~/Appassets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/Scripts/Apptoastr.js"></script>
+    @*<script src="~/Appassets/js/detect.js"></script>
+    <script src="~/Appassets/js/fastclick.js"></script>
+    <script src="~/Appassets/js/jquery.blockUI.js"></script>
+    <script src="~/Appassets/js/waves.js"></script>
+    <script src="~/Appassets/js/jquery.slimscroll.js"></script>
+    <script src="~/Appassets/js/jquery.scrollTo.min.js"></script>*@
+
+    <script src="~/Appassets/js/fastclick.js"></script>
+    <script src="~/Appassets/plugins/switchery/switchery.min.js"></script>
+
+    <!-- Counter js  -->
+    @*<script src="~/Appassets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/Appassets/plugins/counterup/jquery.counterup.min.js"></script>*@
+
+    <!--Morris Chart-->
+    @*<script src="~/Appassets/plugins/morris/morris.min.js"></script>
+    <script src="~/Appassets/plugins/raphael/raphael-min.js"></script>*@
+
+    <!-- Dashboard init -->
+       @* <script src="~/Appassets/pages/jquery.dashboard.js"></script>*@
+
+        <!-- App js -->
+         @*<script src="~/Appassets/js/jquery.core.js"></script>*@
+        <script src="~/Appassets/js/jquery.app.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-colorpicker.min.js"></script>
+    <script src="~/Scripts/jasny-bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="~/Appassets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="~/Appassets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/jszip.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Appassets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.scroller.min.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.colVis.js"></script>
+    <script src="~/Appassets/plugins/datatables/dataTables.fixedColumns.min.js"></script>
+    @*<script src="~/Scripts/bootbox.js"></script>*@
+
+    <script type="text/javascript">
+        $(function () {
+
+            var url = '';
+            function bindForm(dialog) {
+                $("form", dialog).submit(function () {
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            if (result.success) {
+                                $('#addedit_modal').modal("hide");
+                                // Refresh:
+                                location.reload();
+
+                            } else {
+
+                                $('#addedit_modal_body').html(result);
+                                bindForm();
+                            }
+                        }, error: function (request, status, error) {
+                            alert(JSON.stringify(error));
+                        }
+                    });
+
+
+                    return false;
+                });
+            }
+
+            //Load the edit page
+            $(".btn_changepassword").click(function () {
+
+                url = "@Url.Action("ChangePassword", "Account", new { area = "" })";
+                console.log(url);
+
+                $("#addedit_modal_body").load(url, function () {
+                    $("#addedit_modal").modal({
+                        backdrop: 'static',
+                        keyboard: true
+                    }, "show");
+                    bindForm(this);
+                });
+                return false;
+            });
+
+
+        });
+
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $("a[data-modal]").on("click", function (e) {
+                //e.preventDefault();
+                var urlPath = this.href;
+                var CntrlType = $("#MyModal").attr('type');
+                $("#MyModalContent").load(urlPath, function () {
+                    $("#MyModal").modal({
+                        //backdrop: 'static',
+                        keyboard: false
+                    }, 'show');
+                    bindForm2(this);
+                });
+                return false;
+            });
+        });
+
+        function bindForm2(dialog) {           
+            $('form', dialog).submit(function () {
+                //$.validator.unobtrusive.parse($('form'));
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                         if (result.success) {
+                            toastr.success(result.message);
+                            $("#MyModal").modal('hide');
+                            if (result.refresh) {
+                                window.location.reload();
+                            } else if (result.partial) {
+                                $("#studentList").html(result.View)
+                                $('#tblList').DataTable({
+                                    "paging": true,
+                                    "lengthChange": true,
+                                    "searching": true,
+                                    "ordering": true,
+                                    "info": true,
+                                    "autoWidth": true,
+                                    "order": [[0, "asc"]],
+                                    dom: 'Bfltip',
+                                    buttons: [
+                                        'copy',
+                                          {
+                                              extend: 'csvHtml5', text: 'Excel'
+                                          },
+                                          'csv', 'excel',
+
+                                          'pdf', 'print'
+                                    ],
+
+                                });
+                            }
+                            else {
+                                  table.draw();
+                            }
+
+
+                            //location.reload();
+                        }
+                        else {
+                            $("#MyModal").modal('show');
+                            $("#MyModalContent").html(result);
+                            toastr.error(result.ErrorMessage);
+                            bindForm2(dialog);
+
+
+                        }
+                    }
+                    ,
+                    error: function (xml, message, text) {
+                        toastr.error("Msg: " + message + ", Text: " + text);
+                    }
+                });
+                return false;
+        });
+        }
+
+    </script>
+    @RenderSection("scripts", required: false)
+    @RenderSection("JavaScript", required: false)
+    @RenderSection("HeadContent", required: false)
+
+</body>
+</html>
+

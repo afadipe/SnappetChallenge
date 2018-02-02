@@ -1,0 +1,49 @@
+﻿@model  List<VATMVCAPPFramework.ViewModel.StaffSpecialityViewModel>
+@using VATMVCAPPFramework.Utilities
+
+@using (Html.BeginForm((string)ViewBag.PostAction, "Staff", new { area = "APPPortal" }, FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+{
+    <table class="table convert-data-table table-striped" id="staffSpecialityotbl">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Subject</th>
+                <th>Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int rowNo = 0;}
+            @foreach (var item in Model)
+            {
+                @Html.HiddenFor(x => item.SpecialityIDList)
+                @Html.HiddenFor(x => item.UserID)
+                <tr>
+                    <td>@(rowNo += 1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                    @if (item.StaffSpecialityId.GetValueOrDefault() > 0)
+                    {
+                        <td><input type="checkbox" name="SpecialityIDList" checked="checked" value="@item.SubjectID" class="pending" /></td>
+                    }
+                    else
+                    {
+                        <td><input type="checkbox" name="SpecialityIDList" value="@item.SubjectID" class="inClass" /></td>
+                    }
+              
+                 </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+}
+
+
+
+
+
+

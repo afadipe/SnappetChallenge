@@ -1,0 +1,50 @@
+﻿
+@model  VATMVCAPPFramework.ViewModel.RoomDeallocationSearchViewModel
+@using (Html.BeginForm("RoomDellocationSearchManagement", "Hostel", "APPPortal", FormMethod.Get, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+{
+
+    @Html.HiddenFor(m => m.HallID)
+    <div class="row">
+        <div class="card-box">
+           
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RoomID, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div>
+                            @Html.DropDownListFor(m => m.RoomID, Model.Rooms, "Please select...", new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BedID, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div>
+                            @Html.DropDownListFor(m => m.BedID, Model.Beds, "Please select...", new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.BedID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="submit" class="btn btn-success">Search</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+}
+
+
+

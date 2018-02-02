@@ -1,0 +1,45 @@
+﻿
+@model List<VATMVCAPPFramework.Models.ProgrammeClassViewModel>
+@using VATMVCAPPFramework.Utilities
+
+
+<table id="ProgSessiontbl" class="table convert-data-table table-striped">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Class</th>
+            <th>Programme</th>
+            <th>Programe Code</th>
+            <th width="5%"></th>
+            <th width="5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProgrammeName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProgrammeCode)</td>
+                <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ClassId)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+
+                @if (item.ClassIsActive)
+                {
+                    <td><a class='btn btn-raised btn-danger' href="@Url.Action("DeactivateProgrammeClass","Programme",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ClassId) })"><i>Deactivate</i></a></td>
+
+                }
+                else
+                {
+                    <td><a class='btn btn-raised btn-success' href="@Url.Action("ActivateProgrammeClass","Programme",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ClassId) })"><i>Activate</i></a></td>
+
+                }
+               
+                @*
+                    <td><a data-target='#delete_modal' role='button' data-delete-id='@Html.DisplayFor(modelItem => item.ClassId)' class='btn btn-danger deleteBtn' data-toggle='modal'><i class='fa fa-trash'></i></a></td>*@
+            </tr>
+        }
+
+    </tbody>
+</table>

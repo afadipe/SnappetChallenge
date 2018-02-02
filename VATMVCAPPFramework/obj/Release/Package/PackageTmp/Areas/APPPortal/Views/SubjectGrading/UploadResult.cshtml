@@ -1,0 +1,133 @@
+﻿
+@model VATMVCAPPFramework.Models.SubjectUploadViewModel
+@using VATMVCAPPFramework.CustomClass;
+@if (@ViewBag.SucessCount != null)
+{
+    <h4 style="text-align:center"><span class="label label-success">@ViewBag.SucessCount</span></h4>
+}
+@{
+    @ViewBag.Message;
+    @ViewBag.SucessCount;
+    ViewBag.Title = "Manage Upload";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+@using (Html.BeginForm("UploadResult", "SubjectGrading", FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form",
+    enctype = "multipart/form-data"
+
+}))
+   
+{
+    @Html.AntiForgeryToken()
+    <h3>
+        @ViewBag.Message
+    </h3>
+    @Html.Partial("_ToastrViewHeader")
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">  </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">VATACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Administration </a>
+                    </li>
+                    <li class="active">
+                        Upload Result
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <h4>Upload Score.</h4>
+        <hr />
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+        
+        <div class="row">
+            <div class="col-md-6">
+            @Html.ActionLink("Download Template", "DownloadTemplate")
+        </div>
+           
+                @*@Html.ActionLink("Edit Result", "UpdateResult")*@
+            
+           </div>
+       
+        <div class="form-group">
+
+            @Html.Label("Class", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ClassID, new SelectList(SectionHelper.GetClass(), "ID", "Name"), "Select Class.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.ClassID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Arm", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ArmID, new SelectList(SectionHelper.GetStudentArm(), "ID", "ArmName"), "Select Arm.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.ArmID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Assessment Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AssessmentID, new SelectList(SectionHelper.GetAssesmentype(), "ID", "Name"), "Select AssessmentType.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.AssessmentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Subject Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SubjectID, new SelectList(SectionHelper.GetSubject(), "ID", "SubjectName"), "Select Subject.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.SubjectID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Session", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SessionID, new SelectList(SectionHelper.GetSession(), "ID", "SessionName"), "Select Session.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.SessionID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Term", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TermID, new SelectList(SectionHelper.GetTerm(), "ID", "TermName"), "Select Term.", new { @class = "form-control", Required = true })
+                @Html.ValidationMessageFor(model => model.TermID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Upload File</h4>
+        </div>
+        <div class="form-group">
+
+            <input type="file" name="fileUpload" id="fileUpload" class="btn btn-success center-block">
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Import</button>
+            @*<button type="submit" class="btn btn-info"></button>*@
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+
+    </div>
+   
+}
+
+
+
+
+
+

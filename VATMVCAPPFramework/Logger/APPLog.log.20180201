@@ -1,0 +1,1446 @@
+INFO  2018-02-01 14:13:17,327  2228ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 14:13:17 >>>>>>
+INFO  2018-02-01 14:13:31,905 16806ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 14:13:31 >>>>>>
+INFO  2018-02-01 14:13:33,134 18035ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 14:13:34,644 19545ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 14:13:34,919 19820ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 14:13:34,946 19847ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: FLEETTFSSRV001\APPSDB@VATACADA'
+INFO  2018-02-01 14:13:34,950 19851ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 14:13:34,952 19853ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 14:13:34,954 19855ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 14:13:34,957 19858ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 14:13:34,961 19862ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 14:13:34,962 19863ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 14:13:34,964 19865ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 14:13:35,119 20020ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 14:13:36,496 21397ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 14:13:36,540 21441ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 14:13:36,851 21752ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 14:13:36,882 21783ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 14:13:37,004 21905ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 14:13:37,015 21916ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 14:13:37,175 22076ms Worker                 CallSite.Target    - Background process 'Worker #2862e9d4' started.
+DEBUG 2018-02-01 14:13:37,293 22194ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 14:13:37,502 22403ms Worker                 CallSite.Target    - Background process 'Worker #eb865cc9' started.
+DEBUG 2018-02-01 14:13:37,915 22816ms Worker                 CallSite.Target    - Background process 'Worker #ec22cfde' started.
+DEBUG 2018-02-01 14:13:38,123 23024ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 14:13:38,125 23026ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 14:13:38,138 23039ms Worker                 CallSite.Target    - Background process 'Worker #41fcf9e7' started.
+DEBUG 2018-02-01 14:13:38,300 23201ms Worker                 CallSite.Target    - Background process 'Worker #5eeba46c' started.
+DEBUG 2018-02-01 14:13:38,831 23732ms Worker                 CallSite.Target    - Background process 'Worker #afcc480e' started.
+DEBUG 2018-02-01 14:13:39,353 24254ms Worker                 CallSite.Target    - Background process 'Worker #36de6101' started.
+DEBUG 2018-02-01 14:13:39,573 24474ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 14:13:39,574 24475ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 14:13:39,815 24716ms Worker                 CallSite.Target    - Background process 'Worker #180add86' started.
+DEBUG 2018-02-01 14:13:40,126 25027ms Worker                 CallSite.Target    - Background process 'Worker #8b5a96b9' started.
+DEBUG 2018-02-01 14:13:40,400 25301ms Worker                 CallSite.Target    - Background process 'Worker #aeb2a0af' started.
+DEBUG 2018-02-01 14:13:40,465 25366ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 14:13:40,507 25408ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 14:13:41,266 26167ms Worker                 CallSite.Target    - Background process 'Worker #6c99094d' started.
+DEBUG 2018-02-01 14:13:41,878 26779ms Worker                 CallSite.Target    - Background process 'Worker #2da19657' started.
+DEBUG 2018-02-01 14:13:42,647 27548ms Worker                 CallSite.Target    - Background process 'Worker #ee60c62e' started.
+DEBUG 2018-02-01 14:13:43,272 28173ms Worker                 CallSite.Target    - Background process 'Worker #0a108a67' started.
+DEBUG 2018-02-01 14:13:43,491 28392ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 14:13:43,495 28396ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 14:13:43,638 28539ms Worker                 CallSite.Target    - Background process 'Worker #03965797' started.
+DEBUG 2018-02-01 14:13:43,899 28800ms Worker                 CallSite.Target    - Background process 'Worker #5eee5887' started.
+DEBUG 2018-02-01 14:13:44,133 29034ms Worker                 CallSite.Target    - Background process 'Worker #f22a43f5' started.
+DEBUG 2018-02-01 14:13:44,466 29367ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-01 14:13:44,606 29507ms Worker                 CallSite.Target    - Background process 'Worker #e031c367' started.
+DEBUG 2018-02-01 14:13:44,992 29893ms Worker                 CallSite.Target    - Background process 'Worker #aca9bb38' started.
+DEBUG 2018-02-01 14:13:45,139 30040ms Worker                 CallSite.Target    - Background process 'Worker #7b06d240' started.
+DEBUG 2018-02-01 14:13:45,720 30621ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 14:13:45,854 30755ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+DEBUG 2018-02-01 14:22:03,052 527953ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 14:22:29,039 553940ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 14:48:10,524  3123ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 14:48:10 >>>>>>
+INFO  2018-02-01 14:48:26,770 19369ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 14:48:26 >>>>>>
+INFO  2018-02-01 14:48:29,084 21683ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 14:48:32,675 25274ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 14:48:32,946 25545ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 14:48:32,969 25568ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-01 14:48:32,972 25571ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 14:48:32,974 25573ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 14:48:32,976 25575ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 14:48:32,978 25577ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 14:48:32,982 25581ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 14:48:32,986 25585ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 14:48:32,988 25587ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 14:48:33,869 26468ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 14:48:37,580 30179ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 14:48:38,420 31019ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 14:48:39,220 31819ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 14:48:39,287 31886ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 14:48:39,631 32230ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 14:48:39,643 32242ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 14:48:41,145 33744ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 14:48:41,348 33947ms Worker                 CallSite.Target    - Background process 'Worker #4c791a89' started.
+DEBUG 2018-02-01 14:48:43,791 36390ms Worker                 CallSite.Target    - Background process 'Worker #cb981a69' started.
+DEBUG 2018-02-01 14:48:44,642 37241ms Worker                 CallSite.Target    - Background process 'Worker #47e06825' started.
+DEBUG 2018-02-01 14:48:46,699 39298ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 14:48:46,709 39308ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 14:48:47,381 39980ms Worker                 CallSite.Target    - Background process 'Worker #a4944f18' started.
+DEBUG 2018-02-01 14:48:50,441 43040ms Worker                 CallSite.Target    - Background process 'Worker #fef3976b' started.
+DEBUG 2018-02-01 14:48:52,334 44933ms Worker                 CallSite.Target    - Background process 'Worker #a93c397f' started.
+DEBUG 2018-02-01 14:48:53,123 45722ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 14:48:53,126 45725ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 14:48:55,052 47651ms Worker                 CallSite.Target    - Background process 'Worker #d79375ab' started.
+DEBUG 2018-02-01 14:48:55,107 47706ms Worker                 CallSite.Target    - Background process 'Worker #e4df757e' started.
+DEBUG 2018-02-01 14:48:56,390 48989ms Worker                 CallSite.Target    - Background process 'Worker #3e5d141d' started.
+DEBUG 2018-02-01 14:48:57,788 50387ms Worker                 CallSite.Target    - Background process 'Worker #6a96f2cb' started.
+DEBUG 2018-02-01 14:48:57,865 50464ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 14:48:57,867 50466ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 14:48:59,325 51924ms Worker                 CallSite.Target    - Background process 'Worker #1b6a79d5' started.
+DEBUG 2018-02-01 14:49:01,499 54098ms Worker                 CallSite.Target    - Background process 'Worker #1dcb1cbb' started.
+DEBUG 2018-02-01 14:49:03,595 56194ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 14:49:03,597 56196ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 14:49:03,596 56195ms Worker                 CallSite.Target    - Background process 'Worker #82886cee' started.
+DEBUG 2018-02-01 14:49:04,596 57195ms Worker                 CallSite.Target    - Background process 'Worker #fae1a8db' started.
+DEBUG 2018-02-01 14:49:05,790 58389ms Worker                 CallSite.Target    - Background process 'Worker #595f27da' started.
+DEBUG 2018-02-01 14:49:08,889 61488ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-01 14:49:08,946 61545ms Worker                 CallSite.Target    - Background process 'Worker #a8f68839' started.
+DEBUG 2018-02-01 14:49:10,360 62959ms Worker                 CallSite.Target    - Background process 'Worker #e315a9e4' started.
+DEBUG 2018-02-01 14:49:11,429 64028ms Worker                 CallSite.Target    - Background process 'Worker #00020a94' started.
+DEBUG 2018-02-01 14:49:13,295 65894ms Worker                 CallSite.Target    - Background process 'Worker #fe387cb0' started.
+DEBUG 2018-02-01 14:49:15,846 68445ms Worker                 CallSite.Target    - Background process 'Worker #5fdf8944' started.
+DEBUG 2018-02-01 14:49:16,912 69511ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 14:49:17,649 70248ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+ERROR 2018-02-01 14:50:24,934 137533ms meworkConfigController Index              - System.InvalidOperationException: The entity type StudentPerformance is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at VATMVCAPPFramework.Repository.CoreRepositories.RepositoryCommand`1.Insert(TEntity entity) in C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\CoreRepositories\RepositoryCommand.cs:line 58
+   at VATMVCAPPFramework.Controllers.FrameworkConfigController.ProcessExcelFile() in C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework\Controllers\FrameworkConfigController.cs:line 107
+   at VATMVCAPPFramework.Controllers.FrameworkConfigController.Index() in C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework\Controllers\FrameworkConfigController.cs:line 57
+INFO  2018-02-01 14:51:07,149 179748ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:51:11,319 183918ms HangFireLoggerAppender OnStateUnapplied   - Job `1` state `` was unapplied.
+INFO  2018-02-01 14:51:11,330 183929ms HangFireLoggerAppender OnStateApplied     - Job 1 state was changed from  to Enqueued
+INFO  2018-02-01 14:51:15,611 188210ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `1`
+INFO  2018-02-01 14:51:17,483 190082ms HangFireLoggerAppender OnStateUnapplied   - Job `1` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:51:17,486 190085ms HangFireLoggerAppender OnStateApplied     - Job 1 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:51:18,193 190792ms HangFireLoggerAppender OnPerforming       - Starting to perform job `1`
+INFO  2018-02-01 14:51:18,929 191528ms HangFireLoggerAppender OnPerformed        - Job `1` has been performed
+INFO  2018-02-01 14:51:20,682 193281ms HangFireLoggerAppender OnStateUnapplied   - Job `1` state `Processing` was unapplied.
+INFO  2018-02-01 14:51:20,684 193283ms HangFireLoggerAppender OnStateApplied     - Job 1 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:52:00,401 233000ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:52:00,624 233223ms HangFireLoggerAppender OnStateUnapplied   - Job `2` state `` was unapplied.
+INFO  2018-02-01 14:52:00,626 233225ms HangFireLoggerAppender OnStateApplied     - Job 2 state was changed from  to Enqueued
+INFO  2018-02-01 14:52:00,942 233541ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `2`
+INFO  2018-02-01 14:52:01,416 234015ms HangFireLoggerAppender OnStateUnapplied   - Job `2` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:52:01,441 234040ms HangFireLoggerAppender OnStateApplied     - Job 2 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:52:03,426 236025ms HangFireLoggerAppender OnPerforming       - Starting to perform job `2`
+INFO  2018-02-01 14:52:03,524 236123ms HangFireLoggerAppender OnPerformed        - Job `2` has been performed
+INFO  2018-02-01 14:52:03,805 236404ms HangFireLoggerAppender OnStateUnapplied   - Job `2` state `Processing` was unapplied.
+INFO  2018-02-01 14:52:03,807 236406ms HangFireLoggerAppender OnStateApplied     - Job 2 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:53:00,740 293339ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:53:00,939 293538ms HangFireLoggerAppender OnStateUnapplied   - Job `3` state `` was unapplied.
+INFO  2018-02-01 14:53:00,941 293540ms HangFireLoggerAppender OnStateApplied     - Job 3 state was changed from  to Enqueued
+INFO  2018-02-01 14:53:01,210 293809ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `3`
+INFO  2018-02-01 14:53:01,577 294176ms HangFireLoggerAppender OnStateUnapplied   - Job `3` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:53:01,619 294218ms HangFireLoggerAppender OnStateApplied     - Job 3 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:53:02,289 294888ms HangFireLoggerAppender OnPerforming       - Starting to perform job `3`
+INFO  2018-02-01 14:53:02,397 294996ms HangFireLoggerAppender OnPerformed        - Job `3` has been performed
+INFO  2018-02-01 14:53:02,592 295191ms HangFireLoggerAppender OnStateUnapplied   - Job `3` state `Processing` was unapplied.
+INFO  2018-02-01 14:53:02,594 295193ms HangFireLoggerAppender OnStateApplied     - Job 3 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 14:53:41,131 333730ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 14:53:41,262 333861ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 14:54:00,424 353023ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:54:00,795 353394ms HangFireLoggerAppender OnStateUnapplied   - Job `4` state `` was unapplied.
+INFO  2018-02-01 14:54:00,798 353397ms HangFireLoggerAppender OnStateApplied     - Job 4 state was changed from  to Enqueued
+INFO  2018-02-01 14:54:01,096 353695ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `4`
+INFO  2018-02-01 14:54:01,528 354127ms HangFireLoggerAppender OnStateUnapplied   - Job `4` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:54:01,530 354129ms HangFireLoggerAppender OnStateApplied     - Job 4 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:54:01,979 354578ms HangFireLoggerAppender OnPerforming       - Starting to perform job `4`
+INFO  2018-02-01 14:54:02,158 354757ms HangFireLoggerAppender OnPerformed        - Job `4` has been performed
+INFO  2018-02-01 14:54:02,330 354929ms HangFireLoggerAppender OnStateUnapplied   - Job `4` state `Processing` was unapplied.
+INFO  2018-02-01 14:54:02,332 354931ms HangFireLoggerAppender OnStateApplied     - Job 4 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:55:01,055 413654ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:55:01,430 414029ms HangFireLoggerAppender OnStateUnapplied   - Job `5` state `` was unapplied.
+INFO  2018-02-01 14:55:01,683 414282ms HangFireLoggerAppender OnStateApplied     - Job 5 state was changed from  to Enqueued
+INFO  2018-02-01 14:55:01,973 414572ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `5`
+INFO  2018-02-01 14:55:02,352 414951ms HangFireLoggerAppender OnStateUnapplied   - Job `5` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:55:02,355 414954ms HangFireLoggerAppender OnStateApplied     - Job 5 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:55:02,939 415538ms HangFireLoggerAppender OnPerforming       - Starting to perform job `5`
+INFO  2018-02-01 14:55:03,015 415614ms HangFireLoggerAppender OnPerformed        - Job `5` has been performed
+INFO  2018-02-01 14:55:03,280 415879ms HangFireLoggerAppender OnStateUnapplied   - Job `5` state `Processing` was unapplied.
+INFO  2018-02-01 14:55:03,282 415881ms HangFireLoggerAppender OnStateApplied     - Job 5 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:56:00,930 473529ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:56:01,217 473816ms HangFireLoggerAppender OnStateUnapplied   - Job `6` state `` was unapplied.
+INFO  2018-02-01 14:56:01,219 473818ms HangFireLoggerAppender OnStateApplied     - Job 6 state was changed from  to Enqueued
+INFO  2018-02-01 14:56:01,385 473984ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `6`
+INFO  2018-02-01 14:56:01,865 474464ms HangFireLoggerAppender OnStateUnapplied   - Job `6` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:56:01,867 474466ms HangFireLoggerAppender OnStateApplied     - Job 6 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:56:02,415 475014ms HangFireLoggerAppender OnPerforming       - Starting to perform job `6`
+INFO  2018-02-01 14:56:02,568 475167ms HangFireLoggerAppender OnPerformed        - Job `6` has been performed
+INFO  2018-02-01 14:56:02,719 475318ms HangFireLoggerAppender OnStateUnapplied   - Job `6` state `Processing` was unapplied.
+INFO  2018-02-01 14:56:02,721 475320ms HangFireLoggerAppender OnStateApplied     - Job 6 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:57:00,343 532942ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:57:00,650 533249ms HangFireLoggerAppender OnStateUnapplied   - Job `7` state `` was unapplied.
+INFO  2018-02-01 14:57:00,652 533251ms HangFireLoggerAppender OnStateApplied     - Job 7 state was changed from  to Enqueued
+INFO  2018-02-01 14:57:00,896 533495ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `7`
+INFO  2018-02-01 14:57:01,245 533844ms HangFireLoggerAppender OnStateUnapplied   - Job `7` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:57:01,250 533849ms HangFireLoggerAppender OnStateApplied     - Job 7 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:57:01,831 534430ms HangFireLoggerAppender OnPerforming       - Starting to perform job `7`
+INFO  2018-02-01 14:57:01,912 534511ms HangFireLoggerAppender OnPerformed        - Job `7` has been performed
+INFO  2018-02-01 14:57:02,132 534731ms HangFireLoggerAppender OnStateUnapplied   - Job `7` state `Processing` was unapplied.
+INFO  2018-02-01 14:57:02,133 534732ms HangFireLoggerAppender OnStateApplied     - Job 7 state was changed from Processing to Succeeded
+INFO  2018-02-01 14:58:01,182 593781ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:58:01,668 594267ms HangFireLoggerAppender OnStateUnapplied   - Job `8` state `` was unapplied.
+INFO  2018-02-01 14:58:01,670 594269ms HangFireLoggerAppender OnStateApplied     - Job 8 state was changed from  to Enqueued
+INFO  2018-02-01 14:58:01,875 594474ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `8`
+INFO  2018-02-01 14:58:02,385 594984ms HangFireLoggerAppender OnStateUnapplied   - Job `8` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:58:02,387 594986ms HangFireLoggerAppender OnStateApplied     - Job 8 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:58:03,293 595892ms HangFireLoggerAppender OnPerforming       - Starting to perform job `8`
+INFO  2018-02-01 14:58:03,521 596120ms HangFireLoggerAppender OnPerformed        - Job `8` has been performed
+INFO  2018-02-01 14:58:03,695 596294ms HangFireLoggerAppender OnStateUnapplied   - Job `8` state `Processing` was unapplied.
+INFO  2018-02-01 14:58:03,696 596295ms HangFireLoggerAppender OnStateApplied     - Job 8 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 14:58:41,252 633851ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 14:58:41,529 634128ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 14:59:01,388 653987ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 14:59:01,855 654454ms HangFireLoggerAppender OnStateUnapplied   - Job `9` state `` was unapplied.
+INFO  2018-02-01 14:59:01,857 654456ms HangFireLoggerAppender OnStateApplied     - Job 9 state was changed from  to Enqueued
+INFO  2018-02-01 14:59:02,447 655046ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `9`
+INFO  2018-02-01 14:59:04,178 656777ms HangFireLoggerAppender OnStateUnapplied   - Job `9` state `Enqueued` was unapplied.
+INFO  2018-02-01 14:59:04,180 656779ms HangFireLoggerAppender OnStateApplied     - Job 9 state was changed from Enqueued to Processing
+INFO  2018-02-01 14:59:05,345 657944ms HangFireLoggerAppender OnPerforming       - Starting to perform job `9`
+INFO  2018-02-01 14:59:05,598 658197ms HangFireLoggerAppender OnPerformed        - Job `9` has been performed
+INFO  2018-02-01 14:59:05,896 658495ms HangFireLoggerAppender OnStateUnapplied   - Job `9` state `Processing` was unapplied.
+INFO  2018-02-01 14:59:05,897 658496ms HangFireLoggerAppender OnStateApplied     - Job 9 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:06:41,764   600ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 15:06:41 >>>>>>
+INFO  2018-02-01 15:06:49,829  8665ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 15:06:49 >>>>>>
+INFO  2018-02-01 15:06:50,682  9518ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 15:06:51,341 10177ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 15:06:51,528 10364ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 15:06:51,549 10385ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-01 15:06:51,552 10388ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 15:06:51,554 10390ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 15:06:51,555 10391ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 15:06:51,557 10393ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 15:06:51,563 10399ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 15:06:51,566 10402ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 15:06:51,569 10405ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 15:06:51,675 10511ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 15:06:53,097 11933ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 15:06:53,234 12070ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 15:06:53,280 12116ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 15:06:53,296 12132ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 15:06:53,689 12525ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 15:06:53,701 12537ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+INFO  2018-02-01 15:06:53,726 12562ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2018-02-01 15:06:53,885 12721ms Worker                 CallSite.Target    - Background process 'Worker #170798b0' started.
+DEBUG 2018-02-01 15:06:54,027 12863ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 15:06:54,155 12991ms Worker                 CallSite.Target    - Background process 'Worker #7994e2ff' started.
+DEBUG 2018-02-01 15:06:54,333 13169ms Worker                 CallSite.Target    - Background process 'Worker #e113d367' started.
+DEBUG 2018-02-01 15:06:54,543 13379ms Worker                 CallSite.Target    - Background process 'Worker #7fa167da' started.
+DEBUG 2018-02-01 15:06:54,544 13380ms Worker                 CallSite.Target    - Background process 'Worker #03766191' started.
+DEBUG 2018-02-01 15:06:54,677 13513ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 15:06:54,678 13514ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 15:06:55,085 13921ms Worker                 CallSite.Target    - Background process 'Worker #76b40984' started.
+DEBUG 2018-02-01 15:06:55,107 13943ms Worker                 CallSite.Target    - Background process 'Worker #082a2caf' started.
+DEBUG 2018-02-01 15:06:55,330 14166ms Worker                 CallSite.Target    - Background process 'Worker #e0f62410' started.
+DEBUG 2018-02-01 15:06:55,493 14329ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 15:06:55,495 14331ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 15:06:55,610 14446ms Worker                 CallSite.Target    - Background process 'Worker #2bffc372' started.
+DEBUG 2018-02-01 15:06:56,140 14976ms Worker                 CallSite.Target    - Background process 'Worker #ecb03b5b' started.
+DEBUG 2018-02-01 15:06:56,143 14979ms Worker                 CallSite.Target    - Background process 'Worker #f7216774' started.
+DEBUG 2018-02-01 15:06:56,778 15614ms Worker                 CallSite.Target    - Background process 'Worker #6444d3ee' started.
+DEBUG 2018-02-01 15:06:57,024 15860ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 15:06:57,025 15861ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 15:06:57,211 16047ms Worker                 CallSite.Target    - Background process 'Worker #1f2296d4' started.
+DEBUG 2018-02-01 15:06:57,527 16363ms Worker                 CallSite.Target    - Background process 'Worker #175cc39a' started.
+DEBUG 2018-02-01 15:06:57,971 16807ms Worker                 CallSite.Target    - Background process 'Worker #ec08376f' started.
+DEBUG 2018-02-01 15:06:58,053 16889ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 15:06:58,055 16891ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 15:06:58,062 16898ms Worker                 CallSite.Target    - Background process 'Worker #62da7fdc' started.
+DEBUG 2018-02-01 15:06:58,225 17061ms Worker                 CallSite.Target    - Background process 'Worker #7dad6668' started.
+DEBUG 2018-02-01 15:06:58,606 17442ms Worker                 CallSite.Target    - Background process 'Worker #4d2ded45' started.
+DEBUG 2018-02-01 15:06:58,853 17689ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-01 15:06:58,865 17701ms Worker                 CallSite.Target    - Background process 'Worker #201b4433' started.
+DEBUG 2018-02-01 15:06:58,961 17797ms Worker                 CallSite.Target    - Background process 'Worker #26ae24bf' started.
+DEBUG 2018-02-01 15:06:59,167 18003ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 15:06:59,392 18228ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-01 15:07:02,098 20934ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:07:02,724 21560ms HangFireLoggerAppender OnStateUnapplied   - Job `10` state `` was unapplied.
+INFO  2018-02-01 15:07:02,732 21568ms HangFireLoggerAppender OnStateApplied     - Job 10 state was changed from  to Enqueued
+INFO  2018-02-01 15:07:03,253 22089ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `10`
+INFO  2018-02-01 15:07:04,218 23054ms HangFireLoggerAppender OnStateUnapplied   - Job `10` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:07:04,223 23059ms HangFireLoggerAppender OnStateApplied     - Job 10 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:07:05,215 24051ms HangFireLoggerAppender OnPerforming       - Starting to perform job `10`
+INFO  2018-02-01 15:08:02,847 81683ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:08:04,038 82874ms HangFireLoggerAppender OnStateUnapplied   - Job `11` state `` was unapplied.
+INFO  2018-02-01 15:08:04,040 82876ms HangFireLoggerAppender OnStateApplied     - Job 11 state was changed from  to Enqueued
+INFO  2018-02-01 15:08:04,548 83384ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `11`
+INFO  2018-02-01 15:08:06,179 85015ms HangFireLoggerAppender OnStateUnapplied   - Job `11` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:08:06,181 85017ms HangFireLoggerAppender OnStateApplied     - Job 11 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:08:13,853 92689ms HangFireLoggerAppender OnPerforming       - Starting to perform job `11`
+INFO  2018-02-01 15:08:26,947 105783ms HangFireLoggerAppender OnPerformed        - Job `10` has been performed
+INFO  2018-02-01 15:08:27,236 106072ms HangFireLoggerAppender OnPerformed        - Job `11` has been performed
+INFO  2018-02-01 15:08:38,526 117362ms HangFireLoggerAppender OnStateUnapplied   - Job `10` state `Processing` was unapplied.
+INFO  2018-02-01 15:08:38,528 117364ms HangFireLoggerAppender OnStateApplied     - Job 10 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:08:41,056 119892ms HangFireLoggerAppender OnStateUnapplied   - Job `11` state `Processing` was unapplied.
+INFO  2018-02-01 15:08:41,061 119897ms HangFireLoggerAppender OnStateApplied     - Job 11 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:09:01,604 140440ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:09:02,597 141433ms HangFireLoggerAppender OnStateUnapplied   - Job `12` state `` was unapplied.
+INFO  2018-02-01 15:09:02,599 141435ms HangFireLoggerAppender OnStateApplied     - Job 12 state was changed from  to Enqueued
+INFO  2018-02-01 15:09:03,686 142522ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `12`
+INFO  2018-02-01 15:09:05,507 144343ms HangFireLoggerAppender OnStateUnapplied   - Job `12` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:09:05,510 144346ms HangFireLoggerAppender OnStateApplied     - Job 12 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:09:08,845 147681ms HangFireLoggerAppender OnPerforming       - Starting to perform job `12`
+INFO  2018-02-01 15:09:09,148 147984ms HangFireLoggerAppender OnPerformed        - Job `12` has been performed
+INFO  2018-02-01 15:09:13,984 152820ms HangFireLoggerAppender OnStateUnapplied   - Job `12` state `Processing` was unapplied.
+INFO  2018-02-01 15:09:13,988 152824ms HangFireLoggerAppender OnStateApplied     - Job 12 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:10:02,251 201087ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:10:03,574 202410ms HangFireLoggerAppender OnStateUnapplied   - Job `13` state `` was unapplied.
+INFO  2018-02-01 15:10:03,578 202414ms HangFireLoggerAppender OnStateApplied     - Job 13 state was changed from  to Enqueued
+INFO  2018-02-01 15:10:04,511 203347ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `13`
+INFO  2018-02-01 15:10:05,659 204495ms HangFireLoggerAppender OnStateUnapplied   - Job `13` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:10:05,662 204498ms HangFireLoggerAppender OnStateApplied     - Job 13 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:10:07,060 205896ms HangFireLoggerAppender OnPerforming       - Starting to perform job `13`
+INFO  2018-02-01 15:10:08,072 206908ms HangFireLoggerAppender OnPerformed        - Job `13` has been performed
+INFO  2018-02-01 15:10:10,195 209031ms HangFireLoggerAppender OnStateUnapplied   - Job `13` state `Processing` was unapplied.
+INFO  2018-02-01 15:10:10,199 209035ms HangFireLoggerAppender OnStateApplied     - Job 13 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:11:02,820 261656ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:11:04,170 263006ms HangFireLoggerAppender OnStateUnapplied   - Job `14` state `` was unapplied.
+INFO  2018-02-01 15:11:04,172 263008ms HangFireLoggerAppender OnStateApplied     - Job 14 state was changed from  to Enqueued
+INFO  2018-02-01 15:11:04,965 263801ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `14`
+INFO  2018-02-01 15:11:06,673 265509ms HangFireLoggerAppender OnStateUnapplied   - Job `14` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:11:06,675 265511ms HangFireLoggerAppender OnStateApplied     - Job 14 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:11:10,260 269096ms HangFireLoggerAppender OnPerforming       - Starting to perform job `14`
+INFO  2018-02-01 15:11:10,555 269391ms HangFireLoggerAppender OnPerformed        - Job `14` has been performed
+INFO  2018-02-01 15:11:11,284 270120ms HangFireLoggerAppender OnStateUnapplied   - Job `14` state `Processing` was unapplied.
+INFO  2018-02-01 15:11:11,286 270122ms HangFireLoggerAppender OnStateApplied     - Job 14 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:11:54,900 313736ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:11:55,539 314375ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:12:01,266 320102ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:12:02,446 321282ms HangFireLoggerAppender OnStateUnapplied   - Job `15` state `` was unapplied.
+INFO  2018-02-01 15:12:02,450 321286ms HangFireLoggerAppender OnStateApplied     - Job 15 state was changed from  to Enqueued
+INFO  2018-02-01 15:12:03,171 322007ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `15`
+INFO  2018-02-01 15:12:03,907 322743ms HangFireLoggerAppender OnStateUnapplied   - Job `15` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:12:03,909 322745ms HangFireLoggerAppender OnStateApplied     - Job 15 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:12:05,278 324114ms HangFireLoggerAppender OnPerforming       - Starting to perform job `15`
+INFO  2018-02-01 15:12:05,534 324370ms HangFireLoggerAppender OnPerformed        - Job `15` has been performed
+INFO  2018-02-01 15:12:06,776 325612ms HangFireLoggerAppender OnStateUnapplied   - Job `15` state `Processing` was unapplied.
+INFO  2018-02-01 15:12:06,777 325613ms HangFireLoggerAppender OnStateApplied     - Job 15 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:14:00,774 439610ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:14:01,487 440323ms HangFireLoggerAppender OnStateUnapplied   - Job `16` state `` was unapplied.
+INFO  2018-02-01 15:14:01,491 440327ms HangFireLoggerAppender OnStateApplied     - Job 16 state was changed from  to Enqueued
+INFO  2018-02-01 15:14:02,118 440954ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `16`
+INFO  2018-02-01 15:14:05,460 444296ms HangFireLoggerAppender OnStateUnapplied   - Job `16` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:14:05,463 444299ms HangFireLoggerAppender OnStateApplied     - Job 16 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:14:08,796 447632ms HangFireLoggerAppender OnPerforming       - Starting to perform job `16`
+INFO  2018-02-01 15:14:09,356 448192ms HangFireLoggerAppender OnPerformed        - Job `16` has been performed
+INFO  2018-02-01 15:14:10,139 448975ms HangFireLoggerAppender OnStateUnapplied   - Job `16` state `Processing` was unapplied.
+INFO  2018-02-01 15:14:10,140 448976ms HangFireLoggerAppender OnStateApplied     - Job 16 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:15:00,871 499707ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:15:01,577 500413ms HangFireLoggerAppender OnStateUnapplied   - Job `17` state `` was unapplied.
+INFO  2018-02-01 15:15:01,580 500416ms HangFireLoggerAppender OnStateApplied     - Job 17 state was changed from  to Enqueued
+INFO  2018-02-01 15:15:02,596 501432ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `17`
+INFO  2018-02-01 15:15:03,568 502404ms HangFireLoggerAppender OnStateUnapplied   - Job `17` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:15:03,570 502406ms HangFireLoggerAppender OnStateApplied     - Job 17 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:15:05,572 504408ms HangFireLoggerAppender OnPerforming       - Starting to perform job `17`
+INFO  2018-02-01 15:15:05,912 504748ms HangFireLoggerAppender OnPerformed        - Job `17` has been performed
+INFO  2018-02-01 15:15:06,378 505214ms HangFireLoggerAppender OnStateUnapplied   - Job `17` state `Processing` was unapplied.
+INFO  2018-02-01 15:15:06,381 505217ms HangFireLoggerAppender OnStateApplied     - Job 17 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:16:02,565 561401ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:16:05,217 564053ms HangFireLoggerAppender OnStateUnapplied   - Job `18` state `` was unapplied.
+INFO  2018-02-01 15:16:05,220 564056ms HangFireLoggerAppender OnStateApplied     - Job 18 state was changed from  to Enqueued
+INFO  2018-02-01 15:16:06,095 564931ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `18`
+INFO  2018-02-01 15:16:07,834 566670ms HangFireLoggerAppender OnStateUnapplied   - Job `18` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:16:07,836 566672ms HangFireLoggerAppender OnStateApplied     - Job 18 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:16:09,476 568312ms HangFireLoggerAppender OnPerforming       - Starting to perform job `18`
+INFO  2018-02-01 15:16:09,727 568563ms HangFireLoggerAppender OnPerformed        - Job `18` has been performed
+INFO  2018-02-01 15:16:10,446 569282ms HangFireLoggerAppender OnStateUnapplied   - Job `18` state `Processing` was unapplied.
+INFO  2018-02-01 15:16:10,448 569284ms HangFireLoggerAppender OnStateApplied     - Job 18 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:16:55,595 614431ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:16:55,988 614824ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:17:01,515 620351ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:17:02,710 621546ms HangFireLoggerAppender OnStateUnapplied   - Job `19` state `` was unapplied.
+INFO  2018-02-01 15:17:02,712 621548ms HangFireLoggerAppender OnStateApplied     - Job 19 state was changed from  to Enqueued
+INFO  2018-02-01 15:17:03,234 622070ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `19`
+INFO  2018-02-01 15:17:03,988 622824ms HangFireLoggerAppender OnStateUnapplied   - Job `19` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:17:04,010 622846ms HangFireLoggerAppender OnStateApplied     - Job 19 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:17:05,041 623877ms HangFireLoggerAppender OnPerforming       - Starting to perform job `19`
+INFO  2018-02-01 15:17:05,343 624179ms HangFireLoggerAppender OnPerformed        - Job `19` has been performed
+INFO  2018-02-01 15:17:05,849 624685ms HangFireLoggerAppender OnStateUnapplied   - Job `19` state `Processing` was unapplied.
+INFO  2018-02-01 15:17:05,851 624687ms HangFireLoggerAppender OnStateApplied     - Job 19 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:21:14,990  1506ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 15:21:14 >>>>>>
+INFO  2018-02-01 15:21:25,339 11855ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 15:21:25 >>>>>>
+INFO  2018-02-01 15:21:26,502 13018ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 15:21:27,319 13835ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 15:21:27,672 14188ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 15:21:27,701 14217ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-01 15:21:27,711 14227ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 15:21:27,713 14229ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 15:21:27,717 14233ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 15:21:27,719 14235ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 15:21:27,722 14238ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 15:21:27,724 14240ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 15:21:27,726 14242ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 15:21:28,125 14641ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 15:21:30,497 17013ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 15:21:30,735 17251ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 15:21:30,980 17496ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 15:21:30,996 17512ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 15:21:31,230 17746ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 15:21:31,252 17768ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:21:32,106 18622ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 15:21:32,359 18875ms Worker                 CallSite.Target    - Background process 'Worker #294f49e8' started.
+DEBUG 2018-02-01 15:21:32,376 18892ms Worker                 CallSite.Target    - Background process 'Worker #dbe1a096' started.
+DEBUG 2018-02-01 15:21:33,631 20147ms Worker                 CallSite.Target    - Background process 'Worker #1acb0aac' started.
+DEBUG 2018-02-01 15:21:34,495 21011ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 15:21:34,497 21013ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 15:21:35,779 22295ms Worker                 CallSite.Target    - Background process 'Worker #df17247d' started.
+DEBUG 2018-02-01 15:21:35,900 22416ms Worker                 CallSite.Target    - Background process 'Worker #a8b0c694' started.
+DEBUG 2018-02-01 15:21:36,842 23358ms Worker                 CallSite.Target    - Background process 'Worker #26391789' started.
+DEBUG 2018-02-01 15:21:37,071 23587ms Worker                 CallSite.Target    - Background process 'Worker #235d7d3d' started.
+DEBUG 2018-02-01 15:21:37,193 23709ms Worker                 CallSite.Target    - Background process 'Worker #4624cbe8' started.
+DEBUG 2018-02-01 15:21:38,624 25140ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 15:21:38,626 25142ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 15:21:38,873 25389ms Worker                 CallSite.Target    - Background process 'Worker #c0eb721a' started.
+DEBUG 2018-02-01 15:21:39,928 26444ms Worker                 CallSite.Target    - Background process 'Worker #25199609' started.
+DEBUG 2018-02-01 15:21:42,057 28573ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 15:21:42,058 28574ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 15:21:42,064 28580ms Worker                 CallSite.Target    - Background process 'Worker #de6b4a22' started.
+DEBUG 2018-02-01 15:21:43,402 29918ms Worker                 CallSite.Target    - Background process 'Worker #738cc64d' started.
+DEBUG 2018-02-01 15:21:43,473 29989ms Worker                 CallSite.Target    - Background process 'Worker #79fa2574' started.
+DEBUG 2018-02-01 15:21:44,633 31149ms Worker                 CallSite.Target    - Background process 'Worker #0bde6539' started.
+DEBUG 2018-02-01 15:21:44,858 31374ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 15:21:44,861 31377ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 15:21:45,574 32090ms Worker                 CallSite.Target    - Background process 'Worker #18f449b7' started.
+DEBUG 2018-02-01 15:21:46,254 32770ms Worker                 CallSite.Target    - Background process 'Worker #4e170a60' started.
+DEBUG 2018-02-01 15:21:46,839 33355ms Worker                 CallSite.Target    - Background process 'Worker #2e71d45f' started.
+DEBUG 2018-02-01 15:21:47,532 34048ms Worker                 CallSite.Target    - Background process 'Worker #1cffa7a1' started.
+DEBUG 2018-02-01 15:21:47,774 34290ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-01 15:21:47,813 34329ms Worker                 CallSite.Target    - Background process 'Worker #5607446c' started.
+DEBUG 2018-02-01 15:21:48,364 34880ms Worker                 CallSite.Target    - Background process 'Worker #3b28eb14' started.
+DEBUG 2018-02-01 15:21:48,794 35310ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 15:21:48,819 35335ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-01 15:22:14,311 60827ms meworkConfigController Index              - VATMVC Framework Config checked @ : 02/01/2018 15:22:14
+INFO  2018-02-01 15:24:02,976 169492ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:24:05,146 171662ms HangFireLoggerAppender OnStateUnapplied   - Job `20` state `` was unapplied.
+INFO  2018-02-01 15:24:05,158 171674ms HangFireLoggerAppender OnStateApplied     - Job 20 state was changed from  to Enqueued
+INFO  2018-02-01 15:24:06,688 173204ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `20`
+INFO  2018-02-01 15:24:08,911 175427ms HangFireLoggerAppender OnStateUnapplied   - Job `20` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:24:08,914 175430ms HangFireLoggerAppender OnStateApplied     - Job 20 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:24:09,429 175945ms HangFireLoggerAppender OnPerforming       - Starting to perform job `20`
+INFO  2018-02-01 15:24:11,047 177563ms HangFireLoggerAppender OnPerformed        - Job `20` has been performed
+INFO  2018-02-01 15:24:11,633 178149ms HangFireLoggerAppender OnStateUnapplied   - Job `20` state `Processing` was unapplied.
+INFO  2018-02-01 15:24:11,635 178151ms HangFireLoggerAppender OnStateApplied     - Job 20 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:25:04,522 231038ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:25:05,923 232439ms HangFireLoggerAppender OnStateUnapplied   - Job `21` state `` was unapplied.
+INFO  2018-02-01 15:25:05,925 232441ms HangFireLoggerAppender OnStateApplied     - Job 21 state was changed from  to Enqueued
+INFO  2018-02-01 15:25:08,404 234920ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `21`
+INFO  2018-02-01 15:25:09,093 235609ms HangFireLoggerAppender OnStateUnapplied   - Job `21` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:25:09,095 235611ms HangFireLoggerAppender OnStateApplied     - Job 21 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:25:12,580 239096ms HangFireLoggerAppender OnPerforming       - Starting to perform job `21`
+INFO  2018-02-01 15:25:12,916 239432ms HangFireLoggerAppender OnPerformed        - Job `21` has been performed
+INFO  2018-02-01 15:25:13,520 240036ms HangFireLoggerAppender OnStateUnapplied   - Job `21` state `Processing` was unapplied.
+INFO  2018-02-01 15:25:13,521 240037ms HangFireLoggerAppender OnStateApplied     - Job 21 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:26:00,761 287277ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:26:01,389 287905ms HangFireLoggerAppender OnStateUnapplied   - Job `22` state `` was unapplied.
+INFO  2018-02-01 15:26:01,392 287908ms HangFireLoggerAppender OnStateApplied     - Job 22 state was changed from  to Enqueued
+INFO  2018-02-01 15:26:02,177 288693ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `22`
+INFO  2018-02-01 15:26:04,718 291234ms HangFireLoggerAppender OnStateUnapplied   - Job `22` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:26:04,727 291243ms HangFireLoggerAppender OnStateApplied     - Job 22 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:26:06,503 293019ms HangFireLoggerAppender OnPerforming       - Starting to perform job `22`
+INFO  2018-02-01 15:26:06,802 293318ms HangFireLoggerAppender OnPerformed        - Job `22` has been performed
+INFO  2018-02-01 15:26:08,657 295173ms HangFireLoggerAppender OnStateUnapplied   - Job `22` state `Processing` was unapplied.
+INFO  2018-02-01 15:26:08,660 295176ms HangFireLoggerAppender OnStateApplied     - Job 22 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:26:31,064 317580ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2018-02-01 15:26:32,122 318638ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:26:32,250 318766ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:27:03,628 350144ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:27:05,396 351912ms HangFireLoggerAppender OnStateUnapplied   - Job `23` state `` was unapplied.
+INFO  2018-02-01 15:27:05,398 351914ms HangFireLoggerAppender OnStateApplied     - Job 23 state was changed from  to Enqueued
+INFO  2018-02-01 15:27:06,933 353449ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `23`
+INFO  2018-02-01 15:27:12,086 358602ms HangFireLoggerAppender OnStateUnapplied   - Job `23` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:27:12,088 358604ms HangFireLoggerAppender OnStateApplied     - Job 23 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:27:15,897 362413ms HangFireLoggerAppender OnPerforming       - Starting to perform job `23`
+INFO  2018-02-01 15:27:16,410 362926ms HangFireLoggerAppender OnPerformed        - Job `23` has been performed
+INFO  2018-02-01 15:27:18,347 364863ms HangFireLoggerAppender OnStateUnapplied   - Job `23` state `Processing` was unapplied.
+INFO  2018-02-01 15:27:18,349 364865ms HangFireLoggerAppender OnStateApplied     - Job 23 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:28:01,061 407577ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:28:01,337 407853ms HangFireLoggerAppender OnStateUnapplied   - Job `24` state `` was unapplied.
+INFO  2018-02-01 15:28:01,339 407855ms HangFireLoggerAppender OnStateApplied     - Job 24 state was changed from  to Enqueued
+INFO  2018-02-01 15:28:01,754 408270ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `24`
+INFO  2018-02-01 15:28:02,461 408977ms HangFireLoggerAppender OnStateUnapplied   - Job `24` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:28:02,465 408981ms HangFireLoggerAppender OnStateApplied     - Job 24 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:28:02,947 409463ms HangFireLoggerAppender OnPerforming       - Starting to perform job `24`
+INFO  2018-02-01 15:28:03,052 409568ms HangFireLoggerAppender OnPerformed        - Job `24` has been performed
+INFO  2018-02-01 15:28:03,332 409848ms HangFireLoggerAppender OnStateUnapplied   - Job `24` state `Processing` was unapplied.
+INFO  2018-02-01 15:28:03,334 409850ms HangFireLoggerAppender OnStateApplied     - Job 24 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:29:00,916 467432ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:29:01,171 467687ms HangFireLoggerAppender OnStateUnapplied   - Job `25` state `` was unapplied.
+INFO  2018-02-01 15:29:01,173 467689ms HangFireLoggerAppender OnStateApplied     - Job 25 state was changed from  to Enqueued
+INFO  2018-02-01 15:29:01,467 467983ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `25`
+INFO  2018-02-01 15:29:02,517 469033ms HangFireLoggerAppender OnStateUnapplied   - Job `25` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:29:02,524 469040ms HangFireLoggerAppender OnStateApplied     - Job 25 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:29:03,960 470476ms HangFireLoggerAppender OnPerforming       - Starting to perform job `25`
+INFO  2018-02-01 15:29:04,144 470660ms HangFireLoggerAppender OnPerformed        - Job `25` has been performed
+INFO  2018-02-01 15:29:05,121 471637ms HangFireLoggerAppender OnStateUnapplied   - Job `25` state `Processing` was unapplied.
+INFO  2018-02-01 15:29:05,123 471639ms HangFireLoggerAppender OnStateApplied     - Job 25 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:30:00,380 526896ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:30:00,857 527373ms HangFireLoggerAppender OnStateUnapplied   - Job `26` state `` was unapplied.
+INFO  2018-02-01 15:30:00,859 527375ms HangFireLoggerAppender OnStateApplied     - Job 26 state was changed from  to Enqueued
+INFO  2018-02-01 15:30:01,445 527961ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `26`
+INFO  2018-02-01 15:30:02,356 528872ms HangFireLoggerAppender OnStateUnapplied   - Job `26` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:30:02,358 528874ms HangFireLoggerAppender OnStateApplied     - Job 26 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:30:03,468 529984ms HangFireLoggerAppender OnPerforming       - Starting to perform job `26`
+INFO  2018-02-01 15:30:03,604 530120ms HangFireLoggerAppender OnPerformed        - Job `26` has been performed
+INFO  2018-02-01 15:30:03,912 530428ms HangFireLoggerAppender OnStateUnapplied   - Job `26` state `Processing` was unapplied.
+INFO  2018-02-01 15:30:03,914 530430ms HangFireLoggerAppender OnStateApplied     - Job 26 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:31:00,506 587022ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:31:01,539 588055ms HangFireLoggerAppender OnStateUnapplied   - Job `27` state `` was unapplied.
+INFO  2018-02-01 15:31:01,541 588057ms HangFireLoggerAppender OnStateApplied     - Job 27 state was changed from  to Enqueued
+INFO  2018-02-01 15:31:03,021 589537ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `27`
+INFO  2018-02-01 15:31:04,009 590525ms HangFireLoggerAppender OnStateUnapplied   - Job `27` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:31:04,011 590527ms HangFireLoggerAppender OnStateApplied     - Job 27 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:31:04,586 591102ms HangFireLoggerAppender OnPerforming       - Starting to perform job `27`
+INFO  2018-02-01 15:31:04,724 591240ms HangFireLoggerAppender OnPerformed        - Job `27` has been performed
+INFO  2018-02-01 15:31:04,847 591363ms HangFireLoggerAppender OnStateUnapplied   - Job `27` state `Processing` was unapplied.
+INFO  2018-02-01 15:31:04,849 591365ms HangFireLoggerAppender OnStateApplied     - Job 27 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:31:32,236 618752ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:31:32,303 618819ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:32:00,840 647356ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:32:01,047 647563ms HangFireLoggerAppender OnStateUnapplied   - Job `28` state `` was unapplied.
+INFO  2018-02-01 15:32:01,049 647565ms HangFireLoggerAppender OnStateApplied     - Job 28 state was changed from  to Enqueued
+INFO  2018-02-01 15:32:01,385 647901ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `28`
+INFO  2018-02-01 15:32:01,865 648381ms HangFireLoggerAppender OnStateUnapplied   - Job `28` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:32:01,867 648383ms HangFireLoggerAppender OnStateApplied     - Job 28 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:32:02,579 649095ms HangFireLoggerAppender OnPerforming       - Starting to perform job `28`
+INFO  2018-02-01 15:32:02,830 649346ms HangFireLoggerAppender OnPerformed        - Job `28` has been performed
+INFO  2018-02-01 15:32:03,327 649843ms HangFireLoggerAppender OnStateUnapplied   - Job `28` state `Processing` was unapplied.
+INFO  2018-02-01 15:32:03,329 649845ms HangFireLoggerAppender OnStateApplied     - Job 28 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:33:00,376 706892ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:33:00,662 707178ms HangFireLoggerAppender OnStateUnapplied   - Job `29` state `` was unapplied.
+INFO  2018-02-01 15:33:00,664 707180ms HangFireLoggerAppender OnStateApplied     - Job 29 state was changed from  to Enqueued
+INFO  2018-02-01 15:33:01,027 707543ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `29`
+INFO  2018-02-01 15:33:01,487 708003ms HangFireLoggerAppender OnStateUnapplied   - Job `29` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:33:01,490 708006ms HangFireLoggerAppender OnStateApplied     - Job 29 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:33:02,887 709403ms HangFireLoggerAppender OnPerforming       - Starting to perform job `29`
+INFO  2018-02-01 15:33:03,170 709686ms HangFireLoggerAppender OnPerformed        - Job `29` has been performed
+INFO  2018-02-01 15:33:03,465 709981ms HangFireLoggerAppender OnStateUnapplied   - Job `29` state `Processing` was unapplied.
+INFO  2018-02-01 15:33:03,467 709983ms HangFireLoggerAppender OnStateApplied     - Job 29 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:34:01,180 767696ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:34:01,466 767982ms HangFireLoggerAppender OnStateUnapplied   - Job `30` state `` was unapplied.
+INFO  2018-02-01 15:34:01,469 767985ms HangFireLoggerAppender OnStateApplied     - Job 30 state was changed from  to Enqueued
+INFO  2018-02-01 15:34:01,725 768241ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `30`
+INFO  2018-02-01 15:34:02,456 768972ms HangFireLoggerAppender OnStateUnapplied   - Job `30` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:34:02,459 768975ms HangFireLoggerAppender OnStateApplied     - Job 30 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:34:03,450 769966ms HangFireLoggerAppender OnPerforming       - Starting to perform job `30`
+INFO  2018-02-01 15:34:03,577 770093ms HangFireLoggerAppender OnPerformed        - Job `30` has been performed
+INFO  2018-02-01 15:34:04,069 770585ms HangFireLoggerAppender OnStateUnapplied   - Job `30` state `Processing` was unapplied.
+INFO  2018-02-01 15:34:04,071 770587ms HangFireLoggerAppender OnStateApplied     - Job 30 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:35:01,660 828176ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:35:02,172 828688ms HangFireLoggerAppender OnStateUnapplied   - Job `31` state `` was unapplied.
+INFO  2018-02-01 15:35:02,174 828690ms HangFireLoggerAppender OnStateApplied     - Job 31 state was changed from  to Enqueued
+INFO  2018-02-01 15:35:02,808 829324ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `31`
+INFO  2018-02-01 15:35:03,958 830474ms HangFireLoggerAppender OnStateUnapplied   - Job `31` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:35:03,964 830480ms HangFireLoggerAppender OnStateApplied     - Job 31 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:35:07,091 833607ms HangFireLoggerAppender OnPerforming       - Starting to perform job `31`
+INFO  2018-02-01 15:35:07,797 834313ms HangFireLoggerAppender OnPerformed        - Job `31` has been performed
+INFO  2018-02-01 15:35:08,307 834823ms HangFireLoggerAppender OnStateUnapplied   - Job `31` state `Processing` was unapplied.
+INFO  2018-02-01 15:35:08,309 834825ms HangFireLoggerAppender OnStateApplied     - Job 31 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:36:00,551 887067ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:36:00,805 887321ms HangFireLoggerAppender OnStateUnapplied   - Job `32` state `` was unapplied.
+INFO  2018-02-01 15:36:00,807 887323ms HangFireLoggerAppender OnStateApplied     - Job 32 state was changed from  to Enqueued
+INFO  2018-02-01 15:36:01,854 888370ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `32`
+INFO  2018-02-01 15:36:05,272 891788ms HangFireLoggerAppender OnStateUnapplied   - Job `32` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:36:05,274 891790ms HangFireLoggerAppender OnStateApplied     - Job 32 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:36:12,135 898651ms HangFireLoggerAppender OnPerforming       - Starting to perform job `32`
+INFO  2018-02-01 15:36:12,223 898739ms HangFireLoggerAppender OnPerformed        - Job `32` has been performed
+INFO  2018-02-01 15:36:12,841 899357ms HangFireLoggerAppender OnStateUnapplied   - Job `32` state `Processing` was unapplied.
+INFO  2018-02-01 15:36:12,844 899360ms HangFireLoggerAppender OnStateApplied     - Job 32 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:36:32,294 918810ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:36:33,179 919695ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:37:00,538 947054ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:37:01,149 947665ms HangFireLoggerAppender OnStateUnapplied   - Job `33` state `` was unapplied.
+INFO  2018-02-01 15:37:01,151 947667ms HangFireLoggerAppender OnStateApplied     - Job 33 state was changed from  to Enqueued
+INFO  2018-02-01 15:37:01,608 948124ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `33`
+INFO  2018-02-01 15:37:02,141 948657ms HangFireLoggerAppender OnStateUnapplied   - Job `33` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:37:02,145 948661ms HangFireLoggerAppender OnStateApplied     - Job 33 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:37:03,845 950361ms HangFireLoggerAppender OnPerforming       - Starting to perform job `33`
+INFO  2018-02-01 15:37:04,663 951179ms HangFireLoggerAppender OnPerformed        - Job `33` has been performed
+INFO  2018-02-01 15:37:06,776 953292ms HangFireLoggerAppender OnStateUnapplied   - Job `33` state `Processing` was unapplied.
+INFO  2018-02-01 15:37:06,778 953294ms HangFireLoggerAppender OnStateApplied     - Job 33 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:38:00,513 1007029ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:38:00,726 1007242ms HangFireLoggerAppender OnStateUnapplied   - Job `34` state `` was unapplied.
+INFO  2018-02-01 15:38:00,729 1007245ms HangFireLoggerAppender OnStateApplied     - Job 34 state was changed from  to Enqueued
+INFO  2018-02-01 15:38:01,024 1007540ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `34`
+INFO  2018-02-01 15:38:01,416 1007932ms HangFireLoggerAppender OnStateUnapplied   - Job `34` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:38:01,420 1007936ms HangFireLoggerAppender OnStateApplied     - Job 34 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:38:03,278 1009794ms HangFireLoggerAppender OnPerforming       - Starting to perform job `34`
+INFO  2018-02-01 15:38:03,402 1009918ms HangFireLoggerAppender OnPerformed        - Job `34` has been performed
+INFO  2018-02-01 15:38:03,563 1010079ms HangFireLoggerAppender OnStateUnapplied   - Job `34` state `Processing` was unapplied.
+INFO  2018-02-01 15:38:03,565 1010081ms HangFireLoggerAppender OnStateApplied     - Job 34 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:39:01,434 1067950ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:39:01,802 1068318ms HangFireLoggerAppender OnStateUnapplied   - Job `35` state `` was unapplied.
+INFO  2018-02-01 15:39:01,804 1068320ms HangFireLoggerAppender OnStateApplied     - Job 35 state was changed from  to Enqueued
+INFO  2018-02-01 15:39:02,166 1068682ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `35`
+INFO  2018-02-01 15:39:02,844 1069360ms HangFireLoggerAppender OnStateUnapplied   - Job `35` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:39:02,847 1069363ms HangFireLoggerAppender OnStateApplied     - Job 35 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:39:03,921 1070437ms HangFireLoggerAppender OnPerforming       - Starting to perform job `35`
+INFO  2018-02-01 15:39:04,397 1070913ms HangFireLoggerAppender OnPerformed        - Job `35` has been performed
+INFO  2018-02-01 15:39:04,699 1071215ms HangFireLoggerAppender OnStateUnapplied   - Job `35` state `Processing` was unapplied.
+INFO  2018-02-01 15:39:04,703 1071219ms HangFireLoggerAppender OnStateApplied     - Job 35 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:40:00,361 1126877ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:40:00,904 1127420ms HangFireLoggerAppender OnStateUnapplied   - Job `36` state `` was unapplied.
+INFO  2018-02-01 15:40:00,906 1127422ms HangFireLoggerAppender OnStateApplied     - Job 36 state was changed from  to Enqueued
+INFO  2018-02-01 15:40:01,197 1127713ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `36`
+INFO  2018-02-01 15:40:01,672 1128188ms HangFireLoggerAppender OnStateUnapplied   - Job `36` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:40:01,676 1128192ms HangFireLoggerAppender OnStateApplied     - Job 36 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:40:02,144 1128660ms HangFireLoggerAppender OnPerforming       - Starting to perform job `36`
+INFO  2018-02-01 15:40:02,241 1128757ms HangFireLoggerAppender OnPerformed        - Job `36` has been performed
+INFO  2018-02-01 15:40:02,520 1129036ms HangFireLoggerAppender OnStateUnapplied   - Job `36` state `Processing` was unapplied.
+INFO  2018-02-01 15:40:02,522 1129038ms HangFireLoggerAppender OnStateApplied     - Job 36 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:41:06,591 1193107ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:41:09,913 1196429ms HangFireLoggerAppender OnStateUnapplied   - Job `37` state `` was unapplied.
+INFO  2018-02-01 15:41:09,915 1196431ms HangFireLoggerAppender OnStateApplied     - Job 37 state was changed from  to Enqueued
+INFO  2018-02-01 15:41:12,784 1199300ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `37`
+INFO  2018-02-01 15:41:16,756 1203272ms HangFireLoggerAppender OnStateUnapplied   - Job `37` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:41:16,758 1203274ms HangFireLoggerAppender OnStateApplied     - Job 37 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:41:17,956 1204472ms HangFireLoggerAppender OnPerforming       - Starting to perform job `37`
+INFO  2018-02-01 15:41:18,229 1204745ms HangFireLoggerAppender OnPerformed        - Job `37` has been performed
+INFO  2018-02-01 15:41:19,221 1205737ms HangFireLoggerAppender OnStateUnapplied   - Job `37` state `Processing` was unapplied.
+INFO  2018-02-01 15:41:19,223 1205739ms HangFireLoggerAppender OnStateApplied     - Job 37 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:41:33,238 1219754ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:41:33,413 1219929ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:42:00,641 1247157ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:42:00,879 1247395ms HangFireLoggerAppender OnStateUnapplied   - Job `38` state `` was unapplied.
+INFO  2018-02-01 15:42:00,881 1247397ms HangFireLoggerAppender OnStateApplied     - Job 38 state was changed from  to Enqueued
+INFO  2018-02-01 15:42:01,061 1247577ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `38`
+INFO  2018-02-01 15:42:01,460 1247976ms HangFireLoggerAppender OnStateUnapplied   - Job `38` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:42:01,464 1247980ms HangFireLoggerAppender OnStateApplied     - Job 38 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:42:01,982 1248498ms HangFireLoggerAppender OnPerforming       - Starting to perform job `38`
+INFO  2018-02-01 15:42:02,068 1248584ms HangFireLoggerAppender OnPerformed        - Job `38` has been performed
+INFO  2018-02-01 15:42:02,450 1248966ms HangFireLoggerAppender OnStateUnapplied   - Job `38` state `Processing` was unapplied.
+INFO  2018-02-01 15:42:02,452 1248968ms HangFireLoggerAppender OnStateApplied     - Job 38 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:44:01,610 1368126ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:44:01,935 1368451ms HangFireLoggerAppender OnStateUnapplied   - Job `39` state `` was unapplied.
+INFO  2018-02-01 15:44:01,937 1368453ms HangFireLoggerAppender OnStateApplied     - Job 39 state was changed from  to Enqueued
+INFO  2018-02-01 15:44:02,299 1368815ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `39`
+INFO  2018-02-01 15:44:02,882 1369398ms HangFireLoggerAppender OnStateUnapplied   - Job `39` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:44:02,884 1369400ms HangFireLoggerAppender OnStateApplied     - Job 39 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:44:03,544 1370060ms HangFireLoggerAppender OnPerforming       - Starting to perform job `39`
+INFO  2018-02-01 15:44:03,749 1370265ms HangFireLoggerAppender OnPerformed        - Job `39` has been performed
+INFO  2018-02-01 15:44:03,920 1370436ms HangFireLoggerAppender OnStateUnapplied   - Job `39` state `Processing` was unapplied.
+INFO  2018-02-01 15:44:03,922 1370438ms HangFireLoggerAppender OnStateApplied     - Job 39 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:45:00,970 1427486ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:45:01,650 1428166ms HangFireLoggerAppender OnStateUnapplied   - Job `40` state `` was unapplied.
+INFO  2018-02-01 15:45:01,652 1428168ms HangFireLoggerAppender OnStateApplied     - Job 40 state was changed from  to Enqueued
+INFO  2018-02-01 15:45:01,913 1428429ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `40`
+INFO  2018-02-01 15:45:02,315 1428831ms HangFireLoggerAppender OnStateUnapplied   - Job `40` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:45:02,322 1428838ms HangFireLoggerAppender OnStateApplied     - Job 40 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:45:02,872 1429388ms HangFireLoggerAppender OnPerforming       - Starting to perform job `40`
+INFO  2018-02-01 15:45:03,029 1429545ms HangFireLoggerAppender OnPerformed        - Job `40` has been performed
+INFO  2018-02-01 15:45:03,187 1429703ms HangFireLoggerAppender OnStateUnapplied   - Job `40` state `Processing` was unapplied.
+INFO  2018-02-01 15:45:03,189 1429705ms HangFireLoggerAppender OnStateApplied     - Job 40 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:46:02,196 1488712ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:46:04,941 1491457ms HangFireLoggerAppender OnStateUnapplied   - Job `41` state `` was unapplied.
+INFO  2018-02-01 15:46:04,943 1491459ms HangFireLoggerAppender OnStateApplied     - Job 41 state was changed from  to Enqueued
+INFO  2018-02-01 15:46:07,452 1493968ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `41`
+INFO  2018-02-01 15:46:08,899 1495415ms HangFireLoggerAppender OnStateUnapplied   - Job `41` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:46:08,902 1495418ms HangFireLoggerAppender OnStateApplied     - Job 41 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:46:10,137 1496653ms HangFireLoggerAppender OnPerforming       - Starting to perform job `41`
+INFO  2018-02-01 15:46:10,322 1496838ms HangFireLoggerAppender OnPerformed        - Job `41` has been performed
+INFO  2018-02-01 15:46:12,374 1498890ms HangFireLoggerAppender OnStateUnapplied   - Job `41` state `Processing` was unapplied.
+INFO  2018-02-01 15:46:12,377 1498893ms HangFireLoggerAppender OnStateApplied     - Job 41 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:46:33,407 1519923ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:46:33,463 1519979ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:47:00,748 1547264ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:47:01,098 1547614ms HangFireLoggerAppender OnStateUnapplied   - Job `42` state `` was unapplied.
+INFO  2018-02-01 15:47:01,100 1547616ms HangFireLoggerAppender OnStateApplied     - Job 42 state was changed from  to Enqueued
+INFO  2018-02-01 15:47:01,598 1548114ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `42`
+INFO  2018-02-01 15:47:02,501 1549017ms HangFireLoggerAppender OnStateUnapplied   - Job `42` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:47:02,503 1549019ms HangFireLoggerAppender OnStateApplied     - Job 42 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:47:02,831 1549347ms HangFireLoggerAppender OnPerforming       - Starting to perform job `42`
+INFO  2018-02-01 15:47:02,920 1549436ms HangFireLoggerAppender OnPerformed        - Job `42` has been performed
+INFO  2018-02-01 15:47:03,232 1549748ms HangFireLoggerAppender OnStateUnapplied   - Job `42` state `Processing` was unapplied.
+INFO  2018-02-01 15:47:03,234 1549750ms HangFireLoggerAppender OnStateApplied     - Job 42 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:48:00,871 1607387ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:48:01,053 1607569ms HangFireLoggerAppender OnStateUnapplied   - Job `43` state `` was unapplied.
+INFO  2018-02-01 15:48:01,055 1607571ms HangFireLoggerAppender OnStateApplied     - Job 43 state was changed from  to Enqueued
+INFO  2018-02-01 15:48:01,386 1607902ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `43`
+INFO  2018-02-01 15:48:01,873 1608389ms HangFireLoggerAppender OnStateUnapplied   - Job `43` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:48:01,875 1608391ms HangFireLoggerAppender OnStateApplied     - Job 43 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:48:02,402 1608918ms HangFireLoggerAppender OnPerforming       - Starting to perform job `43`
+INFO  2018-02-01 15:48:02,589 1609105ms HangFireLoggerAppender OnPerformed        - Job `43` has been performed
+INFO  2018-02-01 15:48:02,763 1609279ms HangFireLoggerAppender OnStateUnapplied   - Job `43` state `Processing` was unapplied.
+INFO  2018-02-01 15:48:02,764 1609280ms HangFireLoggerAppender OnStateApplied     - Job 43 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:49:00,379 1666895ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:49:00,607 1667123ms HangFireLoggerAppender OnStateUnapplied   - Job `44` state `` was unapplied.
+INFO  2018-02-01 15:49:00,610 1667126ms HangFireLoggerAppender OnStateApplied     - Job 44 state was changed from  to Enqueued
+INFO  2018-02-01 15:49:00,862 1667378ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `44`
+INFO  2018-02-01 15:49:01,313 1667829ms HangFireLoggerAppender OnStateUnapplied   - Job `44` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:49:01,317 1667833ms HangFireLoggerAppender OnStateApplied     - Job 44 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:49:01,754 1668270ms HangFireLoggerAppender OnPerforming       - Starting to perform job `44`
+INFO  2018-02-01 15:49:01,914 1668430ms HangFireLoggerAppender OnPerformed        - Job `44` has been performed
+INFO  2018-02-01 15:49:02,137 1668653ms HangFireLoggerAppender OnStateUnapplied   - Job `44` state `Processing` was unapplied.
+INFO  2018-02-01 15:49:02,138 1668654ms HangFireLoggerAppender OnStateApplied     - Job 44 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:50:01,710 1728226ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:50:03,419 1729935ms HangFireLoggerAppender OnStateUnapplied   - Job `45` state `` was unapplied.
+INFO  2018-02-01 15:50:03,422 1729938ms HangFireLoggerAppender OnStateApplied     - Job 45 state was changed from  to Enqueued
+INFO  2018-02-01 15:50:04,542 1731058ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `45`
+INFO  2018-02-01 15:50:06,088 1732604ms HangFireLoggerAppender OnStateUnapplied   - Job `45` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:50:06,094 1732610ms HangFireLoggerAppender OnStateApplied     - Job 45 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:50:08,376 1734892ms HangFireLoggerAppender OnPerforming       - Starting to perform job `45`
+INFO  2018-02-01 15:50:08,784 1735300ms HangFireLoggerAppender OnPerformed        - Job `45` has been performed
+INFO  2018-02-01 15:50:15,200 1741716ms HangFireLoggerAppender OnStateUnapplied   - Job `45` state `Processing` was unapplied.
+INFO  2018-02-01 15:50:15,202 1741718ms HangFireLoggerAppender OnStateApplied     - Job 45 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:51:00,424 1786940ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:51:00,780 1787296ms HangFireLoggerAppender OnStateUnapplied   - Job `46` state `` was unapplied.
+INFO  2018-02-01 15:51:00,782 1787298ms HangFireLoggerAppender OnStateApplied     - Job 46 state was changed from  to Enqueued
+INFO  2018-02-01 15:51:01,502 1788018ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `46`
+INFO  2018-02-01 15:51:02,169 1788685ms HangFireLoggerAppender OnStateUnapplied   - Job `46` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:51:02,171 1788687ms HangFireLoggerAppender OnStateApplied     - Job 46 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:51:02,837 1789353ms HangFireLoggerAppender OnPerforming       - Starting to perform job `46`
+INFO  2018-02-01 15:51:02,911 1789427ms HangFireLoggerAppender OnPerformed        - Job `46` has been performed
+INFO  2018-02-01 15:51:03,093 1789609ms HangFireLoggerAppender OnStateUnapplied   - Job `46` state `Processing` was unapplied.
+INFO  2018-02-01 15:51:03,095 1789611ms HangFireLoggerAppender OnStateApplied     - Job 46 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:51:33,455 1819971ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:51:33,684 1820200ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 15:51:47,688 1834204ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 15:51:47,813 1834329ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 15:51:47,815 1834331ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 15:51:47,956 1834472ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 15:51:47,958 1834474ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 15:51:48,190 1834706ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 15:51:48,192 1834708ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 15:51:48,330 1834846ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 15:51:48,332 1834848ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 15:51:48,593 1835109ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+INFO  2018-02-01 15:52:00,715 1847231ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:52:00,910 1847426ms HangFireLoggerAppender OnStateUnapplied   - Job `47` state `` was unapplied.
+INFO  2018-02-01 15:52:00,912 1847428ms HangFireLoggerAppender OnStateApplied     - Job 47 state was changed from  to Enqueued
+INFO  2018-02-01 15:52:01,168 1847684ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `47`
+INFO  2018-02-01 15:52:01,557 1848073ms HangFireLoggerAppender OnStateUnapplied   - Job `47` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:52:01,559 1848075ms HangFireLoggerAppender OnStateApplied     - Job 47 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:52:02,181 1848697ms HangFireLoggerAppender OnPerforming       - Starting to perform job `47`
+INFO  2018-02-01 15:52:02,304 1848820ms HangFireLoggerAppender OnPerformed        - Job `47` has been performed
+INFO  2018-02-01 15:52:02,526 1849042ms HangFireLoggerAppender OnStateUnapplied   - Job `47` state `Processing` was unapplied.
+INFO  2018-02-01 15:52:02,528 1849044ms HangFireLoggerAppender OnStateApplied     - Job 47 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:53:00,369 1906885ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:53:00,656 1907172ms HangFireLoggerAppender OnStateUnapplied   - Job `48` state `` was unapplied.
+INFO  2018-02-01 15:53:00,658 1907174ms HangFireLoggerAppender OnStateApplied     - Job 48 state was changed from  to Enqueued
+INFO  2018-02-01 15:53:00,921 1907437ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `48`
+INFO  2018-02-01 15:53:01,366 1907882ms HangFireLoggerAppender OnStateUnapplied   - Job `48` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:53:01,368 1907884ms HangFireLoggerAppender OnStateApplied     - Job 48 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:53:02,047 1908563ms HangFireLoggerAppender OnPerforming       - Starting to perform job `48`
+INFO  2018-02-01 15:53:02,127 1908643ms HangFireLoggerAppender OnPerformed        - Job `48` has been performed
+INFO  2018-02-01 15:53:02,352 1908868ms HangFireLoggerAppender OnStateUnapplied   - Job `48` state `Processing` was unapplied.
+INFO  2018-02-01 15:53:02,354 1908870ms HangFireLoggerAppender OnStateApplied     - Job 48 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:54:01,937 1968453ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:54:02,184 1968700ms HangFireLoggerAppender OnStateUnapplied   - Job `49` state `` was unapplied.
+INFO  2018-02-01 15:54:02,187 1968703ms HangFireLoggerAppender OnStateApplied     - Job 49 state was changed from  to Enqueued
+INFO  2018-02-01 15:54:02,687 1969203ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `49`
+INFO  2018-02-01 15:54:03,183 1969699ms HangFireLoggerAppender OnStateUnapplied   - Job `49` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:54:03,186 1969702ms HangFireLoggerAppender OnStateApplied     - Job 49 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:54:04,204 1970720ms HangFireLoggerAppender OnPerforming       - Starting to perform job `49`
+INFO  2018-02-01 15:54:04,318 1970834ms HangFireLoggerAppender OnPerformed        - Job `49` has been performed
+INFO  2018-02-01 15:54:04,600 1971116ms HangFireLoggerAppender OnStateUnapplied   - Job `49` state `Processing` was unapplied.
+INFO  2018-02-01 15:54:04,602 1971118ms HangFireLoggerAppender OnStateApplied     - Job 49 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:55:00,359 2026875ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:55:00,650 2027166ms HangFireLoggerAppender OnStateUnapplied   - Job `50` state `` was unapplied.
+INFO  2018-02-01 15:55:00,652 2027168ms HangFireLoggerAppender OnStateApplied     - Job 50 state was changed from  to Enqueued
+INFO  2018-02-01 15:55:00,919 2027435ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `50`
+INFO  2018-02-01 15:55:01,527 2028043ms HangFireLoggerAppender OnStateUnapplied   - Job `50` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:55:01,529 2028045ms HangFireLoggerAppender OnStateApplied     - Job 50 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:55:02,161 2028677ms HangFireLoggerAppender OnPerforming       - Starting to perform job `50`
+INFO  2018-02-01 15:55:02,244 2028760ms HangFireLoggerAppender OnPerformed        - Job `50` has been performed
+INFO  2018-02-01 15:55:02,931 2029447ms HangFireLoggerAppender OnStateUnapplied   - Job `50` state `Processing` was unapplied.
+INFO  2018-02-01 15:55:02,934 2029450ms HangFireLoggerAppender OnStateApplied     - Job 50 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:56:00,304 2086820ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:56:00,556 2087072ms HangFireLoggerAppender OnStateUnapplied   - Job `51` state `` was unapplied.
+INFO  2018-02-01 15:56:00,558 2087074ms HangFireLoggerAppender OnStateApplied     - Job 51 state was changed from  to Enqueued
+INFO  2018-02-01 15:56:00,703 2087219ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `51`
+INFO  2018-02-01 15:56:01,251 2087767ms HangFireLoggerAppender OnStateUnapplied   - Job `51` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:56:01,282 2087798ms HangFireLoggerAppender OnStateApplied     - Job 51 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:56:01,630 2088146ms HangFireLoggerAppender OnPerforming       - Starting to perform job `51`
+INFO  2018-02-01 15:56:01,703 2088219ms HangFireLoggerAppender OnPerformed        - Job `51` has been performed
+INFO  2018-02-01 15:56:01,956 2088472ms HangFireLoggerAppender OnStateUnapplied   - Job `51` state `Processing` was unapplied.
+INFO  2018-02-01 15:56:01,958 2088474ms HangFireLoggerAppender OnStateApplied     - Job 51 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 15:56:33,675 2120191ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 15:56:33,735 2120251ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 15:57:00,943 2147459ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:57:01,154 2147670ms HangFireLoggerAppender OnStateUnapplied   - Job `52` state `` was unapplied.
+INFO  2018-02-01 15:57:01,156 2147672ms HangFireLoggerAppender OnStateApplied     - Job 52 state was changed from  to Enqueued
+INFO  2018-02-01 15:57:01,770 2148286ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `52`
+INFO  2018-02-01 15:57:02,444 2148960ms HangFireLoggerAppender OnStateUnapplied   - Job `52` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:57:02,450 2148966ms HangFireLoggerAppender OnStateApplied     - Job 52 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:57:02,840 2149356ms HangFireLoggerAppender OnPerforming       - Starting to perform job `52`
+INFO  2018-02-01 15:57:02,909 2149425ms HangFireLoggerAppender OnPerformed        - Job `52` has been performed
+INFO  2018-02-01 15:57:03,181 2149697ms HangFireLoggerAppender OnStateUnapplied   - Job `52` state `Processing` was unapplied.
+INFO  2018-02-01 15:57:03,183 2149699ms HangFireLoggerAppender OnStateApplied     - Job 52 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:58:00,887 2207403ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:58:01,070 2207586ms HangFireLoggerAppender OnStateUnapplied   - Job `53` state `` was unapplied.
+INFO  2018-02-01 15:58:01,072 2207588ms HangFireLoggerAppender OnStateApplied     - Job 53 state was changed from  to Enqueued
+INFO  2018-02-01 15:58:01,289 2207805ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `53`
+INFO  2018-02-01 15:58:01,620 2208136ms HangFireLoggerAppender OnStateUnapplied   - Job `53` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:58:01,622 2208138ms HangFireLoggerAppender OnStateApplied     - Job 53 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:58:02,175 2208691ms HangFireLoggerAppender OnPerforming       - Starting to perform job `53`
+INFO  2018-02-01 15:58:02,301 2208817ms HangFireLoggerAppender OnPerformed        - Job `53` has been performed
+INFO  2018-02-01 15:58:02,510 2209026ms HangFireLoggerAppender OnStateUnapplied   - Job `53` state `Processing` was unapplied.
+INFO  2018-02-01 15:58:02,511 2209027ms HangFireLoggerAppender OnStateApplied     - Job 53 state was changed from Processing to Succeeded
+INFO  2018-02-01 15:59:00,301 2266817ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 15:59:00,551 2267067ms HangFireLoggerAppender OnStateUnapplied   - Job `54` state `` was unapplied.
+INFO  2018-02-01 15:59:00,553 2267069ms HangFireLoggerAppender OnStateApplied     - Job 54 state was changed from  to Enqueued
+INFO  2018-02-01 15:59:00,750 2267266ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `54`
+INFO  2018-02-01 15:59:01,003 2267519ms HangFireLoggerAppender OnStateUnapplied   - Job `54` state `Enqueued` was unapplied.
+INFO  2018-02-01 15:59:01,105 2267621ms HangFireLoggerAppender OnStateApplied     - Job 54 state was changed from Enqueued to Processing
+INFO  2018-02-01 15:59:01,405 2267921ms HangFireLoggerAppender OnPerforming       - Starting to perform job `54`
+INFO  2018-02-01 15:59:01,542 2268058ms HangFireLoggerAppender OnPerformed        - Job `54` has been performed
+INFO  2018-02-01 15:59:01,669 2268185ms HangFireLoggerAppender OnStateUnapplied   - Job `54` state `Processing` was unapplied.
+INFO  2018-02-01 15:59:01,671 2268187ms HangFireLoggerAppender OnStateApplied     - Job 54 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:00:00,468 2326984ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:00:00,805 2327321ms HangFireLoggerAppender OnStateUnapplied   - Job `55` state `` was unapplied.
+INFO  2018-02-01 16:00:00,811 2327327ms HangFireLoggerAppender OnStateApplied     - Job 55 state was changed from  to Enqueued
+INFO  2018-02-01 16:00:01,032 2327548ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `55`
+INFO  2018-02-01 16:00:01,357 2327873ms HangFireLoggerAppender OnStateUnapplied   - Job `55` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:00:01,359 2327875ms HangFireLoggerAppender OnStateApplied     - Job 55 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:00:01,693 2328209ms HangFireLoggerAppender OnPerforming       - Starting to perform job `55`
+INFO  2018-02-01 16:00:01,806 2328322ms HangFireLoggerAppender OnPerformed        - Job `55` has been performed
+INFO  2018-02-01 16:00:01,941 2328457ms HangFireLoggerAppender OnStateUnapplied   - Job `55` state `Processing` was unapplied.
+INFO  2018-02-01 16:00:01,943 2328459ms HangFireLoggerAppender OnStateApplied     - Job 55 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:01:00,746 2387262ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:01:00,922 2387438ms HangFireLoggerAppender OnStateUnapplied   - Job `56` state `` was unapplied.
+INFO  2018-02-01 16:01:00,924 2387440ms HangFireLoggerAppender OnStateApplied     - Job 56 state was changed from  to Enqueued
+INFO  2018-02-01 16:01:01,137 2387653ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `56`
+INFO  2018-02-01 16:01:01,574 2388090ms HangFireLoggerAppender OnStateUnapplied   - Job `56` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:01:01,605 2388121ms HangFireLoggerAppender OnStateApplied     - Job 56 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:01:02,007 2388523ms HangFireLoggerAppender OnPerforming       - Starting to perform job `56`
+INFO  2018-02-01 16:01:02,072 2388588ms HangFireLoggerAppender OnPerformed        - Job `56` has been performed
+INFO  2018-02-01 16:01:02,267 2388783ms HangFireLoggerAppender OnStateUnapplied   - Job `56` state `Processing` was unapplied.
+INFO  2018-02-01 16:01:02,270 2388786ms HangFireLoggerAppender OnStateApplied     - Job 56 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:01:33,723 2420239ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:01:33,771 2420287ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:02:00,834 2447350ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:02:01,058 2447574ms HangFireLoggerAppender OnStateUnapplied   - Job `57` state `` was unapplied.
+INFO  2018-02-01 16:02:01,060 2447576ms HangFireLoggerAppender OnStateApplied     - Job 57 state was changed from  to Enqueued
+INFO  2018-02-01 16:02:01,296 2447812ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `57`
+INFO  2018-02-01 16:02:01,604 2448120ms HangFireLoggerAppender OnStateUnapplied   - Job `57` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:02:01,606 2448122ms HangFireLoggerAppender OnStateApplied     - Job 57 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:02:02,074 2448590ms HangFireLoggerAppender OnPerforming       - Starting to perform job `57`
+INFO  2018-02-01 16:02:02,152 2448668ms HangFireLoggerAppender OnPerformed        - Job `57` has been performed
+INFO  2018-02-01 16:02:02,447 2448963ms HangFireLoggerAppender OnStateUnapplied   - Job `57` state `Processing` was unapplied.
+INFO  2018-02-01 16:02:02,449 2448965ms HangFireLoggerAppender OnStateApplied     - Job 57 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:03:00,972 2507488ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:03:01,209 2507725ms HangFireLoggerAppender OnStateUnapplied   - Job `58` state `` was unapplied.
+INFO  2018-02-01 16:03:01,211 2507727ms HangFireLoggerAppender OnStateApplied     - Job 58 state was changed from  to Enqueued
+INFO  2018-02-01 16:03:01,349 2507865ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `58`
+INFO  2018-02-01 16:03:01,665 2508181ms HangFireLoggerAppender OnStateUnapplied   - Job `58` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:03:01,694 2508210ms HangFireLoggerAppender OnStateApplied     - Job 58 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:03:02,019 2508535ms HangFireLoggerAppender OnPerforming       - Starting to perform job `58`
+INFO  2018-02-01 16:03:02,087 2508603ms HangFireLoggerAppender OnPerformed        - Job `58` has been performed
+INFO  2018-02-01 16:03:02,271 2508787ms HangFireLoggerAppender OnStateUnapplied   - Job `58` state `Processing` was unapplied.
+INFO  2018-02-01 16:03:02,273 2508789ms HangFireLoggerAppender OnStateApplied     - Job 58 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:04:00,337 2566853ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:04:00,537 2567053ms HangFireLoggerAppender OnStateUnapplied   - Job `59` state `` was unapplied.
+INFO  2018-02-01 16:04:00,539 2567055ms HangFireLoggerAppender OnStateApplied     - Job 59 state was changed from  to Enqueued
+INFO  2018-02-01 16:04:00,779 2567295ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `59`
+INFO  2018-02-01 16:04:01,103 2567619ms HangFireLoggerAppender OnStateUnapplied   - Job `59` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:04:01,105 2567621ms HangFireLoggerAppender OnStateApplied     - Job 59 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:04:01,448 2567964ms HangFireLoggerAppender OnPerforming       - Starting to perform job `59`
+INFO  2018-02-01 16:04:01,512 2568028ms HangFireLoggerAppender OnPerformed        - Job `59` has been performed
+INFO  2018-02-01 16:04:01,702 2568218ms HangFireLoggerAppender OnStateUnapplied   - Job `59` state `Processing` was unapplied.
+INFO  2018-02-01 16:04:01,704 2568220ms HangFireLoggerAppender OnStateApplied     - Job 59 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:05:00,468 2626984ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:05:00,695 2627211ms HangFireLoggerAppender OnStateUnapplied   - Job `60` state `` was unapplied.
+INFO  2018-02-01 16:05:00,697 2627213ms HangFireLoggerAppender OnStateApplied     - Job 60 state was changed from  to Enqueued
+INFO  2018-02-01 16:05:00,849 2627365ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `60`
+INFO  2018-02-01 16:05:01,219 2627735ms HangFireLoggerAppender OnStateUnapplied   - Job `60` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:05:01,223 2627739ms HangFireLoggerAppender OnStateApplied     - Job 60 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:05:01,579 2628095ms HangFireLoggerAppender OnPerforming       - Starting to perform job `60`
+INFO  2018-02-01 16:05:01,719 2628235ms HangFireLoggerAppender OnPerformed        - Job `60` has been performed
+INFO  2018-02-01 16:05:01,867 2628383ms HangFireLoggerAppender OnStateUnapplied   - Job `60` state `Processing` was unapplied.
+INFO  2018-02-01 16:05:01,869 2628385ms HangFireLoggerAppender OnStateApplied     - Job 60 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:06:00,811 2687327ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:06:00,994 2687510ms HangFireLoggerAppender OnStateUnapplied   - Job `61` state `` was unapplied.
+INFO  2018-02-01 16:06:00,996 2687512ms HangFireLoggerAppender OnStateApplied     - Job 61 state was changed from  to Enqueued
+INFO  2018-02-01 16:06:01,236 2687752ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `61`
+INFO  2018-02-01 16:06:01,631 2688147ms HangFireLoggerAppender OnStateUnapplied   - Job `61` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:06:01,633 2688149ms HangFireLoggerAppender OnStateApplied     - Job 61 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:06:01,981 2688497ms HangFireLoggerAppender OnPerforming       - Starting to perform job `61`
+INFO  2018-02-01 16:06:02,045 2688561ms HangFireLoggerAppender OnPerformed        - Job `61` has been performed
+INFO  2018-02-01 16:06:02,243 2688759ms HangFireLoggerAppender OnStateUnapplied   - Job `61` state `Processing` was unapplied.
+INFO  2018-02-01 16:06:02,245 2688761ms HangFireLoggerAppender OnStateApplied     - Job 61 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:06:33,759 2720275ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:06:33,871 2720387ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:07:01,055 2747571ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:07:01,254 2747770ms HangFireLoggerAppender OnStateUnapplied   - Job `62` state `` was unapplied.
+INFO  2018-02-01 16:07:01,256 2747772ms HangFireLoggerAppender OnStateApplied     - Job 62 state was changed from  to Enqueued
+INFO  2018-02-01 16:07:01,473 2747989ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `62`
+INFO  2018-02-01 16:07:01,777 2748293ms HangFireLoggerAppender OnStateUnapplied   - Job `62` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:07:01,782 2748298ms HangFireLoggerAppender OnStateApplied     - Job 62 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:07:02,185 2748701ms HangFireLoggerAppender OnPerforming       - Starting to perform job `62`
+INFO  2018-02-01 16:07:02,253 2748769ms HangFireLoggerAppender OnPerformed        - Job `62` has been performed
+INFO  2018-02-01 16:07:02,448 2748964ms HangFireLoggerAppender OnStateUnapplied   - Job `62` state `Processing` was unapplied.
+INFO  2018-02-01 16:07:02,450 2748966ms HangFireLoggerAppender OnStateApplied     - Job 62 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:08:00,415 2806931ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:08:00,594 2807110ms HangFireLoggerAppender OnStateUnapplied   - Job `63` state `` was unapplied.
+INFO  2018-02-01 16:08:00,596 2807112ms HangFireLoggerAppender OnStateApplied     - Job 63 state was changed from  to Enqueued
+INFO  2018-02-01 16:08:00,804 2807320ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `63`
+INFO  2018-02-01 16:08:01,103 2807619ms HangFireLoggerAppender OnStateUnapplied   - Job `63` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:08:01,108 2807624ms HangFireLoggerAppender OnStateApplied     - Job 63 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:08:01,466 2807982ms HangFireLoggerAppender OnPerforming       - Starting to perform job `63`
+INFO  2018-02-01 16:08:01,535 2808051ms HangFireLoggerAppender OnPerformed        - Job `63` has been performed
+INFO  2018-02-01 16:08:01,721 2808237ms HangFireLoggerAppender OnStateUnapplied   - Job `63` state `Processing` was unapplied.
+INFO  2018-02-01 16:08:01,723 2808239ms HangFireLoggerAppender OnStateApplied     - Job 63 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:09:00,663 2867179ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:09:00,844 2867360ms HangFireLoggerAppender OnStateUnapplied   - Job `64` state `` was unapplied.
+INFO  2018-02-01 16:09:00,846 2867362ms HangFireLoggerAppender OnStateApplied     - Job 64 state was changed from  to Enqueued
+INFO  2018-02-01 16:09:01,100 2867616ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `64`
+INFO  2018-02-01 16:09:01,418 2867934ms HangFireLoggerAppender OnStateUnapplied   - Job `64` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:09:01,422 2867938ms HangFireLoggerAppender OnStateApplied     - Job 64 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:09:01,788 2868304ms HangFireLoggerAppender OnPerforming       - Starting to perform job `64`
+INFO  2018-02-01 16:09:01,854 2868370ms HangFireLoggerAppender OnPerformed        - Job `64` has been performed
+INFO  2018-02-01 16:09:01,984 2868500ms HangFireLoggerAppender OnStateUnapplied   - Job `64` state `Processing` was unapplied.
+INFO  2018-02-01 16:09:01,985 2868501ms HangFireLoggerAppender OnStateApplied     - Job 64 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:10:00,849 2927365ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:10:01,114 2927630ms HangFireLoggerAppender OnStateUnapplied   - Job `65` state `` was unapplied.
+INFO  2018-02-01 16:10:01,116 2927632ms HangFireLoggerAppender OnStateApplied     - Job 65 state was changed from  to Enqueued
+INFO  2018-02-01 16:10:01,320 2927836ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `65`
+INFO  2018-02-01 16:10:01,629 2928145ms HangFireLoggerAppender OnStateUnapplied   - Job `65` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:10:01,663 2928179ms HangFireLoggerAppender OnStateApplied     - Job 65 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:10:02,110 2928626ms HangFireLoggerAppender OnPerforming       - Starting to perform job `65`
+INFO  2018-02-01 16:10:02,175 2928691ms HangFireLoggerAppender OnPerformed        - Job `65` has been performed
+INFO  2018-02-01 16:10:02,314 2928830ms HangFireLoggerAppender OnStateUnapplied   - Job `65` state `Processing` was unapplied.
+INFO  2018-02-01 16:10:02,316 2928832ms HangFireLoggerAppender OnStateApplied     - Job 65 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:11:01,060 2987576ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:11:01,290 2987806ms HangFireLoggerAppender OnStateUnapplied   - Job `66` state `` was unapplied.
+INFO  2018-02-01 16:11:01,292 2987808ms HangFireLoggerAppender OnStateApplied     - Job 66 state was changed from  to Enqueued
+INFO  2018-02-01 16:11:01,447 2987963ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `66`
+INFO  2018-02-01 16:11:01,771 2988287ms HangFireLoggerAppender OnStateUnapplied   - Job `66` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:11:01,773 2988289ms HangFireLoggerAppender OnStateApplied     - Job 66 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:11:02,157 2988673ms HangFireLoggerAppender OnPerforming       - Starting to perform job `66`
+INFO  2018-02-01 16:11:02,223 2988739ms HangFireLoggerAppender OnPerformed        - Job `66` has been performed
+INFO  2018-02-01 16:11:02,364 2988880ms HangFireLoggerAppender OnStateUnapplied   - Job `66` state `Processing` was unapplied.
+INFO  2018-02-01 16:11:02,365 2988881ms HangFireLoggerAppender OnStateApplied     - Job 66 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:11:33,876 3020392ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:11:33,933 3020449ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:12:00,288 3046804ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:12:00,533 3047049ms HangFireLoggerAppender OnStateUnapplied   - Job `67` state `` was unapplied.
+INFO  2018-02-01 16:12:00,535 3047051ms HangFireLoggerAppender OnStateApplied     - Job 67 state was changed from  to Enqueued
+INFO  2018-02-01 16:12:00,802 3047318ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `67`
+INFO  2018-02-01 16:12:01,057 3047573ms HangFireLoggerAppender OnStateUnapplied   - Job `67` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:12:01,059 3047575ms HangFireLoggerAppender OnStateApplied     - Job 67 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:12:01,805 3048321ms HangFireLoggerAppender OnPerforming       - Starting to perform job `67`
+INFO  2018-02-01 16:12:01,918 3048434ms HangFireLoggerAppender OnPerformed        - Job `67` has been performed
+INFO  2018-02-01 16:12:02,059 3048575ms HangFireLoggerAppender OnStateUnapplied   - Job `67` state `Processing` was unapplied.
+INFO  2018-02-01 16:12:02,061 3048577ms HangFireLoggerAppender OnStateApplied     - Job 67 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:13:00,697 3107213ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:13:00,872 3107388ms HangFireLoggerAppender OnStateUnapplied   - Job `68` state `` was unapplied.
+INFO  2018-02-01 16:13:00,874 3107390ms HangFireLoggerAppender OnStateApplied     - Job 68 state was changed from  to Enqueued
+INFO  2018-02-01 16:13:01,132 3107648ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `68`
+INFO  2018-02-01 16:13:01,396 3107912ms HangFireLoggerAppender OnStateUnapplied   - Job `68` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:13:01,398 3107914ms HangFireLoggerAppender OnStateApplied     - Job 68 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:13:02,073 3108589ms HangFireLoggerAppender OnPerforming       - Starting to perform job `68`
+INFO  2018-02-01 16:13:02,175 3108691ms HangFireLoggerAppender OnPerformed        - Job `68` has been performed
+INFO  2018-02-01 16:13:02,486 3109002ms HangFireLoggerAppender OnStateUnapplied   - Job `68` state `Processing` was unapplied.
+INFO  2018-02-01 16:13:02,489 3109005ms HangFireLoggerAppender OnStateApplied     - Job 68 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:14:00,912 3167428ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:14:01,112 3167628ms HangFireLoggerAppender OnStateUnapplied   - Job `69` state `` was unapplied.
+INFO  2018-02-01 16:14:01,114 3167630ms HangFireLoggerAppender OnStateApplied     - Job 69 state was changed from  to Enqueued
+INFO  2018-02-01 16:14:01,367 3167883ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `69`
+INFO  2018-02-01 16:14:01,675 3168191ms HangFireLoggerAppender OnStateUnapplied   - Job `69` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:14:01,677 3168193ms HangFireLoggerAppender OnStateApplied     - Job 69 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:14:02,131 3168647ms HangFireLoggerAppender OnPerforming       - Starting to perform job `69`
+INFO  2018-02-01 16:14:02,199 3168715ms HangFireLoggerAppender OnPerformed        - Job `69` has been performed
+INFO  2018-02-01 16:14:02,373 3168889ms HangFireLoggerAppender OnStateUnapplied   - Job `69` state `Processing` was unapplied.
+INFO  2018-02-01 16:14:02,375 3168891ms HangFireLoggerAppender OnStateApplied     - Job 69 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:15:00,222 3226738ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:15:00,465 3226981ms HangFireLoggerAppender OnStateUnapplied   - Job `70` state `` was unapplied.
+INFO  2018-02-01 16:15:00,468 3226984ms HangFireLoggerAppender OnStateApplied     - Job 70 state was changed from  to Enqueued
+INFO  2018-02-01 16:15:00,611 3227127ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `70`
+INFO  2018-02-01 16:15:00,912 3227428ms HangFireLoggerAppender OnStateUnapplied   - Job `70` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:15:00,942 3227458ms HangFireLoggerAppender OnStateApplied     - Job 70 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:15:01,319 3227835ms HangFireLoggerAppender OnPerforming       - Starting to perform job `70`
+INFO  2018-02-01 16:15:01,390 3227906ms HangFireLoggerAppender OnPerformed        - Job `70` has been performed
+INFO  2018-02-01 16:15:01,523 3228039ms HangFireLoggerAppender OnStateUnapplied   - Job `70` state `Processing` was unapplied.
+INFO  2018-02-01 16:15:01,525 3228041ms HangFireLoggerAppender OnStateApplied     - Job 70 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:16:00,197 3286713ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:16:00,468 3286984ms HangFireLoggerAppender OnStateUnapplied   - Job `71` state `` was unapplied.
+INFO  2018-02-01 16:16:00,470 3286986ms HangFireLoggerAppender OnStateApplied     - Job 71 state was changed from  to Enqueued
+INFO  2018-02-01 16:16:00,663 3287179ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `71`
+INFO  2018-02-01 16:16:00,953 3287469ms HangFireLoggerAppender OnStateUnapplied   - Job `71` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:16:00,985 3287501ms HangFireLoggerAppender OnStateApplied     - Job 71 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:16:01,360 3287876ms HangFireLoggerAppender OnPerforming       - Starting to perform job `71`
+INFO  2018-02-01 16:16:01,432 3287948ms HangFireLoggerAppender OnPerformed        - Job `71` has been performed
+INFO  2018-02-01 16:16:01,571 3288087ms HangFireLoggerAppender OnStateUnapplied   - Job `71` state `Processing` was unapplied.
+INFO  2018-02-01 16:16:01,573 3288089ms HangFireLoggerAppender OnStateApplied     - Job 71 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:16:33,920 3320436ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:16:33,975 3320491ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:17:00,326 3346842ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:17:00,549 3347065ms HangFireLoggerAppender OnStateUnapplied   - Job `72` state `` was unapplied.
+INFO  2018-02-01 16:17:00,551 3347067ms HangFireLoggerAppender OnStateApplied     - Job 72 state was changed from  to Enqueued
+INFO  2018-02-01 16:17:00,747 3347263ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `72`
+INFO  2018-02-01 16:17:01,061 3347577ms HangFireLoggerAppender OnStateUnapplied   - Job `72` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:17:01,091 3347607ms HangFireLoggerAppender OnStateApplied     - Job 72 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:17:01,410 3347926ms HangFireLoggerAppender OnPerforming       - Starting to perform job `72`
+INFO  2018-02-01 16:17:01,527 3348043ms HangFireLoggerAppender OnPerformed        - Job `72` has been performed
+INFO  2018-02-01 16:17:01,666 3348182ms HangFireLoggerAppender OnStateUnapplied   - Job `72` state `Processing` was unapplied.
+INFO  2018-02-01 16:17:01,668 3348184ms HangFireLoggerAppender OnStateApplied     - Job 72 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:18:00,552 3407068ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:18:00,762 3407278ms HangFireLoggerAppender OnStateUnapplied   - Job `73` state `` was unapplied.
+INFO  2018-02-01 16:18:00,765 3407281ms HangFireLoggerAppender OnStateApplied     - Job 73 state was changed from  to Enqueued
+INFO  2018-02-01 16:18:01,007 3407523ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `73`
+INFO  2018-02-01 16:18:01,343 3407859ms HangFireLoggerAppender OnStateUnapplied   - Job `73` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:18:01,347 3407863ms HangFireLoggerAppender OnStateApplied     - Job 73 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:18:01,739 3408255ms HangFireLoggerAppender OnPerforming       - Starting to perform job `73`
+INFO  2018-02-01 16:18:01,814 3408330ms HangFireLoggerAppender OnPerformed        - Job `73` has been performed
+INFO  2018-02-01 16:18:01,947 3408463ms HangFireLoggerAppender OnStateUnapplied   - Job `73` state `Processing` was unapplied.
+INFO  2018-02-01 16:18:01,949 3408465ms HangFireLoggerAppender OnStateApplied     - Job 73 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:19:00,927 3467443ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:19:01,192 3467708ms HangFireLoggerAppender OnStateUnapplied   - Job `74` state `` was unapplied.
+INFO  2018-02-01 16:19:01,194 3467710ms HangFireLoggerAppender OnStateApplied     - Job 74 state was changed from  to Enqueued
+INFO  2018-02-01 16:19:01,402 3467918ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `74`
+INFO  2018-02-01 16:19:01,648 3468164ms HangFireLoggerAppender OnStateUnapplied   - Job `74` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:19:01,653 3468169ms HangFireLoggerAppender OnStateApplied     - Job 74 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:19:02,016 3468532ms HangFireLoggerAppender OnPerforming       - Starting to perform job `74`
+INFO  2018-02-01 16:19:02,166 3468682ms HangFireLoggerAppender OnPerformed        - Job `74` has been performed
+INFO  2018-02-01 16:19:02,303 3468819ms HangFireLoggerAppender OnStateUnapplied   - Job `74` state `Processing` was unapplied.
+INFO  2018-02-01 16:19:02,305 3468821ms HangFireLoggerAppender OnStateApplied     - Job 74 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:20:01,073 3527589ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:20:01,338 3527854ms HangFireLoggerAppender OnStateUnapplied   - Job `75` state `` was unapplied.
+INFO  2018-02-01 16:20:01,340 3527856ms HangFireLoggerAppender OnStateApplied     - Job 75 state was changed from  to Enqueued
+INFO  2018-02-01 16:20:01,541 3528057ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `75`
+INFO  2018-02-01 16:20:01,868 3528384ms HangFireLoggerAppender OnStateUnapplied   - Job `75` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:20:01,872 3528388ms HangFireLoggerAppender OnStateApplied     - Job 75 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:20:02,194 3528710ms HangFireLoggerAppender OnPerforming       - Starting to perform job `75`
+INFO  2018-02-01 16:20:02,321 3528837ms HangFireLoggerAppender OnPerformed        - Job `75` has been performed
+INFO  2018-02-01 16:20:02,453 3528969ms HangFireLoggerAppender OnStateUnapplied   - Job `75` state `Processing` was unapplied.
+INFO  2018-02-01 16:20:02,454 3528970ms HangFireLoggerAppender OnStateApplied     - Job 75 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:21:01,109 3587625ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:21:01,306 3587822ms HangFireLoggerAppender OnStateUnapplied   - Job `76` state `` was unapplied.
+INFO  2018-02-01 16:21:01,309 3587825ms HangFireLoggerAppender OnStateApplied     - Job 76 state was changed from  to Enqueued
+INFO  2018-02-01 16:21:01,550 3588066ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `76`
+INFO  2018-02-01 16:21:02,007 3588523ms HangFireLoggerAppender OnStateUnapplied   - Job `76` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:21:02,010 3588526ms HangFireLoggerAppender OnStateApplied     - Job 76 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:21:02,610 3589126ms HangFireLoggerAppender OnPerforming       - Starting to perform job `76`
+INFO  2018-02-01 16:21:02,690 3589206ms HangFireLoggerAppender OnPerformed        - Job `76` has been performed
+INFO  2018-02-01 16:21:02,844 3589360ms HangFireLoggerAppender OnStateUnapplied   - Job `76` state `Processing` was unapplied.
+INFO  2018-02-01 16:21:02,845 3589361ms HangFireLoggerAppender OnStateApplied     - Job 76 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:21:33,977 3620493ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:21:34,075 3620591ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 16:21:48,531 3635047ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 16:21:48,687 3635203ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 16:21:48,689 3635205ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 16:21:48,811 3635327ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 16:21:48,813 3635329ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 16:21:49,005 3635521ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 16:21:49,006 3635522ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 16:21:49,238 3635754ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 16:21:49,240 3635756ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 16:21:49,436 3635952ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+INFO  2018-02-01 16:22:00,558 3647074ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:22:00,791 3647307ms HangFireLoggerAppender OnStateUnapplied   - Job `77` state `` was unapplied.
+INFO  2018-02-01 16:22:00,793 3647309ms HangFireLoggerAppender OnStateApplied     - Job 77 state was changed from  to Enqueued
+INFO  2018-02-01 16:22:00,946 3647462ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `77`
+INFO  2018-02-01 16:22:01,385 3647901ms HangFireLoggerAppender OnStateUnapplied   - Job `77` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:22:01,387 3647903ms HangFireLoggerAppender OnStateApplied     - Job 77 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:22:01,862 3648378ms HangFireLoggerAppender OnPerforming       - Starting to perform job `77`
+INFO  2018-02-01 16:22:01,942 3648458ms HangFireLoggerAppender OnPerformed        - Job `77` has been performed
+INFO  2018-02-01 16:22:02,084 3648600ms HangFireLoggerAppender OnStateUnapplied   - Job `77` state `Processing` was unapplied.
+INFO  2018-02-01 16:22:02,086 3648602ms HangFireLoggerAppender OnStateApplied     - Job 77 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:23:00,821 3707337ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:23:01,057 3707573ms HangFireLoggerAppender OnStateUnapplied   - Job `78` state `` was unapplied.
+INFO  2018-02-01 16:23:01,059 3707575ms HangFireLoggerAppender OnStateApplied     - Job 78 state was changed from  to Enqueued
+INFO  2018-02-01 16:23:01,209 3707725ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `78`
+INFO  2018-02-01 16:23:01,519 3708035ms HangFireLoggerAppender OnStateUnapplied   - Job `78` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:23:01,523 3708039ms HangFireLoggerAppender OnStateApplied     - Job 78 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:23:01,880 3708396ms HangFireLoggerAppender OnPerforming       - Starting to perform job `78`
+INFO  2018-02-01 16:23:02,000 3708516ms HangFireLoggerAppender OnPerformed        - Job `78` has been performed
+INFO  2018-02-01 16:23:02,140 3708656ms HangFireLoggerAppender OnStateUnapplied   - Job `78` state `Processing` was unapplied.
+INFO  2018-02-01 16:23:02,142 3708658ms HangFireLoggerAppender OnStateApplied     - Job 78 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:24:00,195 3766711ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:24:00,385 3766901ms HangFireLoggerAppender OnStateUnapplied   - Job `79` state `` was unapplied.
+INFO  2018-02-01 16:24:00,387 3766903ms HangFireLoggerAppender OnStateApplied     - Job 79 state was changed from  to Enqueued
+INFO  2018-02-01 16:24:00,600 3767116ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `79`
+INFO  2018-02-01 16:24:00,928 3767444ms HangFireLoggerAppender OnStateUnapplied   - Job `79` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:24:00,930 3767446ms HangFireLoggerAppender OnStateApplied     - Job 79 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:24:01,267 3767783ms HangFireLoggerAppender OnPerforming       - Starting to perform job `79`
+INFO  2018-02-01 16:24:01,385 3767901ms HangFireLoggerAppender OnPerformed        - Job `79` has been performed
+INFO  2018-02-01 16:24:01,884 3768400ms HangFireLoggerAppender OnStateUnapplied   - Job `79` state `Processing` was unapplied.
+INFO  2018-02-01 16:24:01,886 3768402ms HangFireLoggerAppender OnStateApplied     - Job 79 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:25:00,308 3826824ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:25:00,491 3827007ms HangFireLoggerAppender OnStateUnapplied   - Job `80` state `` was unapplied.
+INFO  2018-02-01 16:25:00,492 3827008ms HangFireLoggerAppender OnStateApplied     - Job 80 state was changed from  to Enqueued
+INFO  2018-02-01 16:25:00,703 3827219ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `80`
+INFO  2018-02-01 16:25:01,004 3827520ms HangFireLoggerAppender OnStateUnapplied   - Job `80` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:25:01,008 3827524ms HangFireLoggerAppender OnStateApplied     - Job 80 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:25:01,351 3827867ms HangFireLoggerAppender OnPerforming       - Starting to perform job `80`
+INFO  2018-02-01 16:25:01,423 3827939ms HangFireLoggerAppender OnPerformed        - Job `80` has been performed
+INFO  2018-02-01 16:25:01,610 3828126ms HangFireLoggerAppender OnStateUnapplied   - Job `80` state `Processing` was unapplied.
+INFO  2018-02-01 16:25:01,612 3828128ms HangFireLoggerAppender OnStateApplied     - Job 80 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:26:00,482 3886998ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:26:00,731 3887247ms HangFireLoggerAppender OnStateUnapplied   - Job `81` state `` was unapplied.
+INFO  2018-02-01 16:26:00,733 3887249ms HangFireLoggerAppender OnStateApplied     - Job 81 state was changed from  to Enqueued
+INFO  2018-02-01 16:26:00,992 3887508ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `81`
+INFO  2018-02-01 16:26:01,388 3887904ms HangFireLoggerAppender OnStateUnapplied   - Job `81` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:26:01,392 3887908ms HangFireLoggerAppender OnStateApplied     - Job 81 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:26:01,743 3888259ms HangFireLoggerAppender OnPerforming       - Starting to perform job `81`
+INFO  2018-02-01 16:26:01,811 3888327ms HangFireLoggerAppender OnPerformed        - Job `81` has been performed
+INFO  2018-02-01 16:26:01,940 3888456ms HangFireLoggerAppender OnStateUnapplied   - Job `81` state `Processing` was unapplied.
+INFO  2018-02-01 16:26:01,942 3888458ms HangFireLoggerAppender OnStateApplied     - Job 81 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:26:34,066 3920582ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:26:34,120 3920636ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:27:00,792 3947308ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:27:00,971 3947487ms HangFireLoggerAppender OnStateUnapplied   - Job `82` state `` was unapplied.
+INFO  2018-02-01 16:27:00,973 3947489ms HangFireLoggerAppender OnStateApplied     - Job 82 state was changed from  to Enqueued
+INFO  2018-02-01 16:27:01,197 3947713ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `82`
+INFO  2018-02-01 16:27:01,438 3947954ms HangFireLoggerAppender OnStateUnapplied   - Job `82` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:27:01,442 3947958ms HangFireLoggerAppender OnStateApplied     - Job 82 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:27:01,824 3948340ms HangFireLoggerAppender OnPerforming       - Starting to perform job `82`
+INFO  2018-02-01 16:27:01,939 3948455ms HangFireLoggerAppender OnPerformed        - Job `82` has been performed
+INFO  2018-02-01 16:27:02,078 3948594ms HangFireLoggerAppender OnStateUnapplied   - Job `82` state `Processing` was unapplied.
+INFO  2018-02-01 16:27:02,080 3948596ms HangFireLoggerAppender OnStateApplied     - Job 82 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:28:00,978 4007494ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:28:01,207 4007723ms HangFireLoggerAppender OnStateUnapplied   - Job `83` state `` was unapplied.
+INFO  2018-02-01 16:28:01,209 4007725ms HangFireLoggerAppender OnStateApplied     - Job 83 state was changed from  to Enqueued
+INFO  2018-02-01 16:28:01,398 4007914ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `83`
+INFO  2018-02-01 16:28:01,824 4008340ms HangFireLoggerAppender OnStateUnapplied   - Job `83` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:28:01,826 4008342ms HangFireLoggerAppender OnStateApplied     - Job 83 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:28:02,133 4008649ms HangFireLoggerAppender OnPerforming       - Starting to perform job `83`
+INFO  2018-02-01 16:28:02,264 4008780ms HangFireLoggerAppender OnPerformed        - Job `83` has been performed
+INFO  2018-02-01 16:28:02,400 4008916ms HangFireLoggerAppender OnStateUnapplied   - Job `83` state `Processing` was unapplied.
+INFO  2018-02-01 16:28:02,402 4008918ms HangFireLoggerAppender OnStateApplied     - Job 83 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:29:00,273 4066789ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:29:00,501 4067017ms HangFireLoggerAppender OnStateUnapplied   - Job `84` state `` was unapplied.
+INFO  2018-02-01 16:29:00,503 4067019ms HangFireLoggerAppender OnStateApplied     - Job 84 state was changed from  to Enqueued
+INFO  2018-02-01 16:29:00,691 4067207ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `84`
+INFO  2018-02-01 16:29:01,020 4067536ms HangFireLoggerAppender OnStateUnapplied   - Job `84` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:29:01,022 4067538ms HangFireLoggerAppender OnStateApplied     - Job 84 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:29:01,450 4067966ms HangFireLoggerAppender OnPerforming       - Starting to perform job `84`
+INFO  2018-02-01 16:29:01,573 4068089ms HangFireLoggerAppender OnPerformed        - Job `84` has been performed
+INFO  2018-02-01 16:29:01,709 4068225ms HangFireLoggerAppender OnStateUnapplied   - Job `84` state `Processing` was unapplied.
+INFO  2018-02-01 16:29:01,710 4068226ms HangFireLoggerAppender OnStateApplied     - Job 84 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:30:00,510 4127026ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:30:00,733 4127249ms HangFireLoggerAppender OnStateUnapplied   - Job `85` state `` was unapplied.
+INFO  2018-02-01 16:30:00,735 4127251ms HangFireLoggerAppender OnStateApplied     - Job 85 state was changed from  to Enqueued
+INFO  2018-02-01 16:30:00,931 4127447ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `85`
+INFO  2018-02-01 16:30:01,286 4127802ms HangFireLoggerAppender OnStateUnapplied   - Job `85` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:30:01,289 4127805ms HangFireLoggerAppender OnStateApplied     - Job 85 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:30:01,654 4128170ms HangFireLoggerAppender OnPerforming       - Starting to perform job `85`
+INFO  2018-02-01 16:30:01,719 4128235ms HangFireLoggerAppender OnPerformed        - Job `85` has been performed
+INFO  2018-02-01 16:30:01,905 4128421ms HangFireLoggerAppender OnStateUnapplied   - Job `85` state `Processing` was unapplied.
+INFO  2018-02-01 16:30:01,907 4128423ms HangFireLoggerAppender OnStateApplied     - Job 85 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:31:00,786 4187302ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:31:00,962 4187478ms HangFireLoggerAppender OnStateUnapplied   - Job `86` state `` was unapplied.
+INFO  2018-02-01 16:31:00,964 4187480ms HangFireLoggerAppender OnStateApplied     - Job 86 state was changed from  to Enqueued
+INFO  2018-02-01 16:31:01,202 4187718ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `86`
+INFO  2018-02-01 16:31:01,509 4188025ms HangFireLoggerAppender OnStateUnapplied   - Job `86` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:31:01,513 4188029ms HangFireLoggerAppender OnStateApplied     - Job 86 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:31:01,915 4188431ms HangFireLoggerAppender OnPerforming       - Starting to perform job `86`
+INFO  2018-02-01 16:31:02,050 4188566ms HangFireLoggerAppender OnPerformed        - Job `86` has been performed
+INFO  2018-02-01 16:31:02,231 4188747ms HangFireLoggerAppender OnStateUnapplied   - Job `86` state `Processing` was unapplied.
+INFO  2018-02-01 16:31:02,232 4188748ms HangFireLoggerAppender OnStateApplied     - Job 86 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:31:34,108 4220624ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:31:34,170 4220686ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:32:00,912 4247428ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:32:01,159 4247675ms HangFireLoggerAppender OnStateUnapplied   - Job `87` state `` was unapplied.
+INFO  2018-02-01 16:32:01,161 4247677ms HangFireLoggerAppender OnStateApplied     - Job 87 state was changed from  to Enqueued
+INFO  2018-02-01 16:32:01,366 4247882ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `87`
+INFO  2018-02-01 16:32:01,671 4248187ms HangFireLoggerAppender OnStateUnapplied   - Job `87` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:32:01,674 4248190ms HangFireLoggerAppender OnStateApplied     - Job 87 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:32:02,029 4248545ms HangFireLoggerAppender OnPerforming       - Starting to perform job `87`
+INFO  2018-02-01 16:32:02,099 4248615ms HangFireLoggerAppender OnPerformed        - Job `87` has been performed
+INFO  2018-02-01 16:32:02,373 4248889ms HangFireLoggerAppender OnStateUnapplied   - Job `87` state `Processing` was unapplied.
+INFO  2018-02-01 16:32:02,375 4248891ms HangFireLoggerAppender OnStateApplied     - Job 87 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:33:01,015 4307531ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:33:01,298 4307814ms HangFireLoggerAppender OnStateUnapplied   - Job `88` state `` was unapplied.
+INFO  2018-02-01 16:33:01,300 4307816ms HangFireLoggerAppender OnStateApplied     - Job 88 state was changed from  to Enqueued
+INFO  2018-02-01 16:33:01,570 4308086ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `88`
+INFO  2018-02-01 16:33:01,912 4308428ms HangFireLoggerAppender OnStateUnapplied   - Job `88` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:33:01,914 4308430ms HangFireLoggerAppender OnStateApplied     - Job 88 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:33:02,317 4308833ms HangFireLoggerAppender OnPerforming       - Starting to perform job `88`
+INFO  2018-02-01 16:33:02,385 4308901ms HangFireLoggerAppender OnPerformed        - Job `88` has been performed
+INFO  2018-02-01 16:33:02,551 4309067ms HangFireLoggerAppender OnStateUnapplied   - Job `88` state `Processing` was unapplied.
+INFO  2018-02-01 16:33:02,553 4309069ms HangFireLoggerAppender OnStateApplied     - Job 88 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:34:00,276 4366792ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:34:00,474 4366990ms HangFireLoggerAppender OnStateUnapplied   - Job `89` state `` was unapplied.
+INFO  2018-02-01 16:34:00,476 4366992ms HangFireLoggerAppender OnStateApplied     - Job 89 state was changed from  to Enqueued
+INFO  2018-02-01 16:34:00,742 4367258ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `89`
+INFO  2018-02-01 16:34:01,163 4367679ms HangFireLoggerAppender OnStateUnapplied   - Job `89` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:34:01,166 4367682ms HangFireLoggerAppender OnStateApplied     - Job 89 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:34:01,626 4368142ms HangFireLoggerAppender OnPerforming       - Starting to perform job `89`
+INFO  2018-02-01 16:34:01,738 4368254ms HangFireLoggerAppender OnPerformed        - Job `89` has been performed
+INFO  2018-02-01 16:34:01,878 4368394ms HangFireLoggerAppender OnStateUnapplied   - Job `89` state `Processing` was unapplied.
+INFO  2018-02-01 16:34:01,880 4368396ms HangFireLoggerAppender OnStateApplied     - Job 89 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:35:00,615 4427131ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:35:00,847 4427363ms HangFireLoggerAppender OnStateUnapplied   - Job `90` state `` was unapplied.
+INFO  2018-02-01 16:35:00,849 4427365ms HangFireLoggerAppender OnStateApplied     - Job 90 state was changed from  to Enqueued
+INFO  2018-02-01 16:35:00,995 4427511ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `90`
+INFO  2018-02-01 16:35:01,383 4427899ms HangFireLoggerAppender OnStateUnapplied   - Job `90` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:35:01,385 4427901ms HangFireLoggerAppender OnStateApplied     - Job 90 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:35:01,825 4428341ms HangFireLoggerAppender OnPerforming       - Starting to perform job `90`
+INFO  2018-02-01 16:35:01,966 4428482ms HangFireLoggerAppender OnPerformed        - Job `90` has been performed
+INFO  2018-02-01 16:35:02,146 4428662ms HangFireLoggerAppender OnStateUnapplied   - Job `90` state `Processing` was unapplied.
+INFO  2018-02-01 16:35:02,148 4428664ms HangFireLoggerAppender OnStateApplied     - Job 90 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:36:00,871 4487387ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:36:01,088 4487604ms HangFireLoggerAppender OnStateUnapplied   - Job `91` state `` was unapplied.
+INFO  2018-02-01 16:36:01,090 4487606ms HangFireLoggerAppender OnStateApplied     - Job 91 state was changed from  to Enqueued
+INFO  2018-02-01 16:36:01,227 4487743ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `91`
+INFO  2018-02-01 16:36:01,516 4488032ms HangFireLoggerAppender OnStateUnapplied   - Job `91` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:36:01,520 4488036ms HangFireLoggerAppender OnStateApplied     - Job 91 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:36:02,090 4488606ms HangFireLoggerAppender OnPerforming       - Starting to perform job `91`
+INFO  2018-02-01 16:36:02,154 4488670ms HangFireLoggerAppender OnPerformed        - Job `91` has been performed
+INFO  2018-02-01 16:36:02,321 4488837ms HangFireLoggerAppender OnStateUnapplied   - Job `91` state `Processing` was unapplied.
+INFO  2018-02-01 16:36:02,322 4488838ms HangFireLoggerAppender OnStateApplied     - Job 91 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:36:34,173 4520689ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:36:34,279 4520795ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:37:00,205 4546721ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:37:00,457 4546973ms HangFireLoggerAppender OnStateUnapplied   - Job `92` state `` was unapplied.
+INFO  2018-02-01 16:37:00,459 4546975ms HangFireLoggerAppender OnStateApplied     - Job 92 state was changed from  to Enqueued
+INFO  2018-02-01 16:37:00,611 4547127ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `92`
+INFO  2018-02-01 16:37:00,964 4547480ms HangFireLoggerAppender OnStateUnapplied   - Job `92` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:37:00,967 4547483ms HangFireLoggerAppender OnStateApplied     - Job 92 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:37:01,430 4547946ms HangFireLoggerAppender OnPerforming       - Starting to perform job `92`
+INFO  2018-02-01 16:37:01,550 4548066ms HangFireLoggerAppender OnPerformed        - Job `92` has been performed
+INFO  2018-02-01 16:37:01,676 4548192ms HangFireLoggerAppender OnStateUnapplied   - Job `92` state `Processing` was unapplied.
+INFO  2018-02-01 16:37:01,678 4548194ms HangFireLoggerAppender OnStateApplied     - Job 92 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:38:00,290 4606806ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:38:00,469 4606985ms HangFireLoggerAppender OnStateUnapplied   - Job `93` state `` was unapplied.
+INFO  2018-02-01 16:38:00,470 4606986ms HangFireLoggerAppender OnStateApplied     - Job 93 state was changed from  to Enqueued
+INFO  2018-02-01 16:38:00,612 4607128ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `93`
+INFO  2018-02-01 16:38:00,965 4607481ms HangFireLoggerAppender OnStateUnapplied   - Job `93` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:38:00,968 4607484ms HangFireLoggerAppender OnStateApplied     - Job 93 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:38:01,274 4607790ms HangFireLoggerAppender OnPerforming       - Starting to perform job `93`
+INFO  2018-02-01 16:38:01,338 4607854ms HangFireLoggerAppender OnPerformed        - Job `93` has been performed
+INFO  2018-02-01 16:38:01,593 4608109ms HangFireLoggerAppender OnStateUnapplied   - Job `93` state `Processing` was unapplied.
+INFO  2018-02-01 16:38:01,595 4608111ms HangFireLoggerAppender OnStateApplied     - Job 93 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:40:02,711 4729227ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:40:02,976 4729492ms HangFireLoggerAppender OnStateUnapplied   - Job `94` state `` was unapplied.
+INFO  2018-02-01 16:40:02,978 4729494ms HangFireLoggerAppender OnStateApplied     - Job 94 state was changed from  to Enqueued
+INFO  2018-02-01 16:40:03,146 4729662ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `94`
+INFO  2018-02-01 16:40:03,535 4730051ms HangFireLoggerAppender OnStateUnapplied   - Job `94` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:40:03,537 4730053ms HangFireLoggerAppender OnStateApplied     - Job 94 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:40:07,787 4734303ms HangFireLoggerAppender OnPerforming       - Starting to perform job `94`
+INFO  2018-02-01 16:40:08,232 4734748ms HangFireLoggerAppender OnPerformed        - Job `94` has been performed
+INFO  2018-02-01 16:40:09,341 4735857ms HangFireLoggerAppender OnStateUnapplied   - Job `94` state `Processing` was unapplied.
+INFO  2018-02-01 16:40:09,344 4735860ms HangFireLoggerAppender OnStateApplied     - Job 94 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:41:00,717 4787233ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:41:01,185 4787701ms HangFireLoggerAppender OnStateUnapplied   - Job `95` state `` was unapplied.
+INFO  2018-02-01 16:41:01,190 4787706ms HangFireLoggerAppender OnStateApplied     - Job 95 state was changed from  to Enqueued
+INFO  2018-02-01 16:41:01,485 4788000ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `95`
+INFO  2018-02-01 16:41:01,727 4788243ms HangFireLoggerAppender OnStateUnapplied   - Job `95` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:41:01,732 4788248ms HangFireLoggerAppender OnStateApplied     - Job 95 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:41:02,153 4788669ms HangFireLoggerAppender OnPerforming       - Starting to perform job `95`
+INFO  2018-02-01 16:41:02,219 4788735ms HangFireLoggerAppender OnPerformed        - Job `95` has been performed
+INFO  2018-02-01 16:41:02,351 4788867ms HangFireLoggerAppender OnStateUnapplied   - Job `95` state `Processing` was unapplied.
+INFO  2018-02-01 16:41:02,353 4788869ms HangFireLoggerAppender OnStateApplied     - Job 95 state was changed from Processing to Succeeded
+DEBUG 2018-02-01 16:41:34,298 4820814ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:41:34,394 4820910ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:42:00,497 4847013ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:42:00,795 4847311ms HangFireLoggerAppender OnStateUnapplied   - Job `96` state `` was unapplied.
+INFO  2018-02-01 16:42:00,797 4847313ms HangFireLoggerAppender OnStateApplied     - Job 96 state was changed from  to Enqueued
+INFO  2018-02-01 16:42:01,108 4847624ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `96`
+INFO  2018-02-01 16:42:01,553 4848068ms HangFireLoggerAppender OnStateUnapplied   - Job `96` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:42:01,555 4848070ms HangFireLoggerAppender OnStateApplied     - Job 96 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:42:01,978 4848494ms HangFireLoggerAppender OnPerforming       - Starting to perform job `96`
+INFO  2018-02-01 16:42:02,299 4848815ms HangFireLoggerAppender OnPerformed        - Job `96` has been performed
+INFO  2018-02-01 16:42:02,756 4849272ms HangFireLoggerAppender OnStateUnapplied   - Job `96` state `Processing` was unapplied.
+INFO  2018-02-01 16:42:02,758 4849274ms HangFireLoggerAppender OnStateApplied     - Job 96 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:44:55,993   706ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 16:44:55 >>>>>>
+INFO  2018-02-01 16:45:05,045  9757ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 16:45:05 >>>>>>
+INFO  2018-02-01 16:45:06,301 11014ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 16:45:07,034 11746ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 16:45:07,313 12025ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 16:45:07,338 12050ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-01 16:45:07,341 12053ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 16:45:07,346 12058ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 16:45:07,348 12060ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 16:45:07,349 12061ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 16:45:07,351 12063ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 16:45:07,353 12065ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 16:45:07,355 12067ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 16:45:07,953 12666ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 16:45:09,385 14097ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 16:45:09,580 14292ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 16:45:10,129 14841ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 16:45:10,144 14856ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 16:45:10,864 15576ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 16:45:10,885 15597ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:45:11,252 15964ms Worker                 CallSite.Target    - Background process 'Worker #27001579' started.
+DEBUG 2018-02-01 16:45:11,554 16266ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 16:45:12,654 17366ms Worker                 CallSite.Target    - Background process 'Worker #b1c45e9f' started.
+DEBUG 2018-02-01 16:45:12,699 17411ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 16:45:12,700 17412ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 16:45:13,800 18513ms Worker                 CallSite.Target    - Background process 'Worker #c15c1b30' started.
+DEBUG 2018-02-01 16:45:13,980 18693ms Worker                 CallSite.Target    - Background process 'Worker #93a5fc3a' started.
+DEBUG 2018-02-01 16:45:14,325 19038ms Worker                 CallSite.Target    - Background process 'Worker #427c63bf' started.
+DEBUG 2018-02-01 16:45:14,619 19332ms Worker                 CallSite.Target    - Background process 'Worker #966b98a1' started.
+DEBUG 2018-02-01 16:45:15,048 19761ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 16:45:15,051 19764ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 16:45:15,542 20255ms Worker                 CallSite.Target    - Background process 'Worker #95feee81' started.
+DEBUG 2018-02-01 16:45:16,325 21038ms Worker                 CallSite.Target    - Background process 'Worker #f4ecfaa7' started.
+DEBUG 2018-02-01 16:45:16,998 21711ms Worker                 CallSite.Target    - Background process 'Worker #167303ba' started.
+DEBUG 2018-02-01 16:45:18,445 23158ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 16:45:18,447 23160ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 16:45:18,489 23202ms Worker                 CallSite.Target    - Background process 'Worker #5a8678ce' started.
+DEBUG 2018-02-01 16:45:19,148 23860ms Worker                 CallSite.Target    - Background process 'Worker #91f111df' started.
+DEBUG 2018-02-01 16:45:19,454 24166ms Worker                 CallSite.Target    - Background process 'Worker #24feb361' started.
+DEBUG 2018-02-01 16:45:20,320 25032ms Worker                 CallSite.Target    - Background process 'Worker #3961b090' started.
+DEBUG 2018-02-01 16:45:21,194 25906ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 16:45:21,199 25911ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 16:45:21,235 25947ms Worker                 CallSite.Target    - Background process 'Worker #52cab7ae' started.
+DEBUG 2018-02-01 16:45:22,364 27076ms Worker                 CallSite.Target    - Background process 'Worker #8ba56959' started.
+DEBUG 2018-02-01 16:45:23,863 28576ms Worker                 CallSite.Target    - Background process 'Worker #3b91f06f' started.
+DEBUG 2018-02-01 16:45:24,219 28932ms Worker                 CallSite.Target    - Background process 'Worker #fb133e2e' started.
+DEBUG 2018-02-01 16:45:24,436 29149ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2018-02-01 16:45:24,717 29430ms Worker                 CallSite.Target    - Background process 'Worker #717a1357' started.
+DEBUG 2018-02-01 16:45:24,864 29577ms Worker                 CallSite.Target    - Background process 'Worker #52546fa5' started.
+DEBUG 2018-02-01 16:45:25,182 29895ms Worker                 CallSite.Target    - Background process 'Worker #3ea9429a' started.
+DEBUG 2018-02-01 16:45:25,500 30213ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 16:45:25,889 30602ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2018-02-01 16:46:20,327 85039ms meworkConfigController Index              - VATMVC Framework Config checked @ : 02/01/2018 16:46:20
+INFO  2018-02-01 16:47:01,549 126261ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:47:02,424 127136ms HangFireLoggerAppender OnStateUnapplied   - Job `97` state `` was unapplied.
+INFO  2018-02-01 16:47:02,433 127145ms HangFireLoggerAppender OnStateApplied     - Job 97 state was changed from  to Enqueued
+INFO  2018-02-01 16:47:03,317 128029ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `97`
+INFO  2018-02-01 16:47:06,852 131565ms HangFireLoggerAppender OnStateUnapplied   - Job `97` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:47:06,855 131568ms HangFireLoggerAppender OnStateApplied     - Job 97 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:47:15,660 140373ms HangFireLoggerAppender OnPerforming       - Starting to perform job `97`
+INFO  2018-02-01 16:47:17,026 141739ms HangFireLoggerAppender OnPerformed        - Job `97` has been performed
+INFO  2018-02-01 16:47:18,000 142713ms HangFireLoggerAppender OnStateUnapplied   - Job `97` state `Processing` was unapplied.
+INFO  2018-02-01 16:47:18,002 142715ms HangFireLoggerAppender OnStateApplied     - Job 97 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:48:01,542 186254ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:48:02,071 186783ms HangFireLoggerAppender OnStateUnapplied   - Job `98` state `` was unapplied.
+INFO  2018-02-01 16:48:02,073 186785ms HangFireLoggerAppender OnStateApplied     - Job 98 state was changed from  to Enqueued
+INFO  2018-02-01 16:48:02,399 187111ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `98`
+INFO  2018-02-01 16:48:04,011 188724ms HangFireLoggerAppender OnStateUnapplied   - Job `98` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:48:04,014 188727ms HangFireLoggerAppender OnStateApplied     - Job 98 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:48:05,328 190041ms HangFireLoggerAppender OnPerforming       - Starting to perform job `98`
+INFO  2018-02-01 16:48:05,522 190235ms HangFireLoggerAppender OnPerformed        - Job `98` has been performed
+INFO  2018-02-01 16:48:05,867 190580ms HangFireLoggerAppender OnStateUnapplied   - Job `98` state `Processing` was unapplied.
+INFO  2018-02-01 16:48:05,869 190582ms HangFireLoggerAppender OnStateApplied     - Job 98 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:49:00,389 245101ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:49:00,782 245494ms HangFireLoggerAppender OnStateUnapplied   - Job `99` state `` was unapplied.
+INFO  2018-02-01 16:49:00,784 245496ms HangFireLoggerAppender OnStateApplied     - Job 99 state was changed from  to Enqueued
+INFO  2018-02-01 16:49:00,999 245711ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `99`
+INFO  2018-02-01 16:49:01,888 246600ms HangFireLoggerAppender OnStateUnapplied   - Job `99` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:49:01,890 246602ms HangFireLoggerAppender OnStateApplied     - Job 99 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:49:04,177 248890ms HangFireLoggerAppender OnPerforming       - Starting to perform job `99`
+INFO  2018-02-01 16:49:04,449 249162ms HangFireLoggerAppender OnPerformed        - Job `99` has been performed
+INFO  2018-02-01 16:49:04,803 249516ms HangFireLoggerAppender OnStateUnapplied   - Job `99` state `Processing` was unapplied.
+INFO  2018-02-01 16:49:04,805 249518ms HangFireLoggerAppender OnStateApplied     - Job 99 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:50:10,668 315380ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2018-02-01 16:50:11,572 316284ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:50:11,671 316383ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:53:45,072   684ms                        Application_Start  -  <<<< Staring ::: VATMVC Framework checking Startup Config Setting @ : 02/01/2018 16:53:45 >>>>>>
+INFO  2018-02-01 16:53:53,253  8865ms                        Application_Start  -  <<<< Ending ::: VATMVC Framework Startup Config Setting ok @ : 02/01/2018 16:53:53 >>>>>>
+INFO  2018-02-01 16:53:54,076  9688ms SqlServerStorage       CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2018-02-01 16:53:54,704 10316ms SqlServerStorage       CallSite.Target    - Hangfire SQL objects installed.
+INFO  2018-02-01 16:53:55,004 10616ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2018-02-01 16:53:55,029 10641ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: L-AOLUWADARE\MSSQLSERVER2012@Snappet'
+INFO  2018-02-01 16:53:55,033 10645ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2018-02-01 16:53:55,035 10647ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2018-02-01 16:53:55,038 10650ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2018-02-01 16:53:55,040 10652ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2018-02-01 16:53:55,044 10656ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2018-02-01 16:53:55,046 10658ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2018-02-01 16:53:55,047 10659ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2018-02-01 16:53:55,161 10773ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2018-02-01 16:53:56,701 12313ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2018-02-01 16:53:56,705 12317ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2018-02-01 16:53:56,823 12435ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2018-02-01 16:53:56,838 12450ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2018-02-01 16:53:57,712 13324ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2018-02-01 16:53:57,725 13337ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:53:57,832 13444ms Worker                 CallSite.Target    - Background process 'Worker #7a91990e' started.
+DEBUG 2018-02-01 16:53:58,677 14289ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2018-02-01 16:53:58,942 14554ms Worker                 CallSite.Target    - Background process 'Worker #7b8c2263' started.
+DEBUG 2018-02-01 16:53:59,369 14981ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2018-02-01 16:53:59,371 14983ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2018-02-01 16:53:59,968 15580ms Worker                 CallSite.Target    - Background process 'Worker #27acb134' started.
+DEBUG 2018-02-01 16:53:59,971 15583ms Worker                 CallSite.Target    - Background process 'Worker #dd4f938e' started.
+DEBUG 2018-02-01 16:54:00,007 15619ms Worker                 CallSite.Target    - Background process 'Worker #e2db5ef6' started.
+DEBUG 2018-02-01 16:54:00,027 15639ms Worker                 CallSite.Target    - Background process 'Worker #8e6a08dd' started.
+DEBUG 2018-02-01 16:54:00,902 16514ms Worker                 CallSite.Target    - Background process 'Worker #33f7fd7a' started.
+DEBUG 2018-02-01 16:54:01,373 16985ms Worker                 CallSite.Target    - Background process 'Worker #bdb8fb68' started.
+DEBUG 2018-02-01 16:54:02,513 18125ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2018-02-01 16:54:02,515 18127ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2018-02-01 16:54:02,520 18132ms Worker                 CallSite.Target    - Background process 'Worker #46504a84' started.
+DEBUG 2018-02-01 16:54:03,139 18751ms Worker                 CallSite.Target    - Background process 'Worker #41b72335' started.
+DEBUG 2018-02-01 16:54:03,346 18958ms Worker                 CallSite.Target    - Background process 'Worker #5d67b58e' started.
+DEBUG 2018-02-01 16:54:04,221 19833ms Worker                 CallSite.Target    - Background process 'Worker #44385f6b' started.
+DEBUG 2018-02-01 16:54:04,541 20153ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2018-02-01 16:54:04,543 20155ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2018-02-01 16:54:04,726 20338ms Worker                 CallSite.Target    - Background process 'Worker #aea60070' started.
+DEBUG 2018-02-01 16:54:04,743 20355ms Worker                 CallSite.Target    - Background process 'Worker #1442fdd0' started.
+DEBUG 2018-02-01 16:54:05,471 21083ms Worker                 CallSite.Target    - Background process 'Worker #25619305' started.
+DEBUG 2018-02-01 16:54:05,471 21083ms Worker                 CallSite.Target    - Background process 'Worker #d4a3e35a' started.
+DEBUG 2018-02-01 16:54:05,795 21407ms Worker                 CallSite.Target    - Background process 'Worker #2190603c' started.
+DEBUG 2018-02-01 16:54:06,399 22011ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2018-02-01 16:54:06,400 22012ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2018-02-01 16:54:06,525 22137ms Worker                 CallSite.Target    - Background process 'Worker #d07994c0' started.
+DEBUG 2018-02-01 16:54:06,536 22148ms Worker                 CallSite.Target    - Background process 'Worker #8fdf8070' started.
+DEBUG 2018-02-01 16:54:06,986 22598ms Worker                 CallSite.Target    - Background process 'Worker #07da5a09' started.
+DEBUG 2018-02-01 16:54:07,177 22789ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2018-02-01 16:54:07,285 22897ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+DEBUG 2018-02-01 16:54:07,456 23068ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+INFO  2018-02-01 16:54:11,139 26751ms meworkConfigController Index              - VATMVC Framework Config checked @ : 02/01/2018 16:54:11
+INFO  2018-02-01 16:55:03,454 79066ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:55:13,923 89535ms HangFireLoggerAppender OnStateUnapplied   - Job `100` state `` was unapplied.
+INFO  2018-02-01 16:55:13,982 89594ms HangFireLoggerAppender OnStateApplied     - Job 100 state was changed from  to Enqueued
+INFO  2018-02-01 16:55:18,309 93921ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `100`
+INFO  2018-02-01 16:55:19,804 95416ms HangFireLoggerAppender OnStateUnapplied   - Job `100` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:55:19,806 95418ms HangFireLoggerAppender OnStateApplied     - Job 100 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:55:22,385 97997ms HangFireLoggerAppender OnPerforming       - Starting to perform job `100`
+INFO  2018-02-01 16:55:23,048 98660ms HangFireLoggerAppender OnPerformed        - Job `100` has been performed
+INFO  2018-02-01 16:55:24,402 100014ms HangFireLoggerAppender OnStateUnapplied   - Job `100` state `Processing` was unapplied.
+INFO  2018-02-01 16:55:24,404 100016ms HangFireLoggerAppender OnStateApplied     - Job 100 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:56:07,284 142896ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:56:10,733 146345ms HangFireLoggerAppender OnStateUnapplied   - Job `101` state `` was unapplied.
+INFO  2018-02-01 16:56:10,734 146346ms HangFireLoggerAppender OnStateApplied     - Job 101 state was changed from  to Enqueued
+INFO  2018-02-01 16:56:11,638 147250ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `101`
+INFO  2018-02-01 16:56:14,414 150026ms HangFireLoggerAppender OnStateUnapplied   - Job `101` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:56:14,416 150028ms HangFireLoggerAppender OnStateApplied     - Job 101 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:56:16,010 151622ms HangFireLoggerAppender OnPerforming       - Starting to perform job `101`
+INFO  2018-02-01 16:56:16,529 152141ms HangFireLoggerAppender OnPerformed        - Job `101` has been performed
+INFO  2018-02-01 16:56:19,430 155042ms HangFireLoggerAppender OnStateUnapplied   - Job `101` state `Processing` was unapplied.
+INFO  2018-02-01 16:56:19,431 155043ms HangFireLoggerAppender OnStateApplied     - Job 101 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:57:02,921 198533ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:57:04,966 200578ms HangFireLoggerAppender OnStateUnapplied   - Job `102` state `` was unapplied.
+INFO  2018-02-01 16:57:04,969 200581ms HangFireLoggerAppender OnStateApplied     - Job 102 state was changed from  to Enqueued
+INFO  2018-02-01 16:57:07,875 203487ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `102`
+INFO  2018-02-01 16:57:14,013 209625ms HangFireLoggerAppender OnStateUnapplied   - Job `102` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:57:14,029 209641ms HangFireLoggerAppender OnStateApplied     - Job 102 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:57:23,402 219014ms HangFireLoggerAppender OnPerforming       - Starting to perform job `102`
+INFO  2018-02-01 16:57:24,003 219615ms HangFireLoggerAppender OnPerformed        - Job `102` has been performed
+INFO  2018-02-01 16:57:26,642 222254ms HangFireLoggerAppender OnStateUnapplied   - Job `102` state `Processing` was unapplied.
+INFO  2018-02-01 16:57:26,644 222256ms HangFireLoggerAppender OnStateApplied     - Job 102 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:58:03,920 259532ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:58:18,134 273746ms HangFireLoggerAppender OnStateUnapplied   - Job `103` state `` was unapplied.
+INFO  2018-02-01 16:58:18,136 273748ms HangFireLoggerAppender OnStateApplied     - Job 103 state was changed from  to Enqueued
+INFO  2018-02-01 16:58:20,694 276306ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `103`
+INFO  2018-02-01 16:58:22,232 277844ms HangFireLoggerAppender OnStateUnapplied   - Job `103` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:58:22,234 277846ms HangFireLoggerAppender OnStateApplied     - Job 103 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:58:23,675 279287ms HangFireLoggerAppender OnPerforming       - Starting to perform job `103`
+INFO  2018-02-01 16:58:23,874 279486ms HangFireLoggerAppender OnPerformed        - Job `103` has been performed
+INFO  2018-02-01 16:58:24,377 279989ms HangFireLoggerAppender OnStateUnapplied   - Job `103` state `Processing` was unapplied.
+INFO  2018-02-01 16:58:24,381 279993ms HangFireLoggerAppender OnStateApplied     - Job 103 state was changed from Processing to Succeeded
+INFO  2018-02-01 16:58:57,391 313003ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2018-02-01 16:58:58,816 314428ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2018-02-01 16:58:59,953 315565ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2018-02-01 16:59:02,615 318227ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 16:59:06,381 321993ms HangFireLoggerAppender OnStateUnapplied   - Job `104` state `` was unapplied.
+INFO  2018-02-01 16:59:06,388 322000ms HangFireLoggerAppender OnStateApplied     - Job 104 state was changed from  to Enqueued
+INFO  2018-02-01 16:59:11,725 327337ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `104`
+INFO  2018-02-01 16:59:15,224 330836ms HangFireLoggerAppender OnStateUnapplied   - Job `104` state `Enqueued` was unapplied.
+INFO  2018-02-01 16:59:15,226 330838ms HangFireLoggerAppender OnStateApplied     - Job 104 state was changed from Enqueued to Processing
+INFO  2018-02-01 16:59:21,955 337567ms HangFireLoggerAppender OnPerforming       - Starting to perform job `104`
+INFO  2018-02-01 16:59:22,836 338448ms HangFireLoggerAppender OnPerformed        - Job `104` has been performed
+INFO  2018-02-01 16:59:29,735 345347ms HangFireLoggerAppender OnStateUnapplied   - Job `104` state `Processing` was unapplied.
+INFO  2018-02-01 16:59:29,738 345350ms HangFireLoggerAppender OnStateApplied     - Job 104 state was changed from Processing to Succeeded
+INFO  2018-02-01 17:00:00,600 376212ms HangFireLoggerAppender OnCreating         - Creating a job based on method `Execute`...
+INFO  2018-02-01 17:00:03,018 378630ms HangFireLoggerAppender OnStateUnapplied   - Job `105` state `` was unapplied.
+INFO  2018-02-01 17:00:03,020 378632ms HangFireLoggerAppender OnStateApplied     - Job 105 state was changed from  to Enqueued
+INFO  2018-02-01 17:00:03,779 379391ms HangFireLoggerAppender OnCreated          - Job that is based on method `Execute` has been created with id `105`
+INFO  2018-02-01 17:00:04,330 379942ms HangFireLoggerAppender OnStateUnapplied   - Job `105` state `Enqueued` was unapplied.
+INFO  2018-02-01 17:00:04,332 379944ms HangFireLoggerAppender OnStateApplied     - Job 105 state was changed from Enqueued to Processing
+INFO  2018-02-01 17:00:04,832 380444ms HangFireLoggerAppender OnPerforming       - Starting to perform job `105`
+INFO  2018-02-01 17:00:05,006 380618ms HangFireLoggerAppender OnPerformed        - Job `105` has been performed
+INFO  2018-02-01 17:00:05,240 380852ms HangFireLoggerAppender OnStateUnapplied   - Job `105` state `Processing` was unapplied.
+INFO  2018-02-01 17:00:05,242 380854ms HangFireLoggerAppender OnStateApplied     - Job 105 state was changed from Processing to Succeeded

@@ -1,0 +1,72 @@
+﻿
+@model List<VATMVCAPPFramework.ViewModel.NewmemberClassViewModel>
+@using VATMVCAPPFramework.Utilities
+
+@using (Html.BeginForm("UpdateManageMember", "Club", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+        if (Model != null && Model.Count() >= 1)
+        {
+            var count = Model.Count();
+            <table id="NewClubMemberbl" class="table convert-data-table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>LastName</th>
+                        <th>FirstName</th>
+                        <th>MiddleName</th>
+                        <th>MobileNumber</th>
+                        <th>Email</th>
+                        <th>Programme</th>
+                        <th>Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int item = 0; item < count; item++)
+                    {
+                        var broadSheet = Model[item];
+                        <tr>
+                            @Html.HiddenFor(x => x[item].StudentID)
+                            @Html.HiddenFor(x => x[item].ArmId)
+                            @Html.HiddenFor(x => x[item].ClubId)
+
+                            @Html.HiddenFor(x => x[item].ClassId)
+
+                            <td> @Html.CheckBoxFor(x => x[item].IsChecked, new { @id = "chckBox", @class = "chkSelect" })</td>
+                            @*@if (broadSheet.UnitHeadId > 0)
+                            {
+                                <td> @Html.CheckBoxFor(x => x[item].IsChecked, new { @id = "chckBox", @class = "chkSelect", @checked = "checked" })</td>
+
+                            }
+                            else
+                            {
+                                <td> @Html.CheckBoxFor(x => x[item].IsChecked, new { @id = "chckBox", @class = "chkSelect" })</td>
+                            }*@
+
+                            <td> @Html.DisplayFor(x => x[item].LastName)</td>
+                            <td> @Html.DisplayFor(x => x[item].FirstName)</td>
+                            <td> @Html.DisplayFor(x => x[item].MiddleName)</td>
+
+                            <td> @Html.DisplayFor(x => x[item].MobileNumber)</td>
+                            <td> @Html.DisplayFor(x => x[item].Email)</td>
+                            <td> @Html.DisplayFor(x => x[item].ProgrammeName)</td>
+                            <td> @Html.DisplayFor(x => x[item].ClassName)</td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <hr />
+
+            <div class="panel panel-footer text-center">
+                <button class="btn btn-primary" type="submit">Save<i class="fa fa-plus-circle"></i></button>
+            </div>
+
+
+    }
+
+
+}

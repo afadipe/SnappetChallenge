@@ -1,0 +1,77 @@
+﻿@model  VATMVCAPPFramework.ViewModel.StudentRoomAllocationViewModel
+
+@using (Html.BeginForm("CreateRoomAllocation", "Hostel", "APPPortal", FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form"
+}))
+{
+
+<div class="member-card">
+
+    @Html.HiddenFor(m => m.StudentId)
+    @Html.HiddenFor(m => m.HallID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoomID, htmlAttributes: new { @class = "control-label col-sm-3" })
+        <div>
+            @Html.DropDownListFor(m => m.RoomID, Model.Rooms, "Please select...", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BedID, htmlAttributes: new { @class = "control-label col-sm-3" })
+        <div>
+            @Html.DropDownListFor(m => m.BedID, Model.Beds, "Please select...", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.BedID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SessionID, htmlAttributes: new { @class = "control-label col-sm-3" })
+        <div>
+            @Html.DropDownListFor(m => m.SessionID, Model.Sessions, "Please select...", new { @class = "form-control", @readonly = "readonly" })
+
+            @Html.ValidationMessageFor(model => model.SessionID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExpiringDate, htmlAttributes: new { @class = "control-label col-sm-3" })
+        <div class="col-sm-8">
+            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                @Html.EditorFor(model => model.ExpiringDate, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(model => model.ExpiringDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+
+</div> 
+
+}
+
+<script type="text/javascript">
+       // $.fn.datepicker.defaults.format = "dd-mm-yyyy";
+        //$('.datepicker').datepicker({
+        //    autoclose: true, startDate: '-3d'
+        //});
+        $('.datepicker').datepicker();
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+</script>

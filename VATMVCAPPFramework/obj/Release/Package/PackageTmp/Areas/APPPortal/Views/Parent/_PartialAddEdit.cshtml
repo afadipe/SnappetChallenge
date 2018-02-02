@@ -1,0 +1,244 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.ParentViewModel
+@{
+    ViewBag.Title = "Parent";
+    Layout = null;
+}
+
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm((string)ViewBag.PostAction, "Parent", new { area = "APPPortal" }, FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Parent</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.SelectedGender, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.DropDownListFor(m => m.SelectedGender, Model.Gender, "Please select...", new { @class = "form-control" })
+
+
+                            @Html.ValidationMessageFor(model => model.SelectedGender, "", new { @class = "text-danger" })
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            @if (Model.UserId >= 1)
+                {
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-9">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+
+            <div class="text-center">
+                <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">
+            </div>
+
+            @if (Model.UserId >= 1)
+            {
+                <div class="fileinput @ViewBag.ImageProperty" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                        @if (Model.ProfilePath != null)
+                        {
+                            <img src="@Url.Content("~/FileUploadedDoc/" + Model.ProfilePath)" alt="...">
+                        }
+                    </div>
+                    <div class="img-responsive img-circle fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                        @*@if (Model.Picture != null)
+                            {
+                                <img src="@Url.Content("~/FileUploadedDoc/" + Model.Picture)" alt="...">
+                            }*@
+                    </div>
+                    <div>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="profileImage"></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <span class="btn btn-default btn-file"><span class="fileinput-new">Select Profile Image</span></span><input type="file" name="profileImage">
+                </div>
+            }
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div>
+                    <textarea required="" name="Address1" class="form-control"> @Model.Address1 </textarea>
+                    @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div>
+                    <textarea name="Address2" class="form-control"></textarea>
+                    @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+            
+            <h4> Student Parent Mapping </h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectedStudentId, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.ListBoxFor(m => m.SelectedStudentId, Model.Students, new
+                    {
+                        @class = "form-control select2",
+                        multiple = "multiple",
+                        @style = "width: 100%"
+                    })
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.row -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+                </div>
+    }
+
+
+    <script type="text/javascript">
+        $(".select2").select2();
+        $.fn.datepicker.defaults.format = "dd-mm-yyyy";
+        //$('.datepicker').datepicker({
+        //    autoclose: true, startDate: '-3d'
+        //});
+        $('.datepicker').datepicker();
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+    </script>
+
+
+</div>

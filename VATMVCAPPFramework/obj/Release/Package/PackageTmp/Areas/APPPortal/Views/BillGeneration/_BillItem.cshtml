@@ -1,0 +1,94 @@
+﻿@model VATMVCAPPFramework.Models.BillGenerationViewModel
+
+<div id="studentList">
+    <table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>SN</th>
+                <th>Name</th>
+                <th>Arm</th>
+                @if (@Model.StudentItems.Count > 0)
+                {
+                    foreach (var item in @Model.StudentItems[0].FeeItems)
+                    {
+                        <th><label>@item.FeeItem</label></th>
+                    }
+                }
+              
+
+            </tr>
+        </thead>
+        @{int rowNo = 0;}
+        @if (Model.StudentItems.Count > 0)
+        {
+            <tbody>
+                @for (int i = 0; i < Model.StudentItems.Count; i++)
+                {
+                    <tr>
+                        <td>@(rowNo += 1)</td>
+                        <td>
+                            @Html.DisplayFor(m => m.StudentItems[i].StudentName)
+                            @Html.HiddenFor(m => m.StudentItems[i].StudentId)
+                        </td>
+                        <td>@Html.DisplayFor(m => m.StudentItems[i].Arm)</td>
+                        @for (int j = 0; j < Model.StudentItems[i].FeeItems.Count; j++)
+                        {
+                            
+                            <td>
+                                @Html.CheckBoxFor(m => m.StudentItems[i].FeeItems[j].IsChecked)
+                                @Html.HiddenFor(m => m.StudentItems[i].FeeItems[j].FeeItemId)
+                                @Html.HiddenFor(m => m.StudentItems[i].FeeItems[j].Amount)
+                                @Html.HiddenFor(m => m.StudentItems[i].FeeItems[j].ProgrammeId)
+                                @Html.HiddenFor(m => m.StudentItems[i].FeeItems[j].StudentId)
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        }
+
+    </table>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    $(function () {
+        $('#Grid').on('click', '.chkbx', function () {
+            var checked = $(this).is(':checked');
+            var grid = $('#Grid').data().kendoGrid;
+            var dataItem = grid.dataItem($(this).closest('tr'));
+            dataItem.set('IsChecked', checked);
+        })
+    })
+
+    function checkAll(ele) {
+        var state = $(ele).is(':checked');
+        var grid = $('#Grid').data().kendoGrid;
+        $.each(grid.dataSource.view(), function () {
+            if (this['IsChecked'] != state)
+                this.dirty = true;
+            this['IsChecked'] = state;
+
+        });
+        grid.refresh();
+    }
+</script>

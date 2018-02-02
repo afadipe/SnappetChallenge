@@ -1,0 +1,273 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.SubjectUploadViewModel>
+@using VATMVCAPPFramework.CustomClass
+@{
+    ViewBag.Title = "Manage Score";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="col-md-3">
+    <div class="panel panel-default" data-toggle="panel-collapse" data-open="true">
+        <div class="panel-heading panel-collapse-trigger">
+            <h4 class="panel-title">Update Score</h4>
+        </div>
+
+    </div>
+
+
+</div>
+<div>
+    <h3>
+        @ViewBag.Message
+    </h3>
+</div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="panel panel-default">
+                    <div class="media v-middle">
+                        <div class="media-left">
+                            <div class="bg-green-400 text-white">
+                                <div class="panel-body">
+                                    <i class="fa fa-map-marker text-white fa-fw fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="text-headline margin-none">Search For Student</h4>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.Label("schoolid", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.Hidden("studentId")
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        @Html.Label("Class", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Class", new SelectList(SectionHelper.GetClass(), "ID", "Name"), "Select Class.", new { @class = "form-control", Required = true })
+                            @Html.ValidationMessage("Class", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <div class="form-group">
+                            @Html.Label("Reg/No", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.Editor("StudentNo", new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessage("StudentRegNo", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Assessment Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("AssessmentID", new SelectList(SectionHelper.GetAssesmentype(), "ID", "Name"), "Select AssessmentType.", new { @class = "form-control", Required = true })
+                            @Html.ValidationMessage("AssessmentID", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Session", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Session", new SelectList(SectionHelper.GetSession(), "ID", "SessionName"), "Select Session.", new { @class = "form-control", Required = true })
+                            @Html.ValidationMessage("Session", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Term", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Term", new SelectList(SectionHelper.GetTerm(), "ID", "TermName"), "Select Term.", new { @class = "form-control", Required = true })
+                            @Html.ValidationMessage("Term", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-info">Fetch</button>
+                    </div>
+                </div>
+            }
+            @if (Model != null)
+            {
+
+                <div class="containerX">
+
+
+                    <div class="panel-body table-responsive">
+                        <table class="table convert-data-table table-striped" id="lookUptbl">
+                            <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    @*<th>RegNo</th>*@
+                                    <th>Subject Name</th>                              
+                                    <th>Score</th>
+                                   
+                                    @*<th>Term </th>
+                                    <th>Session Name</th>
+                                    <th>ClassName</th>
+                                    <th>Arm</th>*@
+                                    <th width="5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int rowNo = 0;}
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@(rowNo += 1)</td>
+                                        @*<td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>*@
+                                        @*<td>@Html.DisplayFor(modelItem => item.RegNo)</td>*@
+                                        <td>@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Score)</td>
+                                     
+                                        @*<td>@Html.DisplayFor(modelItem => item.Term)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SessionName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.ArmName)</td>*@
+                                       <td>
+                                        @*<a href="@Url.Action("EditResult","SubjectTeacher",new{ID=(Model.ge) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Edit</a>*@
+                                           @Html.ActionLink("Edit", "EditResult", new { ID = item.ID },"glyphicon glyphicon-trash")
+
+                                           
+                                       
+                                        </td>
+                                     </tr>
+
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+                                    }
+
+        </div>
+        @section JavaScript
+            {
+            <script type="text/javascript">
+                    $(function () {
+                        var url = "";
+
+                        //Load the edit page
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                    url: this.action,
+                                    type: this.method,
+                                    data: $(this).serialize(),
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+
+
+
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("InsertBorrowbook", "Book", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("EditResult", "SubjectGrading", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+                            url = '@Url.Action("Delete", "SubjectGrading", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+            </script>
+
+        }
+    </div>
+
+
+</div>
+
+
+
+

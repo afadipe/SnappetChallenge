@@ -1,0 +1,10 @@
+﻿@model VATMVCAPPFramework.Models.CheckBoxListFeeItem
+
+
+<li>
+    @Html.CheckBoxFor(x => x.IsChecked)
+    @Html.LabelFor(x => x.IsChecked, Model.Display)   
+    @Html.EditorFor(x => x.Amount, new { htmlAttributes = new {@class = "pull-right"} })
+    @Html.HiddenFor(x => x.ID)
+</li>
+

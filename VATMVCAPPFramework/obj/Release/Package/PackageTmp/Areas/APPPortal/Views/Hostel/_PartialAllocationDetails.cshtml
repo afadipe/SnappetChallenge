@@ -1,0 +1,47 @@
+﻿@model  List<VATMVCAPPFramework.ViewModel.RoomAllocationViewModel>
+@using VATMVCAPPFramework.Utilities
+<table class="table convert-data-table table-striped" id="lookUptbl">
+    <thead>
+        <tr>
+            <th>S/N</th>
+
+            @*<th>User Name</th>*@
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Hall</th>
+            <th>Room</th>
+            @*<th>Mobile Number</th>
+    <th>Email Address</th>*@
+            <th>Programme</th>
+            <th>Class</th>
+            <th>Arm</th>
+            <th width="5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.UserName)</td>*@
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => item.HallName)</td>
+                <td>@Html.DisplayFor(modelItem => item.RoomName)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.MobileNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>*@
+                <td>@Html.DisplayFor(modelItem => item.ProgrammeName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ArmName)</td>
+                <td><a class='btn btn-raised btn-success' href="@Url.Action("RoomDeallocation","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.Id),HallCode=ExtentionUtility.EncryptID(item.HallID) })">Deallocate</a></td>
+
+
+               
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

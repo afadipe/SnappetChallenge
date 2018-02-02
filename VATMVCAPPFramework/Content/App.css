@@ -1,0 +1,12 @@
+﻿.sign-box {
+    width: 100%;
+    max-width: 322px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #d8e2e7;
+   -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 1rem;
+    position: relative;
+}

@@ -1,0 +1,105 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.CreateRoomRoundViewModel
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Create RoomRound";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">  </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    <a href="#">VATACADA</a>
+                </li>
+                <li>
+                    <a href="#">Administration </a>
+                </li>
+                <li class="active">
+                    Hostel Management
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("RoomManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Management</a>
+
+                                <a href="@Url.Action("BedSpaceManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Space Management</a>
+
+                                <a href="@Url.Action("RoomAllocationManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Allocation</a>
+
+                                <a href="@Url.Action("StudentRoomAllocation","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Student Room Allocation</a>
+
+                                <a href="@Url.Action("RoomRoundManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Round</a>
+
+                                <a href="@Url.Action("RoomDellocationHistoryManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Deallocation</a>
+                                <a href="@Url.Action("RoomHeadCountManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.HallId) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Head Count</a>
+                                <a href="@Url.Action("Index", "Hostel", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div> <!-- end card-box -->
+
+                </div> <!-- end col -->
+                <br />
+                @Html.Partial("_PartialAddEditRoomRound", Model.RoomRoundViewModel)
+            </div>
+        </div>
+    </div>
+
+
+    @section JavaScript
+        {
+        <script type="text/javascript">
+
+            $(".select2").select2();
+
+            $(function () {
+
+                $(".select2").select2();
+
+                $('#roomroundlisttbl').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]],
+                    dom: 'Bfltip',
+                    buttons: [
+                        'copy',
+                          {
+                              extend: 'csvHtml5', text: 'Excel'
+                          },
+                          //'csv', 'excel',
+
+                          'pdf', 'print'
+                    ]
+                });
+
+            });
+
+        </script>
+
+    }
+
+
+</div>

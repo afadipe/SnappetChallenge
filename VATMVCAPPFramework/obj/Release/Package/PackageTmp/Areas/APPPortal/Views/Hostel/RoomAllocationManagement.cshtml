@@ -1,0 +1,222 @@
+﻿@model VATMVCAPPFramework.ViewModel.ManageRoomAllocationViewModel
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Hall";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+@Html.Partial("_ToastrViewHeader")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Room Allocation  </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    VATACADA
+                </li>
+                <li>
+                    Hostel Setting
+                </li>
+                <li class="active">
+                    Room Allocation
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("RoomManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Management</a>
+
+                                <a href="@Url.Action("BedSpaceManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Space Management</a>
+
+                                <a href="@Url.Action("RoomAllocationManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Allocation Details</a>
+
+                                <a href="@Url.Action("StudentRoomAllocation","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Bed Allocation</a>
+
+                                <a href="@Url.Action("RoomRoundManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Round</a>
+
+                                <a href="@Url.Action("RoomDellocationHistoryManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Deallocation</a>
+                                <a href="@Url.Action("RoomDellocationHistoryManagement","Hostel",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.Hall.Id) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Room Head Count</a>
+                                <a href="@Url.Action("Index", "Hostel", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div> <!-- end card-box -->
+
+                </div> <!-- end col -->
+
+                <div class="card-box table-responsive">
+                    @Html.Partial("_PartialAllocationSearch", Model.RoomAllocationSearchViewModel)
+
+                    @if (Model.RoomAllocationDetails != null)
+                    {
+                        @Html.Partial("_PartialAllocationDetails", Model.RoomAllocationDetails)
+                    }
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="addedit_modal_body">
+            </div>
+        </div>
+    </div>
+    <!--Delete User-->
+    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="delete_content">
+            </div>
+        </div>
+    </div>
+    @section JavaScript
+            {
+        <script type="text/javascript">
+
+                    $(".select2").select2();
+
+                    $(function () {
+
+                        $(".select2").select2();
+
+
+                        $("#RoomID").change(function () {
+                            var SelectedRoomID = $(this).val();
+                            console.log(SelectedRoomID);
+                            $.getJSON('@Url.Action("GetRoomBedSpaceByRoomId")', { RoomId: $(this).val() }, function (locations) {
+
+                                var selcetedBedID = $('#BedID');
+                                selcetedBedID.empty();
+                                selcetedBedID.append($("<option/>", { value: 0, text: "Please select..." }));
+                                $.each(locations, function (index, location) {
+                                    selcetedBedID.append($('<option/>', {
+                                        value: location.Value,
+                                        text: location.Text
+                                    }));
+                                });
+                            });
+                        });
+
+
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+                        $(".btn_add").click(function () {
+
+                            url = '@Url.Action("CreateBedSpace", "Hostel",new { area = "APPPortal", ProgrammeId = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("Edit", "Hostel", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+
+                            url = '@Url.Action("Delete", "Hostel", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+
+                        });
+
+                        $('#schooltbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy',
+                                  {
+                                      extend: 'csvHtml5', text: 'Excel'
+                                  },
+                                  //'csv', 'excel',
+
+                                  'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+        </script>
+
+    }
+
+
+</div>

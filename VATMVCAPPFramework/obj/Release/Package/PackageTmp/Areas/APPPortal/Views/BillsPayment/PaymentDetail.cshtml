@@ -1,0 +1,85 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.PaymentDetail>
+@{
+    ViewBag.Title = "PaymentDetail";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Begin page heading -->
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Student Payment</h3>
+                    
+
+                    <br />
+                        <div class="form-group"><b>Student Name: </b>@ViewBag.StudentName</div>
+                        <div class="form-group"><b>Session : </b>@ViewBag.Session</div>
+                        <div class="form-group"><b>Term : </b>@ViewBag.Term</div>
+
+                </div>
+
+               
+               
+                <table id="tblStudent" class="table table-striped table-hover table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            
+                            <th>SN</th>
+                            <th>Fee Item</th>
+                            <th>Amount Paid</th>
+                            <th>TransactionDate</th>        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@Html.DisplayFor(m =>  item.FeeItem)</td>
+                                <td>@string.Format("{0:N2}",item.AmountPaid)</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", item.TransactionDate)</td>
+                            </tr>
+                           i = i +1;
+                        }
+                    </tbody>
+                    </table>
+                <div>
+                    @Html.ActionLink("Back", "PaymentRecord", new { studentId = @ViewBag.StudentId }, new {@class = "btn btn-warning fa fa-sign-out" })
+                </div>
+            </div>
+        </div>
+
+        @section JavaScript
+        {
+
+            <script type="text/javascript">
+
+
+
+
+    var table;
+                @*alert('@Url.Action("getStudentResult", "ResultProcessing")' + "?ArmId=3" + "&SessionId=2" + "&TermId=2"+ "&SubjectId=2");*@
+                table = $('#tblStudent').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]]
+                });
+
+
+
+
+            </script>
+        }
+    </div>
+</section>
+
+
+

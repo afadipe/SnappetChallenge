@@ -1,0 +1,56 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.ProgrammeClassArmSearch
+
+@using (Html.BeginForm("ManageProgrammeClassArmSearch", "Arm", FormMethod.Post))
+{
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label>Programme</label>
+                    </div>
+
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.ProgrammeId,Model.Programmes, "Please select...", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label> Class </label>
+                    </div>
+
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.ClassId, Model.Classes, "Please select...", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-footer text-center">
+            <button class="btn btn-success" type="submit">Search <i class="fa fa-search"></i></button>
+        </div>
+    </div>
+}
+
+<Script type="text/javascript">
+$(function () {
+    $("#ProgrammeId").change(function () {
+        var SelectedProgrammeID = $(this).val();
+        console.log(SelectedProgrammeID);
+        $.getJSON('@Url.Action("GetClassByProgrammeId")', { ProgrammeId: $(this).val() }, function (locations) {
+
+            var selcetedClassID = $('#ClassId');
+            selcetedClassID.empty();
+            selcetedClassID.append($("<option/>", { value: 0, text: "Please select..." }));
+            $.each(locations, function (index, location) {
+                selcetedClassID.append($('<option/>', {
+                    value: location.Value,
+                    text: location.Text
+                }));
+            });
+        });
+    });
+});
+</Script>

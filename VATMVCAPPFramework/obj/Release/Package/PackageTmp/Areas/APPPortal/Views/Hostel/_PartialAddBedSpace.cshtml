@@ -1,0 +1,60 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.BedSpaceViewModel
+@{
+    ViewBag.Title = "Room BedSpace Tag ";
+    Layout = null;
+}
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm((string)ViewBag.PostAction, "Hostel", "APPPortal", FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Room BedSpaceTag</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.HallId)
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RoomID, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.RoomID, Model.Rooms, "Please select...", new { @class = "form-control" })
+
+
+                    @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BedTag, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.BedTag, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.BedTag, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- /.row -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
+    }
+
+
+</div>
+

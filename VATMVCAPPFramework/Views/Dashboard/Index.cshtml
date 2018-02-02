@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Dashboard</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">ACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        Dashboard
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Student Count Per Programme
+                </div>
+                <div class="panel-body">
+                    <div id="studentcountperprogramme_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    Assignment By Subject
+                </div>
+                <div class="panel-body">
+                    <div id="AssignmentByStudent_range"></div>
+                </div>
+                <div class="panel panel-footer text-center">
+
+                </div>
+            </div>
+
+            <!-- End  Kitchen Sink -->
+        </div>
+
+
+
+    </div>
+
+    <!-- end row -->
+
+
+
+
+</div> <!-- container -->
+
+@section Javascript{
+    <script type="text/javascript">
+
+        $(function ()
+        {
+
+            var base = document.getElementsByTagName('base')[0].href;
+
+            function deleteCookie(key) {
+                document.cookie = key + '="";expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            };
+            function setCookie(key, value) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + (60 * 10000));
+                document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+            }
+
+
+
+            $("#AssignmentByStudent_range").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/AssignmentByStudent",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Assignment By Subject"
+                },
+                legend: {
+                    position: "bottom"
+                },
+                seriesDefaults: {
+                    type: "pie",
+                    labels: {
+                        position: "outsideEnd",
+                        visible: true,
+                        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                    }
+                },
+                series: [
+                    {
+
+
+                        categoryField: "Name",
+                        field: "count"
+
+
+                    }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                }
+
+            });
+            $("#studentcountperprogramme_range").kendoChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: base + "/api/Metric/StudentCountPerAssignment",
+                            dataType: "json"
+                        }
+                    }
+                },
+                title: {
+                    text: "Student Count Per Assignment"
+                },
+                legend: {
+                    position: "bottom"
+                },
+                seriesDefaults: {
+                    type: "funnel",
+                    labels: {
+                        position: "outsideEnd",
+                        visible: true,
+                        background: "transparent",
+                        color: "white",
+                        template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                    },
+                    dynamicSlope: true,
+                    dynamicHeight: false
+                },
+                series: [
+                    {
+                        categoryField: "Name",
+                        field: "count",
+                    }],
+                tooltip: {
+                    visible: true,
+                    format: "{0}",
+                    template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+                }
+
+            });
+
+
+
+
+
+        });
+
+    </script>
+}
+

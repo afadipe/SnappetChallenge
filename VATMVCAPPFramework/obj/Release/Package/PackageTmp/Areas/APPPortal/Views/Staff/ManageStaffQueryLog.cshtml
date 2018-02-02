@@ -1,0 +1,224 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.StaffQueryLogMenuInfo
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Manage Staff Query Log";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-title-box">
+            <h4 class="page-title">  Staff Query Log Management </h4>
+            <ol class="breadcrumb p-0 m-0">
+                <li>
+                    VATACADA
+                </li>
+                <li>
+                    Administration
+                </li>
+                <li class="active">
+                    Staff Query Log Management
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="text-center card-box">
+                        <div class="member-card">
+
+                            <div class="">
+                                <h4 class="m-b-5">@Model.StaffViewModel.FirstName   @Model.StaffViewModel.LastName</h4>
+                                <p class="text-muted">@Model.StaffViewModel.StaffCode</p>
+                            </div>
+
+                            <div class="list-group mail-list  m-t-20">
+                                <a href="@Url.Action("ManageStaff","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Basic Info</a>
+                                <a href="@Url.Action("ManageStaffAcademicInfo","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Academic Info</a>
+                                <a href="@Url.Action("ManageStaffEmploymentInfo","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Employment Info</a>
+                                <a href="@Url.Action("ManageStaffSpeciality","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Speciality Info</a>
+                                <a href="@Url.Action("ManageStaffQueryLog","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Query Log</a>
+                                <a href="@Url.Action("ManageStaffTermination","Staff",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(Model.StaffViewModel.StaffID) })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Terminate Staff</a>
+                                <a href="@Url.Action("Index", "Staff", new { area="APPPortal" })" class="list-group-item b-0"><i class="fa fa-paper-plane-o m-r-10"></i>Exit</a>
+                            </div>
+
+                            <hr />
+
+                            <div class="text-left">
+                                <p class="text-muted font-13"><strong>Staff :</strong> <span class="m-l-15">@Model.StaffViewModel.FirstName   @Model.StaffViewModel.LastName</span></p>
+
+                                <p class="text-muted font-13"><strong>Staff ID:</strong><span class="m-l-15">@Model.StaffViewModel.StaffCode</span></p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div> <!-- end card-box -->
+
+                </div> <!-- end col -->
+                @{
+                    var StaffID = @Model.StaffViewModel.StaffID;
+                }
+                <div class="card-box table-responsive">
+
+                    @if (Model.StaffQueryLogViewModel != null && Model.StaffQueryLogViewModel.Any())
+                    {
+                        @Html.Partial("_PartialStaffQueryLogDetails", Model.StaffQueryLogViewModel)
+                    }
+                    else
+                    {
+                        <div class="col-md-8 col-lg-9">
+                            <div class="row">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>@Model.StaffViewModel.FirstName   @Model.StaffViewModel.LastName</strong> has no query log.Thanks
+                                    again.
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="addedit_modal_body">
+            </div>
+        </div>
+    </div>
+    <!--Delete User-->
+    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="delete_content">
+            </div>
+        </div>
+    </div>
+    @section JavaScript
+            {
+        <script type="text/javascript">
+
+            $(function () {
+                function bindForm(dialog) {
+                    $("form", dialog).submit(function () {
+                        $.ajax({
+
+                            url: this.action,
+                            type: this.method,
+                            data: new FormData(this),
+                            contentType: false,
+                            processData: false,
+
+                            success: function (result) {
+                                if (result.success) {
+                                    $('#addedit_modal').modal("hide");
+                                    // Refresh:
+                                    location.reload();
+
+                                } else {
+
+                                    $('#addedit_modal_body').html(result);
+                                    bindForm();
+                                }
+                            }, error: function (request, status, error) {
+                                alert(JSON.stringify(error));
+                            }
+                        });
+
+
+                        return false;
+                    });
+                }
+
+                //Load the edit page
+                $(".btn_add").click(function () {
+
+                    url = '@Url.Action("CreateAcademicInfo", "Staff",new { area = "APPPortal", StaffId = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                    console.log(url);
+
+                    $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+
+                        $("#addedit_modal").modal({
+                            backdrop: 'static',
+                            keyboard: true
+                        }, "show");
+                        bindForm(this);
+                    });
+                    return false;
+                });
+
+
+                //Load the edit page
+                $(".editBtn").click(function () {
+
+                    url = '@Url.Action("EditAcademicInfo", "Staff", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                    console.log(url);
+
+                    $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                        $("#addedit_modal").modal({
+                            backdrop: 'static',
+                            keyboard: true
+                        }, "show");
+                        bindForm(this);
+                    });
+                    return false;
+                });
+
+                //Handle the delete function
+                $(".deleteBtn").click(function () {
+                    url = '@Url.Action("Delete", "Programme", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                    console.log(url);
+
+                    $("#delete_content").load(url);
+
+                });
+
+                $('#staffAcademicInfotbl').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]],
+                    dom: 'Bfltip',
+                    buttons: [
+                        'copy',
+                          {
+                              extend: 'csvHtml5', text: 'Excel'
+                          },
+                          //'csv', 'excel',
+
+                          'pdf', 'print'
+                    ]
+                });
+
+
+            });
+
+        </script>
+
+    }
+
+
+</div>
+
+
+
+
+

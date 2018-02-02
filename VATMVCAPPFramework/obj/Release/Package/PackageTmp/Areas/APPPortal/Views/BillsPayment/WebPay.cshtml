@@ -1,0 +1,167 @@
+﻿@model VATMVCAPPFramework.Models.FeePayItem
+@{
+    ViewBag.Title = "PaymentConfirmation";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Begin page heading -->
+
+            <div class="box">
+                <div class="box-header">
+                    @{
+                        string message = TempData["PaymentMessage"] as string;
+                        string msgType = message != null ? message.Split(';')[1] : "";
+                        if (!String.IsNullOrEmpty(message) && msgType == "success")
+                        {
+                            <div class="alert alert-success" style="padding:10px; font-size:16px;">
+                                <p><b>@message.Split(';')[0]</b></p>
+                            </div>
+                        }
+                        else if (!String.IsNullOrEmpty(message) && msgType == "error")
+                        {
+                            <div class="alert alert-danger" style="padding:10px; font-size:16px;">
+                                <p><b>@message.Split(';')[0]</b></p>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <h3>Web Payment</h3>
+                <p>
+                    <strong>Student Name:</strong>
+                    <label class="label label-default">@Html.DisplayFor(m => m.Studentname)</label>
+                </p>
+                <panel>
+                    <h4 class="panel panel-heading">
+                        Items Being Paid
+                    </h4>
+                    <div class=" panel panel-body">
+                        <table id="tblStudent" class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Fee Item</th>
+                                    <th>Amount To Pay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PayItemDetails)
+                                {
+                                    if (item.IsSelected)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(m => item.FeeItem)</td>
+                                            <td><label>@string.Format("{0:N2}", item.AmountToPay)</label></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </panel>
+
+                <div class="panel panel-body" style="padding:20px 50px 0 50px">
+                   
+                    
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <strong>Total Amount To Pay:</strong>
+                            &nbsp;<label style=" font-size:large">@string.Format("{0:N2}", Model.TotalAmountToPay)</label>
+                        </div>
+                        <div class="form-group">
+                            @using (Html.BeginForm("InterswitchWebPay", "BillsPayment"))
+                            {
+                            @Html.AntiForgeryToken();
+
+                            @Html.HiddenFor(m => Model.TotalAmountToPay)
+                            @Html.HiddenFor(m => Model.TotalAmountDue)
+                            @Html.HiddenFor(m => Model.TotalDiscount)
+                            @Html.HiddenFor(m => Model.TermId)
+                            @Html.HiddenFor(m => Model.SessionId)
+                            @Html.HiddenFor(m => Model.StudentId)
+                            @Html.HiddenFor(m => Model.Studentname)
+                            @Html.HiddenFor(m => Model.PaymentOptionId)
+
+                                for (int i = 0; i < Model.PayItemDetails.Count; i++)
+                                {
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Discount)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Option)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeItemId)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].BillItemId)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountDue)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountToPay)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountPaid)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeItem)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Studentname)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeType)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Amount)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].IsSelected)
+                               }
+
+
+                            <div>
+                                <h5>Interswitch Web Pay</h5>
+                                <div>Transaction Fee: <label>@string.Format("{0:N2}",ViewBag.InterswitchCharge) </label></div>
+                                <img src="~/Content/images/Interswitch-New.png" width="200" class="inline" /><input type="submit" class="btn btn-success  fa fa-money inline" value=" pay" />
+                               
+                                
+                            </div>
+
+                            }
+
+                        </div>
+                        @*<div class="form-group">
+                            @using (Html.BeginForm("ContinuePayment", "BillsPayment"))
+                            {
+                            @Html.AntiForgeryToken();
+
+                            @Html.HiddenFor(m => Model.TotalAmountToPay)
+                            @Html.HiddenFor(m => Model.TotalAmountDue)
+                            @Html.HiddenFor(m => Model.TotalDiscount)
+                            @Html.HiddenFor(m => Model.TermId)
+                            @Html.HiddenFor(m => Model.SessionId)
+                            @Html.HiddenFor(m => Model.Studentname)
+                            @Html.HiddenFor(m => Model.PaymentOptionId)
+
+                                for (int i = 0; i < Model.PayItemDetails.Count; i++)
+                                {
+                            @Html.HiddenFor(m => m.PayItemDetails[i].Discount)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].Option)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].FeeItemId)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].BillItemId)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].AmountDue)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].AmountToPay)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].AmountPaid)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].FeeItem)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].Studentname)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].FeeType)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].Amount)
+                            @Html.HiddenFor(m => m.PayItemDetails[i].IsSelected)
+                                }
+
+
+                            <div>
+                                <input type="submit" class="btn btn-success fa fa-money" value="Pay" />
+                            </div>
+
+                            }
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.ActionLink("Back", "PaymentConfirmation", new { StudentId = Model.StudentId, SessionId = Model.SessionId, TermId = Model.TermId }, new { @class = "btn btn-warning fa fa-sign-out" })
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

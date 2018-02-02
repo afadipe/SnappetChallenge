@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.ResultProcessingViewModel>
+<table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Middlename</th>
+            <th>Raw Score</th>
+            <th>Total Available Score</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.RowNum)</td>
+                <td>@Html.DisplayFor(modelItem => item.Firstname)</td>
+                <td>@Html.DisplayFor(modelItem => item.Lastname)</td>
+                <td>@Html.DisplayFor(modelItem => item.Middlename)</td>
+                <td>@Html.DisplayFor(modelItem => item.Score)</td>
+                <td>@Html.DisplayFor(modelItem => item.TotalScore)</td>
+                <td>@Html.DisplayFor(modelItem => item.Grade)</td>
+                <td>
+                    <a onclick='Edit(@item.Id , @item.Score , @item.StudentId, @item.TotalScore)' id="@item.RowNum" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil">Edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

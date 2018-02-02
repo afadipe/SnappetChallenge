@@ -1,0 +1,181 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "User";
+    Layout = null;
+}
+
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm((string)ViewBag.PostAction, "PortalUser", new { area = "Portal" }, FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.Id)
+        
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle User</h1>
+            </div>
+            <div class="modal-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                @if (Model.Id >= 1)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+               
+
+
+                @if (Model.Id >= 1)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", required = true } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = true } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                }
+               
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-8">
+                        <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedRole, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.ListBoxFor(m => m.SelectedRole, Model.Roles, new
+                   {
+                       @class = "form-control select2",
+                       multiple = "multiple",
+                       @style = "width: 100%"
+                   })
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        <!-- /.row -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+            </div>
+            }
+
+
+    <script type="text/javascript">
+        $(".select2").select2();
+       // $.fn.datepicker.defaults.format = "dd-mm-yyyy";
+        //$('.datepicker').datepicker({
+        //    autoclose: true, startDate: '-3d'
+        //});
+
+        $('.datepicker').datepicker();
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+    </script>
+
+
+</div>

@@ -1,0 +1,95 @@
+﻿@model VATMVCAPPFramework.Models.BookSetUpViewModel
+
+@{
+    ViewBag.Title = "Book Setting";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Book Setting</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">VATACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Book Setting</a>
+                    </li>
+                    <li class="active">
+                        Book Setting
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h4>BookSetUpViewModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+           
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ISBN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublishedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PublishedDate)
+            </dd>
+
+           
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tag)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tag)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

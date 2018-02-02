@@ -1,0 +1,33 @@
+﻿
+@model  VATMVCAPPFramework.ViewModel.Studentdetail
+
+
+<div class="member-card">
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.StudentID)
+    <div class="thumb-xl member-thumb m-b-10 center-block">
+        <img src="@Url.Content("~/FileUploadedDoc/"+Model.Picture+"")" class="img-circle img-thumbnail" alt="profile-image">
+        <i class="mdi mdi-star-circle member-star text-success" title="verified user"></i>
+    </div>
+    <div class="">
+        <h4 class="m-b-5">@Model.LastName  @Model.FirstName  @Model.MiddleName</h4>
+        <p class="text-muted">@Model.PhoneNumber</p>
+    </div>
+    <hr>
+    <div class="text-left">
+        <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">@Model.LastName  @Model.FirstName  @Model.MiddleName</span></p>
+
+        <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">@Model.PhoneNumber</span></p>
+
+        <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">@Model.Email</span></p>
+
+        <p class="text-muted font-13"><strong>Programme :</strong> <span class="m-l-15">@Model.ProgrammeName</span></p>
+
+        <p class="text-muted font-13"><strong>Class :</strong> <span class="m-l-15">@Model.ClassName</span></p>
+
+        <p class="text-muted font-13"><strong>Arm :</strong> <span class="m-l-15">@Model.ArmName</span></p>
+    </div>
+
+
+</div>
+

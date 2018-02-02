@@ -1,0 +1,29 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.StudentListViewModel>
+<table id="tblStudents" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Class</th>
+            <th>Arm</th>
+            <th>Firstname</th>
+            <th>Middle Name</th>
+            <th>Lastname</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RowNum)</td>
+                <td>@Html.DisplayFor(modelItem => item.Class)</td>
+                <td>@Html.DisplayFor(modelItem => item.Arm)</td>
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.MiddleName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Lastname)</td>
+                <td><a class="btn btn-success" href='@Url.Action("Index", null, new { area = "StudentOverview", controller = "Overview", UserId = item.UserId}, Request.Url.Scheme)'><i class="glyphicon glyphicon-pencil">Overview</i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

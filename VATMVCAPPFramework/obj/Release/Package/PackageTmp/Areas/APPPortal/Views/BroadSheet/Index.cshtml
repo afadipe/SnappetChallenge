@@ -1,0 +1,214 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@section HeadContent {
+    <style>
+        /*
+            Use the DejaVu Sans font for display and embedding in the PDF file.
+            The standard PDF fonts have no support for Unicode characters.
+        */
+        .k-grid {
+            font-family: "DejaVu Sans", "Arial", sans-serif;
+        }
+
+        /* Hide the Grid header and pager during export */
+        .k-pdf-export .k-grid-toolbar,
+        .k-pdf-export .k-pager-wrap {
+            display: none;
+        }
+
+        /* Page Template for the exported PDF */
+    .page-template {
+        font-family: "DejaVu Sans", "Arial", sans-serif;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .page-template .header {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        border-bottom: 1px solid #888;
+        color: #888;
+    }
+    .page-template .footer {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+        border-top: 1px solid #888;
+        text-align: center;
+        color: #888;
+    }
+    .page-template .watermark {
+        font-weight: bold;
+        font-size: 400%;
+        text-align: center;
+        margin-top: 30%;
+        color: #aaaaaa;
+        opacity: 0.1;
+        transform: rotate(-35deg) scale(1.7, 1.5);
+    }
+
+    </style>
+
+    <!-- Load Pako ZLIB library to enable PDF compression -->
+    <script src="@Url.Content("~/Scripts/pako.min.js")"></script>
+}
+
+<script type="x/kendo-template" id="page-template">
+    <div class="page-template">
+        <div class="header">
+            <h1>Government Secondary School Ipaja</h1>
+            <div class="pull-right">Page #: pageNum # of #: totalPages #</div>
+            
+        </div>
+
+        <div class="watermark">ACADA</div>
+        <div class="footer">
+            Page #: pageNum # of #: totalPages #
+            Multi-page grid with automatic page breaking
+        </div>
+    </div>
+</script>
+
+@Html.Partial("_ToastrViewHeader")
+<section class="content">
+    <div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Begin page heading -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">BroadSheet</h3>
+                    </div>
+
+                    <br />
+
+                    @using (Ajax.BeginForm("StudentBroadSheet", "BroadSheet", new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "searchForm" }))
+                    {
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                @Html.Label("ArmType", "Arm:", htmlAttributes: new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-4">
+                                    @Html.DropDownList("ArmType", ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control required" })
+                                </div>
+                            </div>
+
+                          
+                            <div class="form-group">
+
+                                <div class="col-sm-7">
+                                    <button type="submit" class="btn btn-warning pull-right">
+                                        <i class="fa fa-search" aria-hidden="true">&nbsp; Search Students</i>
+                                    </button>
+
+                                </div>
+                            </div>
+
+
+
+                            @*<input type="hidden" id="ArmId" name="ArmId" />
+                                <input type="hidden" id="SubjectId" name="SubjectId" />*@
+                        </div>
+
+                    }
+
+                    <hr />
+                    <div id="studentList">
+                        @Html.Partial("_StudentList", new System.Data.DataTable())
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @section JavaScript
+        {
+            <script type="text/javascript">
+
+
+                function OnSuccess(data, status, xhr) {
+                    $("#studentList").html(data.View);
+                    if (data.success) {
+                       
+                    }
+                    else {
+
+                    }
+
+
+                }
+                function OnFailure(xhr, status, error) {
+                    toastr.error(xhr.responseJSON);
+                }
+
+
+                $("#searchForm").validate()
+                //    messages: {
+
+                //        ScheduleDate: {
+                //            required: "Please pick a date"
+
+                //        },
+                //        ArmType: {
+                //            required: "Please select an option from the list"
+
+                //        },
+                //    }
+                //});
+
+                function aditionalInfo()
+                {
+                    var _armId = $("#ArmType option:selected").val();
+                    
+                        if (_armId == '') {
+                        _armId = 0;
+                        }
+                        return {
+                            armId: _armId
+                        }
+                   
+                }
+
+                var container = $("#searchForm");
+                kendo.init(container);
+                container.kendoValidator({
+                    rules: {
+                        greaterdate: function (input) {
+                            if (input.is("[data-greaterdate-msg]") && input.val() != "") {
+                                var date = kendo.parseDate(input.val()),
+                                    otherDate = kendo.parseDate($("[name='" + input.data("greaterdateField") + "']").val());
+                                return otherDate == null || otherDate.getTime() < date.getTime();
+                            }
+
+                            return true;
+                        }
+                    }
+                });
+
+                function error_handler(e) {
+                    if (e.errors) {
+                        var message = "Errors:\n";
+                        $.each(e.errors, function (key, value) {
+                            if ('errors' in value) {
+                                $.each(value.errors, function () {
+                                    message += this + "\n";
+                                });
+                            }
+                        });
+                        alert(message);
+                    }
+                }
+
+            </script>
+        }
+    </div>
+</section>
+

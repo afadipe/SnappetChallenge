@@ -1,0 +1,30 @@
+﻿
+@model List<VATMVCAPPFramework.ViewModel.ClubMemeberViewModel>
+@using VATMVCAPPFramework.Utilities
+
+
+<table id="clubexistingmembertbl" class="table convert-data-table table-striped">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Student</th>
+            <th>Class</th>
+            <th>Arm</th>
+            <th width="5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.StudentName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ClassName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ArmName)</td>
+                <td><a class='btn btn-raised btn-success' href="@Url.Action("DeleteExistingMember","Club",new{ area="APPPortal",Membercode=ExtentionUtility.EncryptID(item.Id),ClubCode=ExtentionUtility.EncryptID(item.ClubID) } )">Delete Member</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

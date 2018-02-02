@@ -1,0 +1,255 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.ProgramViewModel>
+@using VATMVCAPPFramework.Utilities
+
+@{
+    ViewBag.Title = "Program Management";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Programme Setting</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        VATACADA
+                    </li>
+                    <li>
+                       Programme Setting
+                    </li>
+                    <li class="active">
+                        Programme Setting
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group" style="display:none">
+                            <a data-target='#addedit_modal' role="button" class="btn btn-raised btn-success btn_add" data-toggle="modal">Add Programme</a>
+                            <span class="pull-right">
+                                <a class="btn btn-success" href="@Url.Action("DownloadTemplate")">Download Excel Template</a>
+                                <button type="button" role="button" class="btn btn-default btn-file">
+                                    Import
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped" id="lookUptbl">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Alias</th>
+                                <th>No of Term</th>
+
+                                <th width="5%"></th>
+                                <th width="5%"></th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PrgCode)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PrgAlias)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NoOfTerm)</td>
+                                    @*<td>@Html.DisplayFor(modelItem =>  item.ContactPerson)</td>*@
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+                                    <td><a class='btn btn-raised btn-success' href="@Url.Action("ManageProgrammeClass","Programme",new{ area="APPPortal",ProgrammeCode=ExtentionUtility.EncryptID(item.ID) })">Manage class</a></td>
+
+                                    @*<td><a data-target='#delete_modal' role='button' data-delete-id='@Html.DisplayFor(modelItem => item.ID)' class='btn btn-danger deleteBtn' data-toggle='modal'><i class='fa fa-trash'></i>Delete</a></td>*@
+                                    @if (item.IsActive == true)
+                                    {
+                                        <td><a class='btn btn-raised btn-danger' href="@Url.Action("Deactivate","Programme",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ID) })"><i>Deactivate</i></a></td>
+
+                                    }
+                                    else
+                                    {
+                                        <td><a class='btn btn-raised btn-success' href="@Url.Action("Activate","Programme",new{ area="APPPortal",Code=ExtentionUtility.EncryptID(item.ID) })"><i>Activate</i></a></td>
+
+                                    }
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            <!--Delete User-->
+            <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="delete_content">
+                    </div>
+                </div>
+            </div>
+
+            @section JavaScript
+            {
+                <script type="text/javascript">
+                    $(function () {
+                        var url = "";
+
+                        //Load the edit page
+                        function bindForm(dialog) {
+                            $("form", dialog).submit(function () {
+                                $.ajax({
+                                   // data: $(this).serialize(),
+                                    url: this.action,
+                                    type: this.method,
+                                    data: new FormData(this),
+                                    contentType: false,
+                                    processData: false,
+
+                                    success: function (result) {
+                                        if (result.success) {
+                                            $('#addedit_modal').modal("hide");
+                                            // Refresh:
+                                            location.reload();
+
+                                        } else {
+
+                                            $('#addedit_modal_body').html(result);
+                                            bindForm();
+                                        }
+                                    }, error: function (request, status, error) {
+                                        alert(JSON.stringify(error));
+                                    }
+                                });
+
+
+                                return false;
+                            });
+                        }
+
+                        //Load the edit page
+
+
+
+                        $(".btn_add").click(function () {
+
+                            url = "@Url.Action("Create", "Programme", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function () {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("Update", "Programme", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+                        //Handle the delete function
+                        $(".deleteBtn").click(function () {
+
+                            url = '@Url.Action("Delete", "Programme", new { area = "APPPortal", id = "_id_" })'.replace('_id_', $(this).data("delete-id"));
+                            console.log(url);
+
+                            $("#delete_content").load(url);
+                        });
+
+
+                        //Handle the import function
+                        $(".btn-file").click(function () {
+
+                            url = "@Url.Action("ImportFile", "Programme", new { area = "APPPortal" })";
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+                        $('#lookUptbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "asc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                   {
+                                       extend: 'copyHtml5', exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                   },
+                                {
+                                    extend: 'csvHtml5', exportOptions: { columns: [0, 1, 2, 3, 4] }, text: 'Excel'
+                                },
+                                {
+                                    extend: 'pdfHtml5', exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                },
+                                {
+                                    extend: 'print', exportOptions: { columns: [0, 1, 2, 3, 4] }
+                                }
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,162 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.ViewModel.EmailViewModel>
+
+@{
+    ViewBag.Title = "System Email";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+@Html.Partial("_ToastrViewHeader")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">System Email</h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#">VATACADA</a>
+                    </li>
+                    <li>
+                        <a href="#">Administration </a>
+                    </li>
+                    <li class="active">
+                        System Email
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <section class="panel">
+                <header class="panel-heading panel-border">
+                    <span class="tools pull-right">
+                    </span>
+                </header>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table convert-data-table table-striped table-bordered" id="emailtbl">
+                        <thead>
+                            <tr>
+                                @*<th>S/N</th>*@
+                                <th>Email Subject</th>
+                                <th>EmailCode</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rowNo = 0;}
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @*<td>@(rowNo += 1)</td>*@
+                                    <td>@Html.DisplayFor(modelItem => item.EmailSubject)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EmailCode)</td>
+                                    <td><a data-target='#addedit_modal' role='button' data-edit-id='@Html.DisplayFor(modelItem => item.EmailID)' class='btn btn-default editBtn' data-toggle='modal'><i class='fa fa-edit'></i>Edit</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addedit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="addedit_modal_body">
+                    </div>
+                </div>
+            </div>
+            @section JavaScript
+        {
+                <script src="~/assest/tinymce/tinymce.min.js"></script>
+                <script type="text/javascript">
+                    $(function () {
+
+                        var url = "";
+
+                 $.ajaxSetup({ cache: false });
+                function bindForm(dialog) {
+
+                    $("form", dialog).submit(function () {
+                        $.ajax({
+                            url: this.action,
+                            type: this.method,
+                            data: new FormData(this),
+                            contentType: false,
+                            processData: false,
+                            success: function (result) {
+                                if (result.success) {
+                                    $('#addedit_modal').modal("hide");
+                                    // Refresh:
+                                    location.reload();
+
+                                } else {
+
+                                    $('#addedit_modal_body').html(result);
+                                    bindForm();
+                                }
+                            }, error: function (request, status, error) {
+                                alert(request.responseText);
+                            }
+                        });
+
+
+                        return false;
+                    });
+                }
+
+
+                        //Load the edit page
+                        $(".editBtn").click(function () {
+
+                            url = '@Url.Action("Edit", "EmailTemplate", new { area = "Portal", id = "_id_" })'.replace('_id_', $(this).data("edit-id"));
+                            console.log(url);
+
+                            $("#addedit_modal_body").load(url, function (responseTxt, statusTxt, xhr) {
+                                $("#addedit_modal").modal({
+                                    backdrop: 'static',
+                                    keyboard: true
+                                }, "show");
+                                bindForm(this);
+                            });
+                            return false;
+                        });
+
+
+                        $('#emailtbl').DataTable({
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": true,
+                            "order": [[0, "desc"]],
+                            dom: 'Bfltip',
+                            buttons: [
+                                'copy', 'csv', 'excel', 'pdf', 'print'
+                            ]
+                        });
+
+
+                    });
+
+                </script>
+
+            }
+
+
+        </div>
+    </div>
+</div>
+

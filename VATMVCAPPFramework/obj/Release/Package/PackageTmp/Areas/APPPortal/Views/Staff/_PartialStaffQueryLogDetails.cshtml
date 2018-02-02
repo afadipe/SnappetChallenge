@@ -1,0 +1,34 @@
+﻿@model  List<VATMVCAPPFramework.ViewModel.StaffQueryLogViewModel>
+@using VATMVCAPPFramework.Utilities
+
+<table class="table convert-data-table table-striped" id="staffAcademicInfotbl">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Reporter</th>
+            <th>Date</th>
+            <th>Query</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int rowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(rowNo += 1)</td>
+                <td>@Html.DisplayFor(modelItem => item.Reporter)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+                <td>@Html.DisplayFor(modelItem => item.QueryDetail)</td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+
+
+
+
+

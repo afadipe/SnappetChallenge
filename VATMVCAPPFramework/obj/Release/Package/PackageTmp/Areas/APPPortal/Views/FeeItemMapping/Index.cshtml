@@ -1,0 +1,144 @@
+﻿@model VATMVCAPPFramework.Models.FeeItemMappingViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<style type="text/css">
+    .error {
+        color: red;
+        background-color: #fff;
+    }
+</style>
+
+@Html.Partial("_ToastrViewHeader")
+<section class="content">
+    <div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Begin page heading -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Fee Item Mapping</h3>
+                    </div>
+
+                    <br />
+
+                    @using (Ajax.BeginForm("FeeMapping", "FeeItemMapping", new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "searchForm" }))
+                    {
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ProgrammeId, "Programme:", htmlAttributes: new { @class = "control-label col-sm-3" })
+                                <div class="col-sm-4">
+                                    @Html.DropDownListFor(m => m.ProgrammeId, ViewBag.ProgrammeList as SelectList, "--Select--", new { @class = "form-control required" })
+                                </div>
+                            </div>
+
+                           
+
+                            <div class="form-group">
+
+                                <div class="col-sm-7">
+                                    <button type="submit" class="btn btn-warning pull-right">
+                                        <i class="fa fa-search" aria-hidden="true">&nbsp; Search Students</i>
+                                    </button>
+
+                                </div>
+                            </div>
+
+
+
+                            @*<input type="hidden" id="ArmId" name="ArmId" />
+                                <input type="hidden" id="SubjectId" name="SubjectId" />*@
+                        </div>
+
+                    }
+
+                    <hr />
+                    <div id="studentList">
+                        @Html.Partial("_FeeItemList", new List<VATMVCAPPFramework.Models.FeeItemMappingViewModel>())
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @section JavaScript
+        {
+            <script type="text/javascript">
+
+
+                function OnSuccess(data, status, xhr) {
+                    $("#studentList").html(data.View);                    
+                    if (data.success) {
+                       
+                    }
+                    else {
+
+                    }
+
+                }
+                function OnFailure(xhr, status, error) {
+                    toastr.error(xhr.responseJSON);
+                }
+
+
+                $("#searchForm").validate()
+                //    messages: {
+
+                //        ScheduleDate: {
+                //            required: "Please pick a date"
+
+                //        },
+                //        ArmType: {
+                //            required: "Please select an option from the list"
+
+                //        },
+                //    }
+                //});
+
+                function aditionalInfo()
+                {
+                    var _programmeId = $("#ProgrammeId option:selected").val();
+                    if (_programmeId == '') {
+                        _programmeId = 0;
+                    }
+                  
+                    return {
+                        programmeId: _programmeId
+                        
+                    }
+                }
+
+                function onRequestEnd(e) {
+                    //Check request type
+                    if (e.type == "create" || e.type == "update") {
+                        //check for errors in the response
+                        if (e.response == null || e.response.Errors == null) {
+                            toastr.success("Saved Successfully");
+                        }
+                    }
+                }
+
+                var container = $("#searchForm");
+                kendo.init(container);
+                container.kendoValidator({
+                    rules: {
+                        greaterdate: function (input) {
+                            if (input.is("[data-greaterdate-msg]") && input.val() != "") {
+                                var date = kendo.parseDate(input.val()),
+                                    otherDate = kendo.parseDate($("[name='" + input.data("greaterdateField") + "']").val());
+                                return otherDate == null || otherDate.getTime() < date.getTime();
+                            }
+
+                            return true;
+                        }
+                    }
+                });
+
+            </script>
+        }
+    </div>
+</section>
+
+

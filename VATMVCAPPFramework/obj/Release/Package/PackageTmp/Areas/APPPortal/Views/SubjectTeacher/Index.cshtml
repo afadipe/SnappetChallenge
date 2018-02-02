@@ -1,0 +1,205 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Data.Entities.Subject>
+@{
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+    
+  
+    @*<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>*@
+    @*<link rel="stylesheet" href="~/Content/jquery-ui.css">
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>*@
+   
+   
+  
+
+    @Html.Partial("_ToastrViewHeader")
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Begin page heading -->
+                @*<h1 class="page-heading text-center">Subject Teacher</h1>*@
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Manage Subject Teacher</h3>
+                    </div>
+                    <div class="panel-heading">
+                       
+                    </div>
+                    
+                    <div class="box-body" style="min-height: 500px;">
+
+                        <div id="accordion">
+                            @foreach (var item in Model)
+                            {
+                                
+                                 <h3>@item.Name</h3>
+    <div id=@item.Id class="accordionPanel">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="Teachers">Add Teachers:</label>
+                @Html.DropDownList("UserId", null, string.Empty, new { style = "width:350px; height:27px", @class = "Userdropdown form-control" })
+            </div>
+            <input type="button" id="btnSubmit" value="ADD" class="addClick btn btn-success btn-xs" />
+        </form>
+        <br /><br />
+        <table class="display table table-striped table-hover table-bordered table-responsive" id="">
+            <thead>
+
+                <tr>
+                    <th>S/N</th>
+                    <th>Name Of Teacher</th>
+                    <th>Staff Id</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int rowNo = 0;}
+                @foreach (var teacher in ((List<VATMVCAPPFramework.Models.SubjectTeacherViewModel>)ViewBag.Teachers))
+                                            {
+                                                if (teacher.SubjectId == item.Id)
+                                                {
+                                            <tr>
+                                                <td>@(rowNo += 1)</td>
+                                                <td>@Html.DisplayFor(modelItem => teacher.Name)</td>
+                                                <td>@Html.DisplayFor(modelItem => teacher.StaffId)</td>
+                                                <td><a id='@Html.DisplayFor(modelItem => teacher.Id)' onclick='Delete(@teacher.Id)' class='btn btn-danger btn-xs deletebtn'><i class='glyphicon glyphicon-remove'></i></a></td>
+
+                                            </tr>
+                                                }
+
+                                            }
+            </tbody>
+        </table>
+        <input class="HiddenId" type="hidden" value="@item.Id" />
+        
+    </div>
+
+                            }
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+       </div>
+        <input type="hidden" id="SelectedUserID" value="" />
+    </section>
+
+@section JavaScript
+        {
+    
+        <script type="text/javascript">
+
+        $(function () {
+            $("#accordion").accordion({
+                collapsible: true,
+                active: false,
+                activate: function (event, ui) {
+                   
+                    $(".Userdropdown").each(function () {
+
+                        this.selectedIndex = 0;
+
+                    })
+                    $("#SelectedUserID").value = '';
+            }
+            });
+            
+        });
+
+        $('.accordionPanel').delegate(".Userdropdown", "change", function () {
+            $("#SelectedUserID").val(this.value);
+            
+        })
+
+
+        $('.accordionPanel').delegate(".addClick","click",function () {
+            var index = $("#accordion").accordion("option", "active");
+            var hidId = $("#accordion input[type=hidden][class=HiddenId]")[index];
+            var UserId = $("#SelectedUserID").val();
+
+            if (hidId.value == '' || hidId == null || UserId == '') {                
+                return false;
+            }
+            
+            var _parameters = { subjectId: hidId.value, UserId: UserId };
+            
+            $.ajax({
+                url: '@Url.Action("AddTeacherToSubject", "SubjectTeacher")',
+                type: "GET",
+                data: _parameters,
+                success: function (result) {
+                    window.location.reload();
+                    toastr.success(result + ' Saved Successfully.');
+                    
+                },
+                error: function (error) {
+                    console.log(error);
+                    toastr.success(error + 'Unable to Add Subject Teacher.');
+                }
+            });
+        });
+
+
+
+    var table;
+
+    table = $('table.display').DataTable();
+
+
+
+    //#region Delete
+
+    var Delete = function (Id) {
+
+        var Msg = "Are you sure you want to delete this Teacher for this selected Subject?";
+
+        bootbox.confirm({
+            title: "Delete Subject Teacher",
+            message: Msg,
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    deleteConfirmed(Id);
+                }
+            }
+        });
+
+    }
+
+    var deleteConfirmed = function (Id) {
+
+        $.ajax({
+            url: '@Url.Action("deleteConfirmed", "SubjectTeacher")',
+            type: "GET",
+            data: {Id: Id },
+            success: function (result) {
+                window.location.reload();
+                toastr.success(result + ' Deleted Successfully.');
+                
+                //table.draw();
+            },
+            error: function (error) {
+                console.log(error);
+                alert(error)
+            }
+        });
+    }
+
+          
+            
+
+    </script>
+
+    }
+

@@ -1,0 +1,122 @@
+﻿
+<h2>_APPConfigurationLayout</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - VATACADA Portal</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/assets/plugins/toastr/css/toastr.css" rel="stylesheet" />
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Favicon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/morrisjs/morris.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="~/assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- Custom Css -->
+    <link href="~/assets/css/main.css" rel="stylesheet">
+    <!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="~/assets/css/themes/all-themes.css" rel="stylesheet" />
+
+</head>
+
+<body class="theme-green">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper" style="display: none;">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-blush">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay" style="display: none;"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Top Bar -->
+    <nav class="navbar clearHeader">
+        <div class="container-fluid">
+            <div class="navbar-header"> <a href="javascript:void(0);" class="bars" style="display: none;"></a> <a class="navbar-brand" href="@Url.Action("Index","Home")">VATACADA Portal</a> </div>
+            
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <!--Side menu and right menu -->
+ 
+    <!--Side menu and right menu -->
+    <!-- main content -->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </section>
+
+
+        </div>
+        <div class="col-md-1"> </div>
+
+    </div>
+
+
+    <div class="color-bg"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <!-- Put all this in bundle after testing -->
+    <!--JQuery Core JS -->
+    <!-- Lib Scripts Plugin Js -->
+    <script src="~/assets/bundles/libscripts.bundle.js"></script>
+    <script src="~/assets/bundles/vendorscripts.bundle.js"></script>
+    <!-- Sparkline Plugin Js -->
+    <script src="~/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Chart Plugins Js -->
+    <script src="~/assets/plugins/chartjs/Chart.bundle.min.js"></script>
+    <!-- Custom Js -->
+    <script src="~/assets/bundles/mainscripts.bundle.js"></script>
+    <script src="~/assets/js/pages/charts/sparkline.min.js"></script>
+    <script src="~/assets/js/pages/charts/chartjs.min.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="~/assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="~/assets/plugins/toastr/js/toastr.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.full.js"></script>
+    <!-- Custom Js -->
+    <script src="~/assets/bundles/mainscripts.bundle.js"></script>
+    <script src="~/assets/js/pages/tables/jquery-datatable.js"></script>
+    <script src="~/assets/js/pages/toastr/Apptoastr.js"></script>
+
+    <script src="~/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+    <script src="~/assets/js/pages/forms/form-wizard.js"></script>
+
+    <script src="~/assets/js/pages/index.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>
+
+

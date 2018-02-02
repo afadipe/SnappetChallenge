@@ -1,0 +1,138 @@
+﻿@model VATMVCAPPFramework.Models.FeePayItem
+@{
+    ViewBag.Title = "PaymentConfirmation";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Begin page heading -->
+
+            <div class="box">
+                <div class="box-header">
+                    @{
+                        string message = TempData["PaymentMessage"] as string;
+                        string msgType = message != null ? message.Split(';')[1] : "";
+                        if (!String.IsNullOrEmpty(message) && msgType == "success")
+                        {
+                            <div class="alert alert-success" style="padding:10px; font-size:16px;">
+                                <p><b>@message.Split(';')[0]</b></p>
+                            </div>
+                        }
+                        else if (!String.IsNullOrEmpty(message) && msgType == "error")
+                        {
+                            <div class="alert alert-danger" style="padding:10px; font-size:16px;">
+                                <p><b>@message.Split(';')[0]</b></p>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <h3>Wallet Pay</h3>
+                <p>
+                    <strong>Student Name:</strong>
+                    <label class="label label-default">@Html.DisplayFor(m => m.Studentname)</label>
+                </p>
+                <panel>
+                    <h4 class="panel panel-heading">
+                        Items Being Paid
+                    </h4>
+                    <div class=" panel panel-body">
+                        <table id="tblStudent" class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Fee Item</th>
+                                    <th>Amount To Pay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PayItemDetails)
+                                {
+                                    if (item.IsSelected)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(m => item.FeeItem)</td>
+                                            <td><label>@string.Format("{0:N2}", item.AmountToPay)</label></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </panel>
+
+                <div class="panel panel-body" style="padding:20px 50px 0 50px">
+
+
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <strong>Total Amount To Pay:</strong>
+                            &nbsp;<label style=" font-size:large">@string.Format("{0:N2}", Model.TotalAmountToPay)</label>
+                        </div>
+                        <div class="form-group">
+                            @using (Html.BeginForm("Wallet", "BillsPayment"))
+                            {
+                                @Html.AntiForgeryToken();
+
+                              
+
+    @Html.HiddenFor(m => m.TotalAmountToPay)
+    @Html.HiddenFor(m => m.TotalAmountDue)
+    @Html.HiddenFor(m => m.TotalDiscount)
+    @Html.HiddenFor(m => m.TermId)
+    @Html.HiddenFor(m => m.SessionId)
+    @Html.HiddenFor(m => m.Studentname)
+    @Html.HiddenFor(m => m.StudentId)
+    @Html.HiddenFor(m => m.WalletAmount)
+    @Html.HiddenFor(m => m.ParentId)
+    @Html.HiddenFor(m => m.WalletId)
+    @Html.HiddenFor(m => m.PaymentOptionId)
+
+                                for (int i = 0; i < Model.PayItemDetails.Count; i++)
+                                {
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Discount)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Option)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeItemId)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].BillItemId)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountDue)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountToPay)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].AmountPaid)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeItem)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Studentname)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].FeeType)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].Amount)
+                                    @Html.HiddenFor(m => m.PayItemDetails[i].IsSelected)
+                                }
+
+
+                                <div>
+                                    <h5>Payment from wallet</h5>
+                                    <div>Wallet Balance: <label><b>@string.Format("{0:N2}", Model.WalletAmount == null ? 0 : Model.WalletAmount)</b></label></div>
+                                    <b> @*@Html.ValidationMessageFor(m => m.WalletAmount, "", new { @class = "text-danger text-xl" })*@</b>
+                                    <br /><br />
+                                    @Html.ActionLink("Back", "PaymentConfirmation", new { StudentId = Model.StudentId, SessionId = Model.SessionId, TermId = Model.TermId }, new { @class = "btn btn-warning fa fa-sign-out" })
+                                    
+                                    <input type="submit" class="btn btn-success  fa fa-money form-control-inline" value=" pay" />
+
+
+                                </div>
+
+                            }
+
+                        </div>
+                       
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

@@ -1,0 +1,178 @@
+﻿@model VATMVCAPPFramework.Models.FeePayItem
+@{
+    ViewBag.Title = "Make Payment";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Begin page heading -->
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Student Payment</h3>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <br />
+                    <table id="tblStudent" class="table table-striped table-hover table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>SN</th>
+                                <th>Fee Item</th>
+                                <th>Amount Due</th>
+                                <th>Amount To Pay</th>
+                                <th>Discount</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @for (int i = 0; i < Model.PayItemDetails.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @{
+                                           
+                                if (Model.PayItemDetails[i].Option == true)
+                                {
+                                    @Html.CheckBoxFor(m => m.PayItemDetails[i].IsSelected, new {  @disabled = "disabled" });
+                                           
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => m.PayItemDetails[i].IsSelected, new { @class = "chkbx"});
+                                   
+                                }                                    
+                                            
+}
+
+                                    </td>
+                                    <td>@(i + 1)</td>
+                                    <td>
+                                        @Html.DisplayFor(m => m.PayItemDetails[i].FeeItem)
+                                       
+                                    </td>
+                                    <td>
+                                        @string.Format("{0:N2}", Model.PayItemDetails[i].AmountDue)
+                                       
+                                    </td>
+                                    <td>
+                                        @{
+                                if ((Model.PayItemDetails[i].FeeType == 1) && (Model.PayItemDetails[i].AmountPaid == 0))
+                                {
+                                    @Html.TextBoxFor(m => m.PayItemDetails[i].AmountToPay, new { @class = "from-control" });
+                                            
+                                }
+                                else
+                                {
+                                    @Html.TextBoxFor(m => m.PayItemDetails[i].AmountToPay, new { @disabled = "disabled", @class = "from-control" });
+                                   
+                                }
+
+}                                  
+                                    </td>
+
+                                    <td>
+                                        @string.Format("{0:N2}", Model.PayItemDetails[i].Discount)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].Discount)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].Option)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].FeeItemId)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].BillItemId)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].AmountDue)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].AmountToPay)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].AmountPaid)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].FeeItem)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].FeeType)
+                                        @Html.HiddenFor(m => m.PayItemDetails[i].FisrtInstallment)
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <div class="form-horizontal">
+                        <div class="col-md-12 text-center text-lg">
+                            <div id="tAmountToPay"> <b>Total Amount To Pay :&nbsp;</b><span style=" font-size:xx-large" class='badge text-bold'>@Html.DisplayFor(m => m.TotalAmountToPay)</span></div>
+                            @Html.HiddenFor(m => Model.TotalAmountToPay)
+                            @Html.HiddenFor(m => Model.TotalAmountDue)
+                            @Html.HiddenFor(m => Model.TotalDiscount)
+                            @Html.HiddenFor(m => Model.Studentname)
+                            @Html.HiddenFor(m => Model.TermId)
+                            @Html.HiddenFor(m => Model.SessionId)
+                        </div>
+                        <div class="col-md-3 pull-right">                           
+                            @Html.ActionLink("Cancel", "PaymentRecord", new { StudentId = Model.StudentId }, new { @class = "btn btn-warning" })
+                            <input type="submit" class="btn btn-success" value="Continue" />
+                           
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        @section JavaScript
+        {
+       
+            <script type="text/javascript">
+               
+
+
+
+    var table;
+                @*alert('@Url.Action("getStudentResult", "ResultProcessing")' + "?ArmId=3" + "&SessionId=2" + "&TermId=2"+ "&SubjectId=2");*@
+                table = $('#tblStudent').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]]
+                });
+
+
+
+                $(".chkbx").click(function () {
+
+                    var tdVal = $(this).parent().siblings('td').eq(3).find("input").val();
+
+                    if (this.checked == true)
+                    {
+                        var totalAmountToPay = $("#TotalAmountToPay").val();
+                        var newTotal = parseFloat(totalAmountToPay) + parseFloat(tdVal);
+                        $("#tAmountToPay").html("<b>Total Amount To Pay :&nbsp;</b><span style='font-size:xx-large' class='badge text-bold'>" + newTotal + "</span>");
+                        $("#TotalAmountToPay").val(newTotal);
+                       
+
+                    } else {
+                        var totalAmountToPay = $("#TotalAmountToPay").val();
+                        var newTotal = parseFloat(totalAmountToPay) - parseFloat(tdVal);
+                        $("#tAmountToPay").html("<b>Total Amount To Pay :&nbsp;</b><span style='font-size:xx-large' class='badge text-bold'>" + newTotal + "</span>");
+                        $("#TotalAmountToPay").val(newTotal);
+                       
+                        
+                    }
+
+                   
+
+
+                });
+                $("form").submit(function () {
+                    $("*:disabled").removeAttr("disabled");
+                });
+
+                
+
+            </script>
+        }
+    </div>
+</section>
+

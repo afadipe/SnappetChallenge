@@ -1,0 +1,55 @@
+﻿@using VATMVCAPPFramework.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_APPAccountPartial.cshtml";
+}
+
+
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+               
+                <div class="sign-container">
+                    <div class="text-center">
+                        <h2 class="logo"><img src="imgs/logo-dark.png" width="130px" alt="" /></h2>
+                        <h4>Login</h4>
+                    </div>
+
+                    <div class="sign-in-form">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username", required = true, @autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", required = true })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="checkbox icheck">
+                                @Html.CheckBoxFor(m => m.RememberMe) Remember me
+                                @*<input type="checkbox">*@
+                                <i></i>
+                            </div>
+                           
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block">Login</button>
+                        <div class="text-center help-block">
+                            <a href="@Url.Action("ForgotPassword","Account")"><small>Forgot password?</small></a>
+                            
+                        </div>
+                       
+                    </div>
+                    <div class="text-center copyright-txt">
+                        <small>MegaDin - Copyright © 2017</small>
+                    </div>
+                </div>
+                
+           
+            }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

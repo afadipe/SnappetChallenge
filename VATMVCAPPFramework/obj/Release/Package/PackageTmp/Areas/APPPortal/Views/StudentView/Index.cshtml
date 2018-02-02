@@ -1,0 +1,122 @@
+﻿@model VATMVCAPPFramework.Models.StudentListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_APPPortal.cshtml";
+}
+
+<div id="MyModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="MyModalContent"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+@Html.Partial("_ToastrViewHeader")
+<div class="ui-content-body">
+    <div class="ui-container">
+        <div class="row">
+            <section class="panel">
+                <header class="panel-heading panel-border">
+
+                    <h3 class="box-title">Students View</h3>
+                </header>
+            @using (Ajax.BeginForm("StudentList", "StudentView", new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { @id = "searchForm" }))
+            {
+                
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ArmId, "Arm:", htmlAttributes: new { @class = "control-label col-sm-3" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(m => m.ArmId, ViewBag.ArmList as SelectList, "--Select--", new { @class = "form-control required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-sm-7">
+                                <button type="submit" class="btn btn-warning pull-right">
+                                    <i class="fa fa-search" aria-hidden="true">&nbsp; Search Students</i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+               
+            }
+
+                    <hr />
+                <div class="panel-body table-responsive">
+                    <div id="studentList">
+                        @Html.Partial("_StudentList", new List<VATMVCAPPFramework.Models.StudentListViewModel>())
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+        {
+    <script type="text/javascript">
+
+        var table;
+
+        table = $('#tblStudents').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "order": [[0, "asc"]],
+            dom: 'Bfltip',
+            buttons: [
+                'copy',
+                  {
+                      extend: 'csvHtml5', text: 'Excel'
+                  },
+                  //'csv', 'excel',
+
+                  'pdf', 'print'
+            ],
+            
+        });
+
+        function OnSuccess(data, status, xhr) {
+            $("#studentList").html(data.View);
+           
+                $('#tblStudents').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "order": [[0, "asc"]],
+                    dom: 'Bfltip',
+                    buttons: [
+                        'copy',
+                          {
+                              extend: 'csvHtml5', text: 'Excel'
+                          },
+                          //'csv', 'excel',
+
+                          'pdf', 'print'
+                    ],
+
+                });
+           
+
+
+        }
+        function OnFailure(xhr, status, error) {
+            toastr.error(xhr.responseJSON);
+        }
+
+    </script>
+}
+

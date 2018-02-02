@@ -1,0 +1,81 @@
+﻿
+@model VATMVCAPPFramework.ViewModel.StaffAcademicInfoViewModel
+@using VATMVCAPPFramework.Data.Core
+
+@{
+    ViewBag.Title = "Create Staff Academic Info";
+    Layout = null;
+}
+
+<div class="modal-content">
+    <!-- Begin page heading -->
+
+    @using (Html.BeginForm((string)ViewBag.PostAction, "Staff", new { area = "APPPortal" }, FormMethod.Post, new
+    {
+        @class = "form-horizontal",
+        role = "form"
+    }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.Id)
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="page-heading" id="myModalLabel">@ViewBag.ModalTitle Academic Info</h1>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Institution, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.Institution, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.Institution, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YearOfEntry, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-8">
+                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                        @Html.EditorFor(model => model.YearOfEntry, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.YearOfEntry, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YearOfGraduation, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-8">
+                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                        @Html.EditorFor(model => model.YearOfGraduation, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.YearOfGraduation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CertificateObtained, htmlAttributes: new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.EditorFor(model => model.CertificateObtained, new { htmlAttributes = new { @class = "form-control", required = true } })
+                    @Html.ValidationMessageFor(model => model.CertificateObtained, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">@ViewBag.ButtonAction</button>
+        </div>
+    }
+
+</div>

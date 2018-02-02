@@ -1,0 +1,68 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.ViewModel.BatchUploadError>
+
+@{
+    ViewBag.Title = "Import File";
+    Layout = null;
+}
+
+@if (@ViewBag.SucessCount != null)
+{
+    <h4 style="text-align:center"><span class="label label-success">@ViewBag.SucessCount</span></h4>
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="panel panel-default" id="UnLoadedUsers">
+        <div class="panel panel-heading">Un-Uploaded Record </div>
+        <div class="panel panel-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr><th width="5%">Name</th><th>Error Message</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var batchErrorUpload in Model)
+                    {
+                        <tr>
+                            <td>@batchErrorUpload.Name</td>
+                            <td>@batchErrorUpload.ErrorMessage</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+}
+
+
+@using (Html.BeginForm("ImportFile", "Programme", FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form",
+    enctype = "multipart/form-data"
+
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Import File</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <input type="file" name="fileUpload" id="fileUpload">
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Import</button>
+    </div>
+
+
+}

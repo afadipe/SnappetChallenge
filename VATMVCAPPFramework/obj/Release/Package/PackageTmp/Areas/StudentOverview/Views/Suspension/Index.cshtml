@@ -1,0 +1,94 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.Models.SuspendViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incident report</title>
+</head>
+<body>
+    <div>
+
+        @Html.Partial("_ToastrViewHeader")
+
+        <section class="content">
+            <div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Begin page heading -->
+                        @*<h1 class="page-heading text-center">Class Subject Selection</h1>*@
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Suspension History</h3>
+                            </div>
+                           
+                            <table id="tblSuspensions" class="table table-striped table-hover table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Suspension Detail</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Date Logged</th>
+                                        <th>Logged By</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{int rowNo = 0;}
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@(rowNo += 1)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Detail)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.SuspendedBy)</td>
+                                            
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var table;
+
+    table = $('#tblSuspensions').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "order": [[0, "asc"]],
+        dom: 'Bfltip',
+        buttons: [
+            'copy',
+              {
+                  extend: 'csvHtml5', text: 'Excel'
+              },
+              //'csv', 'excel',
+
+              'pdf', 'print'
+        ],
+
+    });
+
+</script>

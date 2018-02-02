@@ -1,0 +1,68 @@
+﻿@model IEnumerable<VATMVCAPPFramework.Models.AttendantReportViewModel>
+
+
+ 
+
+<div>
+    <table id="tblList" class="table table-striped table-hover table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>SN</th>
+                <th>Session</th>
+                <th>Term</th>
+                <th>Expected No Of Days</th>
+                <th>Attendance</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int rowNo = 0;}
+            @foreach (var item in Model)
+            {
+                double a = Convert.ToDouble(item.Attendance)/Convert.ToDouble(item.ExpectedNoOfDays);
+                double b = Math.Round((a * 100),2);
+                <tr>
+                    <td>@(rowNo += 1)</td>
+                    <td>@Html.DisplayFor(m => item.Session)</td>
+                    <td>@Html.DisplayFor(m => item.Term)</td>
+                    <td>@Html.DisplayFor(m => item.ExpectedNoOfDays)</td>
+                    <td>@Html.DisplayFor(m => item.Attendance)</td>
+                    <td>@(b)</td>
+                  
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+               
+</div>
+
+   
+
+
+<script type="text/javascript">
+   
+   
+    $('#tblList').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "order": [[0, "asc"]],
+        dom: 'Bfltip',
+        buttons: [
+            'copy',
+              {
+                  extend: 'csvHtml5', text: 'Excel'
+              },
+              //'csv', 'excel',
+
+              'pdf', 'print'
+        ],
+
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<VATMVCAPPFramework.Models.StudentBillViewModel>
+<table id="tblStudents" class="table table-striped table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Bill Start Date</th>
+            <th>Bill End Date</th>
+            <th>Arm</th>
+            <th>No Of Students</th>
+            <th>Total Amount Bill</th>
+            <th>Amount Realised</th>
+            <th>Session</th>
+            <th>Term</th>
+            @*<th>Actions</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SN)</td>
+                <td>@string.Format("{0:dd-MMM-yyyy}", item.BillStartDate)</td>
+                <td>@string.Format("{0:dd-MMM-yyyy}", item.BillEndDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Arm)</td>
+                <td>@Html.DisplayFor(modelItem => item.NoOfStudents)</td>
+                <td>@string.Format("{0:N2}",item.TotalBilled)</td>
+                <td>@string.Format("{0:N2}",item.TotalReceived)</td>
+                <td>@Html.DisplayFor(modelItem => item.Session)</td>
+                <td>@Html.DisplayFor(modelItem => item.Term)</td>
+                @*<td>
+                    <a onclick='Edit("@item.Id")' id="btnEdit" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil">Edit</i></a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
