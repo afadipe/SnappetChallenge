@@ -58,11 +58,7 @@ namespace VATMVCAPPFramework.Utilities
                     UseDefaultCredentials = _setting.UseDefaultCredentials,
                     Credentials = new NetworkCredential(_setting.Credentials.Username, _setting.Credentials.Password)
                 };
-
-                //SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
-                ////System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("ayfadipe", "aisekegbe$1");
-                //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("ayoola01", "doctorsng01");
-                //smtpClient.Credentials = credentials;
+                
 
                 smtpClient.Send(message);
                 return true;
