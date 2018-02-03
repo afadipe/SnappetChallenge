@@ -54,3 +54,33 @@ C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMV
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.csprojResolveAssemblyReference.cache
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.dll
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.pdb
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll.config
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Repository.pdb
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Dapper.Contrib.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\log4net.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Autofac.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.pdb
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\VATMVCAPPFramework.Data.dll.config
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\EntityFramework.SqlServer.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\log4net.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Newtonsoft.Json.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Autofac.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.Owin.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.csprojResolveAssemblyReference.cache
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.csproj.CoreCompileInputs.cache
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Repository\obj\Debug\VATMVCAPPFramework.Repository.pdb

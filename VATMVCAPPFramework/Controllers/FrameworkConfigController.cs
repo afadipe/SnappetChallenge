@@ -42,6 +42,8 @@ namespace VATMVCAPPFramework.Controllers
         {
             try
             {
+                //clear the tbl of any precious data.
+                _applicationQuery.ExecuteStoreprocedure("spDeleteStudentPerformances");
                  ProcessExcelFile();
 
                 _log.InfoFormat("VATMVC Framework Config checked @ : {0}", DateTime.Now);
@@ -106,5 +108,9 @@ namespace VATMVCAPPFramework.Controllers
 
             }
         }
+
+
+
+
     }
 }

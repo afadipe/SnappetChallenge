@@ -146,3 +146,45 @@ C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMV
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_student_perf_tbl.resources
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_stuentper_tbl.resources
 C:\Users\afadipe\Documents\Visual Studio 2015\Projects\SnappetChallengeApp\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spSnappetQuery.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll.config
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\VATMVCAPPFramework.Data.pdb
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Autofac.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\log4net.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Owin.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Autofac.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\EntityFramework.SqlServer.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\log4net.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.Google.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\bin\Debug\Newtonsoft.Json.xml
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csprojResolveAssemblyReference.cache
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.addidentitytable.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_activitylogtable.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.rolepermissiontableupdate.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.modifiedDateupdated.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_email_tbl.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.update_email_tbl.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_student_perf_tbl.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.add_stuentper_tbl.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.Migrations.spSnappetQuery.resources
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csproj.GenerateResource.Cache
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.csproj.CoreCompileInputs.cache
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.dll
+G:\VsProject\SnappetChallenge2\VATMVCAPPFramework.Data\obj\Debug\VATMVCAPPFramework.Data.pdb

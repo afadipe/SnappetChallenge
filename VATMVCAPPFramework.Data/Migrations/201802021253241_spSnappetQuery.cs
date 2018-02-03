@@ -7,6 +7,11 @@ namespace VATMVCAPPFramework.Data.Migrations
     {
         public override void Up()
         {
+
+            CreateStoredProcedure("dbo.spDeleteStudentPerformances",
+                  body:
+                  @"Delete FROM  StudentPerformances");
+
             CreateStoredProcedure("dbo.spGetAssignmentByUserIdBI",
                    body:
                    @"SELECT c.UserId Name , count(c.Id) as count
