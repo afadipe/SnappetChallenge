@@ -12,23 +12,11 @@ using log4net;
 using System.IO;
 using Newtonsoft.Json;
 using VATMVCAPPFramework.Data.AppEntities;
+using VATMVCAPPFramework.Models;
 
 namespace VATMVCAPPFramework.Controllers
 {
-    public class RootObject
-    {
-        public int SubmittedAnswerId { get; set; }
-        public DateTime SubmitDateTime { get; set; }
-        public int Correct { get; set; }
-        public int Progress { get; set; }
-        public int UserId { get; set; }
-        public int ExerciseId { get; set; }
-        public string Difficulty { get; set; }
-        public string Subject { get; set; }
-        public string Domain { get; set; }
-        public string LearningObjective { get; set; }
-    }
-
+   
 
     public class FrameworkConfigController : Controller
     {
@@ -54,7 +42,7 @@ namespace VATMVCAPPFramework.Controllers
         {
             try
             {
-                // ProcessExcelFile();
+                 ProcessExcelFile();
 
                 _log.InfoFormat("VATMVC Framework Config checked @ : {0}", DateTime.Now);
                 _activityRepo.CreateActivityLog("In Framework setting checking if application portal has being configured", this.GetContollerName(), this.GetActionName(), 0, null);
